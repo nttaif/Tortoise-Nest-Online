@@ -1,0 +1,8 @@
+@Tortoise Nest Online_HostAddress = https://localhost:7072
+@Tortoise_Nest_Online_HostAddress = http://localhost:5224
+
+GET {{Tortoise_Nest_Online_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+

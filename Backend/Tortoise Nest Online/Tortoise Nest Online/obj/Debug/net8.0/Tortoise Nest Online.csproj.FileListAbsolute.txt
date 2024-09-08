@@ -1,0 +1,71 @@
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\appsettings.Development.json
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\appsettings.json
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Tortoise Nest Online.exe
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Tortoise Nest Online.deps.json
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Tortoise Nest Online.runtimeconfig.json
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Tortoise Nest Online.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Tortoise Nest Online.pdb
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.csproj.AssemblyReference.cache
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.GeneratedMSBuildEditorConfig.editorconfig
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.AssemblyInfoInputs.cache
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.AssemblyInfo.cs
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.csproj.CoreCompileInputs.cache
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.MvcApplicationPartsAssemblyInfo.cs
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.MvcApplicationPartsAssemblyInfo.cache
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\staticwebassets.build.json
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\staticwebassets.development.json
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\staticwebassets\msbuild.Tortoise Nest Online.Microsoft.AspNetCore.StaticWebAssets.props
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\staticwebassets\msbuild.build.Tortoise Nest Online.props
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Tortoise Nest Online.props
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Tortoise Nest Online.props
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\staticwebassets.pack.json
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\scopedcss\bundle\Tortoise Nest Online.styles.css
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise.C35EE03F.Up2Date
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\refint\Tortoise Nest Online.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.pdb
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\Tortoise Nest Online.genruntimeconfig.cache
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\obj\Debug\net8.0\ref\Tortoise Nest Online.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Azure.Core.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Azure.Identity.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\System.ClientModel.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\System.Memory.Data.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\HUFLIT-2025\Tortoise Nest Online\Backend\Tortoise Nest Online\Tortoise Nest Online\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
