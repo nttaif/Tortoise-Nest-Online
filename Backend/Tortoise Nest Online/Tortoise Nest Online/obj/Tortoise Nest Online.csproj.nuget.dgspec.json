@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\HUFLIT-2025\\Tortoise Nest Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj": {}
+    "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj": {}
   },
   "projects": {
-    "D:\\HUFLIT-2025\\Tortoise Nest Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj": {
+    "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\HUFLIT-2025\\Tortoise Nest Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj",
+        "projectUniqueName": "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj",
         "projectName": "Tortoise Nest Online",
-        "projectPath": "D:\\HUFLIT-2025\\Tortoise Nest Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj",
+        "projectPath": "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj",
         "packagesPath": "C:\\Users\\Ngo Thanh Tai\\.nuget\\packages\\",
-        "outputPath": "D:\\HUFLIT-2025\\Tortoise Nest Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\obj\\",
+        "outputPath": "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ngo Thanh Tai\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -51,6 +51,12 @@
               "version": "[1.12.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
             },

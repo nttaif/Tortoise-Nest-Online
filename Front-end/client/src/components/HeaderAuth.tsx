@@ -5,3 +5,4 @@ export default function HeaderAuth() {
     <div className="h-16 w-full border-b-2 content-center text-center">Header</div>
   )
 }
+
