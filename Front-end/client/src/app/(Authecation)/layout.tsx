@@ -9,11 +9,11 @@ export default function AuthecationLayout({
     return (
       <div>
         <HeaderAuth></HeaderAuth>
-        <div className="h-[600px] w-full content-center flex">
-          <div className="main-content-left w-1/2 border-r-4 p-20">
-            <Image src="/images/bgAuth.jpg" width={500} height={500} alt="Your Company"/>
+        <div className="h-[800px] w-full content-center flex bg-white">
+          <div className="main-content-left w-1/2 content-center max-md:hidden max-md:w-0 ">
+            <Image className="m-auto" src="/images/bgAuth.jpg" width={600} height={600} alt="Your Company"/>
           </div>
-          <div className="main-content-right w-1/2 border-r-4 ">
+          <div className="main-content-right w-1/2 max-md:w-full">
             {children}
           </div>
         </div>
