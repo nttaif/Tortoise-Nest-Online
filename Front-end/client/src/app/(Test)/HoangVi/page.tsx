@@ -1,7 +1,10 @@
+import ItemCourses from '@/components/ItemCourses'
 import React from 'react'
 
 export default function page() {
   return (
-    <div>HoangVi</div>
+    <div>
+      <ItemCourses></ItemCourses>
+    </div>
   )
 }
