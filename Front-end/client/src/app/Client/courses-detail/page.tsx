@@ -1,8 +1,9 @@
+import React from 'react'
 import Image from 'next/image';
-import React from 'react';
+
 import { FaFacebook, FaTwitter, FaWhatsapp, FaInstagram, FaYoutube, FaArrowRight } from 'react-icons/fa';
 
-export default function CoursePage() {
+export default function page() {
   return (
     <div className="container mx-auto p-6">
       {/* Header khóa học */}
@@ -151,5 +152,5 @@ export default function CoursePage() {
         </ul>
       </div>
     </div>
-  );
+  )
 }
