@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj": {}
+    "C:\\Quynh\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj": {}
   },
   "projects": {
-    "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj": {
+    "C:\\Quynh\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj",
+        "projectUniqueName": "C:\\Quynh\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj",
         "projectName": "Tortoise Nest Online",
-        "projectPath": "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj",
-        "packagesPath": "C:\\Users\\Ngo Thanh Tai\\.nuget\\packages\\",
-        "outputPath": "D:\\HUFLIT-2025\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\obj\\",
+        "projectPath": "C:\\Quynh\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\Tortoise Nest Online.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Quynh\\Tortoise-Nest-Online\\Backend\\Tortoise Nest Online\\Tortoise Nest Online\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ngo Thanh Tai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -84,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
