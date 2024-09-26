@@ -21,7 +21,7 @@ export default function CoursePage() {
               Expert
             </span>
             <span className="bg-yellow-400 text-black text-sm font-bold py-1 px-2 rounded">
-              Laravel Pro
+              Laravel Pr
             </span>
           </div>
         </div>
