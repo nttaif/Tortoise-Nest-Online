@@ -14,14 +14,12 @@ export class User {
   @Prop()
   password:string;
   @Prop()
-  firstName:string;
-  @Prop()
-  lastName:string;
-  @Prop()
   phoneNumber:number;
   @Prop()
   image:string;
-  @Prop()
+  @Prop({default:'Users'})
+  role:string;
+  @Prop({default:'Local'})
   accountType:string;
   @Prop()
   dateOfBirth:string;
@@ -29,7 +27,7 @@ export class User {
   registerDate:string;
   @Prop()
   biography:string;
-  @Prop()
+  @Prop({default:false})
   isActivity:boolean;
   @Prop()
   code_id:string;
