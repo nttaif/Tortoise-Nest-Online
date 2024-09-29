@@ -35,3 +35,12 @@ yarn-error.log*
 
 # OS-specific files
 Thumbs.db
+# Environment files
+.env*
+.env*.local
+# Temp and runtime data
+.tmp
+.temp
+pids
+*.pid
+*.pid.lock
