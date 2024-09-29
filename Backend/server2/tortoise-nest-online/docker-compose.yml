@@ -1,0 +1,16 @@
+  services:
+    mongodb:
+      image: mongo:5.0.15
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: 1234567
+      ports:
+        - "27017:27017"
+      volumes:
+        - mongo_data_container:/data/db
+  volumes:
+    mongo_data_container:
+      
+      # docker-compose up -d
+      
+      
