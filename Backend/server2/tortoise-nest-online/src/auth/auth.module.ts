@@ -5,9 +5,13 @@ import { UsersService } from 'src/module/users/users.service';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { UsersModule } from 'src/module/users/users.module';
+import { PassportModule } from '@nestjs/passport';
+import { LocalStrategy } from './passport/local.strategy';
+import { JwtStrategy } from './passport/jwt.strategy';
 
 @Module({
   imports:[
+    PassportModule,
     UsersModule,
     JwtModule.registerAsync({
       useFactory: async (configService:ConfigService)=>({
@@ -23,6 +27,6 @@ import { UsersModule } from 'src/module/users/users.module';
   controllers: [
     AuthController,
   ],
-  providers: [AuthService],
+  providers: [AuthService,LocalStrategy,JwtStrategy],
 })
 export class AuthModule {}
