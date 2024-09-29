@@ -2,7 +2,7 @@
 node_modules/
 npm-debug.log
 yarn-error.log
-
+dist/
 
 # Next.js (Frontend)
 Front-end/client/.next/
