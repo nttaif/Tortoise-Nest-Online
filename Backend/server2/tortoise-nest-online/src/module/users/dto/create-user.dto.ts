@@ -11,6 +11,5 @@ export class CreateUserDto {
     phoneNumber:number;
     image:string;
     dateOfBirth:string;
-    registerDate:string;
     biography:string;
 }
