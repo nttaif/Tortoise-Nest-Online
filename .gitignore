@@ -14,12 +14,12 @@ Front-end/client/.env.production.local
 Front-end/client/.env.test.local
 
 # NestJS (Backend)
-Backend/server/dist/
-Backend/server/node_modules/
-Backend/server/*.env
-Backend/server/.env.local
-Backend/server/.env.production
-Backend/server/.env.development
+Backend/server2/dist/
+Backend/server2/node_modules/
+Backend/server2/*.env
+Backend/server2/.env.local
+Backend/server2/.env.production
+Backend/server2/.env.development
 
 # Logs
 logs/
