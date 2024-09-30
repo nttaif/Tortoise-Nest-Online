@@ -1,15 +1,13 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { access } from 'fs';
 import { comparePass } from 'src/helper/util';
 import { UsersService } from 'src/module/users/users.service'
 import { CreateAuthDto } from './dto/create-auth.dto';
-
 @Injectable()
 export class AuthService {
   constructor(
     private usersService: UsersService,
-    private jwtService:JwtService
+    private jwtService:JwtService,
   ) {}
 
   async validateUser(username: string, pass: string): Promise<any> {
@@ -37,6 +35,4 @@ export class AuthService {
     //hash password
     return await this.usersService.handleRegister(registerDto);
   }
-
-  
 } 

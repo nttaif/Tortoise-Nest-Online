@@ -8,13 +8,14 @@ import { hashPassword } from 'src/helper/util';
 import aqp from 'api-query-params';
 import { CreateAuthDto } from 'src/auth/dto/create-auth.dto';
 import {v4 as uuidv4} from 'uuid';
+import { MailerService } from '@nestjs-modules/mailer';
 import dayjs from 'dayjs';
 @Injectable()
 export class UsersService {
   constructor(
     @InjectModel(User.name) 
-    private userModel:Model<User>
-  
+    private userModel:Model<User>,
+    private readonly mailerService: MailerService
   ){}
 
   isEmailExist= async(email:string)=>{
@@ -97,16 +98,31 @@ export class UsersService {
       throw new BadRequestException(`Email exits in database: ${email}.please enter new email`)
     }
     //hash password
-    const hashPass =await hashPassword(password)
+    const hashPass =await hashPassword(password);
+    const code_id= uuidv4();
     const user=await this.userModel.create({
       name,email,password:hashPass,
       isActivity:false,
-      code_id: uuidv4(),
-      code_expried:dayjs().add(1,'days')
+      code_id: code_id,
+      code_expried:dayjs().add(60,'seconds')
     })
+    //send email
+    this.mailerService
+    .sendMail({
+      to:  user.email, // list of receivers
+      subject: 'Activity your account at Tortoise Nest Online', // Subject line
+      text: 'welcome', // plaintext body
+      template: "register",
+      context:{
+        name:user.name??user.email,
+        activationCode:code_id
+      }
+    })
+    .then(() => {})
+    .catch(() => {});
     return {
       _id:user._id
     }
-    //send email
   }
+
 }
