@@ -12,6 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { RiArrowDropDownLine, RiSearch2Line } from "@remixicon/react";
+import { ChevronsUpDown, Plus, X } from "lucide-react"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 
 export default function HeaderAuth() {
   const [openDropdown, setOpenDropdown] = React.useState<number | null>(null);
@@ -65,8 +71,8 @@ export default function HeaderAuth() {
             <div className='text-[#161439]'>
               <p>Logo Name</p>
             </div>
-            <div>
-              <ul className='flex justify-between text-[#161439]'>
+            <div className='max-lg:hidden' >
+              <ul className='flex justify-between text-[#161439] '>
                 {["Home", "Courses", "Pages", "Dashboard"].map((menuItem,index) => (
                   <li key={menuItem} className='flex items-center '> 
                     <DropdownMenu open={openDropdown === index} 
@@ -96,10 +102,11 @@ export default function HeaderAuth() {
                 ))}
               </ul>
             </div>
+            <MobileNavBar />
             <div id='search-bar' className='flex outline outline-[0.1px] rounded-3xl outline-black ' >
               <InputNoOutLine className='h-12 w-[400px] text-black  ' placeholder='Searching....' />
               <Button className=' group rounded-full w-12 h-12 bg-[#ffc224] mr-[1px] my-px hover:bg-[#161439] duration-300  '>
-              <RiSearch2Line className='group-hover:fill-white'
+              <RiSearch2Line className=''
               size={25}
               color='black'
               />
@@ -109,9 +116,49 @@ export default function HeaderAuth() {
               <Button className='w-28 h-12 rounded-3xl font-bold  bg-[#ffc224] text-[#161439] hover:bg-[#161439] hover:text-[#e6eaef] duration-300 '>Log in</Button>
             </div>
           </nav>
+  
         </div>
       </div>
     </div>
   );
-}
 
+}
+const MobileNavBar = () => {
+
+  const [isOpen, setIsOpen] = React.useState(false)
+  return(
+  <div className='fixed left-0 top-0 flex h-full min-h-screen w-full justify-end bg-black/60 sm:hidden'>
+    <div className='h-full w-[50%] bg-white px-4 py-4' >
+      <Collapsible
+      open={isOpen}
+      onOpenChange={setIsOpen}
+      className="w-[250px] space-y-2">
+      <div className="flex items-center justify-between space-x-4 px-4">
+        <h4 className="text-sm font-semibold">
+          @peduarte starred 3 repositories
+        </h4>
+        <CollapsibleTrigger asChild>
+          <Button variant="ghost" size="sm" className="w-9 p-0">
+            <ChevronsUpDown className="h-4 w-4" />
+            <span className="sr-only">Toggle</span>
+          </Button>
+        </CollapsibleTrigger>
+      </div>
+     
+      <CollapsibleContent className="space-y-2">
+        <div className="rounded-md border px-4 py-3 font-mono text-sm">
+          @radix-ui/colors
+        </div>
+        <div className="rounded-md border px-4 py-3 font-mono text-sm">
+          @stitches/react
+        </div>
+        <div className="rounded-md border px-4 py-3 font-mono text-sm">
+        @radix-ui/primitives
+      </div>
+      </CollapsibleContent>
+    </Collapsible>
+    </div>
+  </div>
+  );
+
+};
