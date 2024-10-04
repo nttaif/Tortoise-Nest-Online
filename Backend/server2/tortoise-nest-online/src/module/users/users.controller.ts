@@ -12,7 +12,6 @@ export class UsersController {
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
-  @Public()
   @Get()
   async findAll(@Query() query, @Query('current') current, @Query('pageSize') pageSize) {
     return this.usersService.findAll(query,+current,+pageSize);
@@ -20,7 +19,7 @@ export class UsersController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.usersService.findUserByID(id);
   }
 
   @Patch()

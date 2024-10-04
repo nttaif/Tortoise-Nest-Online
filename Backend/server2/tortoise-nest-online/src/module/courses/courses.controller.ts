@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { CoursesService } from './courses.service';
 import { CreateCourseDto } from './dto/create-course.dto';
 import { UpdateCourseDto } from './dto/update-course.dto';
+import { Public } from 'src/decorator/customize';
 
 @Controller('courses')
 export class CoursesController {
@@ -13,13 +14,13 @@ export class CoursesController {
   }
 
   @Get()
-  findAll() {
-    return this.coursesService.findAll();
+  findAll(@Query() query, @Query('current') current, @Query('pageSize') pageSize) {
+    return this.coursesService.findAll(query,current,pageSize);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.coursesService.findOne(+id);
+    return this.coursesService.findCoursesById(id);
   }
 
   @Patch(':id')
@@ -29,6 +30,6 @@ export class CoursesController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.coursesService.remove(+id);
+    return this.coursesService.remove(id);
   }
 }
