@@ -1,11 +1,12 @@
+'use client'
 import React from 'react'
-import { Input, InputNoOutLine } from "@/components/ui/input"
+import { Input } from "@/components/ui/input"
 import { Button } from './ui/button'
 import { RiFacebookBoxFill, RiLinkedinBoxFill, RiTwitterFill } from '@remixicon/react'
 
 export default function footerAuth() {
   return (
-    <div id='main-footer'className='w-full h-full py-20 content-center bg-[#06042e] '>
+    <div id='main-footer'className='w-full h-full py-20 content-center bg-[#06042e] text-white '>
         <div className=' flex flex-wrap flex-row justify-between mr-[100px] ml-[100px] '>
           <div>
             <p>Logo</p>
@@ -69,7 +70,7 @@ export default function footerAuth() {
         <div>
         <hr className="w-full h-[1px] mx-auto my-2 bg-gray-100 border-0 rounded  dark:bg-gray-700"/>
         <div className='font-light content-center flex justify-center ' >
-        <p> @2024 </p>
+        <p> @{new Date().getFullYear()} Create by Tortoise Team </p>
         </div>
         </div>
     </div>

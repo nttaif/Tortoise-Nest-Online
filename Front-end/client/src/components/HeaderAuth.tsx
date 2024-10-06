@@ -1,26 +1,21 @@
 "use client";
-import React from 'react'
-import { Input, InputNoOutLine } from "@/components/ui/input"
+import React, { useState } from 'react'
+import {InputNoOutLine } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import clsx from 'clsx';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { RiArrowDropDownLine, RiSearch2Line } from "@remixicon/react";
-import { ChevronsUpDown, Plus, X } from "lucide-react"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+import { RiArrowDropDownLine, RiCloseLine, RiMenuLine, RiSearch2Line } from "@remixicon/react";
 
 export default function HeaderAuth() {
-  const [openDropdown, setOpenDropdown] = React.useState<number | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false); // State cho mobile menu
   const dropdownContents = {
     Home: (
       <>
@@ -65,100 +60,112 @@ export default function HeaderAuth() {
   };
   return (
     <div className="h-16 w-full border-b-2 content-center text-center bg-white">
-      <div id='sticky-header' className='w-full' >
-        <div className='container min-w-full flex  '>
-          <nav id='header-form' className='w-full flex justify-between pl-10 pr-10 items-center '>
+      <div id='sticky-header' className='w-full'>
+        <div className='container min-w-full flex justify-between items-center'>
+          <nav id='header-form' className='w-full flex justify-between px-4 md:px-10 items-center'>
+            {/* Logo */}
             <div className='text-[#161439]'>
               <p>Logo Name</p>
             </div>
-            <div className='max-lg:hidden' >
-              <ul className='flex justify-between text-[#161439] '>
-                {["Home", "Courses", "Pages", "Dashboard"].map((menuItem,index) => (
-                  <li key={menuItem} className='flex items-center '> 
-                    <DropdownMenu open={openDropdown === index} 
-                      onOpenChange={() => {}} 
+
+            {/* Menu Toggle Button (Hamburger for mobile) */}
+            <div className="lg:hidden">
+              <Button
+                className="p-2 rounded-lg bg-[#ffc224] hover:bg-[#161439] text-[#161439] hover:text-white duration-300"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                {menuOpen ? <RiCloseLine size={30} /> : <RiMenuLine size={30} />}
+              </Button>
+            </div>
+
+            {/* Desktop Menu */}
+            <div className={`hidden lg:flex lg:items-center`}>
+              <ul className='flex justify-between text-[#161439] space-x-6'>
+                {["Home", "Courses", "Pages", "Dashboard"].map((menuItem, index) => (
+                  <li key={menuItem} className='flex items-center'>
+                    <DropdownMenu open={openDropdown === index} onOpenChange={() => {}}>
+                      <DropdownMenuTrigger
+                        asChild
+                        className='h-12'
+                        onMouseEnter={() => setOpenDropdown(index)}
+                        onMouseLeave={() => setOpenDropdown(null)}
                       >
-                      <DropdownMenuTrigger asChild className='h-12' >
-                        <Button className='text-[#161439] hover:text-[#5751e1] '
+                        <Button
+                          className='text-[#161439] hover:text-[#5751e1] '
                           variant="ghost"
-                          onMouseEnter={() => setOpenDropdown(index)} 
-                          onMouseLeave={() => setOpenDropdown(null)}  
                         >
                           {menuItem}
-                          <RiArrowDropDownLine 
-                          size={35}
-                          />
+                          <RiArrowDropDownLine size={35} />
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent
                         className="w-56"
-                        onMouseEnter={() => setOpenDropdown(index)}  
+                        onMouseEnter={() => setOpenDropdown(index)}
                         onMouseLeave={() => setOpenDropdown(null)}
                       >
-                        {dropdownContents[menuItem as keyof typeof dropdownContents]} {/* Ép kiểu menuItem */}
+                        {dropdownContents[menuItem as keyof typeof dropdownContents]}
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </li>
                 ))}
               </ul>
             </div>
-            <MobileNavBar />
-            <div id='search-bar' className='flex outline outline-[0.1px] rounded-3xl outline-black ' >
-              <InputNoOutLine className='h-12 w-[400px] text-black  ' placeholder='Searching....' />
-              <Button className=' group rounded-full w-12 h-12 bg-[#ffc224] mr-[1px] my-px hover:bg-[#161439] duration-300  '>
-              <RiSearch2Line className=''
-              size={25}
-              color='black'
-              />
+
+            {/* Search bar */}
+            <div id='search-bar' className='hidden lg:flex outline outline-[0.1px] rounded-3xl outline-black'>
+              <InputNoOutLine className='h-12 w-[300px] text-black' placeholder='Searching....' />
+              <Button className='group rounded-full w-12 h-12 bg-[#ffc224] mr-[1px] my-px hover:bg-[#161439] duration-300'>
+                <RiSearch2Line size={25} color='black' />
               </Button>
             </div>
-            <div>
-              <Button className='w-28 h-12 rounded-3xl font-bold  bg-[#ffc224] text-[#161439] hover:bg-[#161439] hover:text-[#e6eaef] duration-300 '>Log in</Button>
+
+            {/* Login Button */}
+            <div className='hidden lg:flex'>
+              <Button className='w-28 h-12 rounded-3xl font-bold bg-[#ffc224] text-[#161439] hover:bg-[#161439] hover:text-white duration-300'>
+                Log in
+              </Button>
             </div>
           </nav>
-  
+
+          {/* Mobile Popup Menu - Hiển thị khi kích thước nhỏ */}
+          <div
+            className={clsx(
+              'fixed top-0 right-0 h-full bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out',
+              { 'translate-x-0 w-1/3': menuOpen, 'translate-x-full': !menuOpen }
+            )}
+          >
+            {/* Nội dung của popup */}
+            <div className="p-6">
+              <Button
+                className="p-2 mb-4 rounded-lg bg-[#ffc224] hover:bg-[#161439] text-[#161439] hover:text-white duration-300"
+                onClick={() => setMenuOpen(false)}
+              >
+                <RiCloseLine size={30} />
+              </Button>
+              <ul className="flex flex-col space-y-4 text-[#161439]">
+                {["Home", "Courses", "Pages", "Dashboard"].map((menuItem, index) => (
+                  <li key={menuItem}>
+                    <Button
+                      variant="ghost"
+                      className='w-full text-left hover:bg-[#ffc224] hover:text-white p-2'
+                    >
+                      {menuItem}
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+              {/* Search bar trong popup */}
+              <div id='mobile-search' className='flex justify-center outline outline-[0.1px] rounded-3xl outline-black mt-4'>
+                <InputNoOutLine className='h-12 w-full text-black' placeholder='Searching....' />
+                <Button className='group rounded-full w-12 h-12 bg-[#ffc224] hover:bg-[#161439] duration-300'>
+                  <RiSearch2Line size={25} color='black' />
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 
 }
-const MobileNavBar = () => {
-
-  const [isOpen, setIsOpen] = React.useState(false)
-  return(
-  <div className='fixed left-0 top-0 flex h-full min-h-screen w-full justify-end bg-black/60 sm:hidden'>
-    <div className='h-full w-[50%] bg-white px-4 py-4' >
-      <Collapsible
-      open={isOpen}
-      onOpenChange={setIsOpen}
-      className="w-[250px] space-y-2">
-      <div className="flex items-center justify-between space-x-4 px-4">
-        <h4 className="text-sm font-semibold">
-          @peduarte starred 3 repositories
-        </h4>
-        <CollapsibleTrigger asChild>
-          <Button variant="ghost" size="sm" className="w-9 p-0">
-            <ChevronsUpDown className="h-4 w-4" />
-            <span className="sr-only">Toggle</span>
-          </Button>
-        </CollapsibleTrigger>
-      </div>
-     
-      <CollapsibleContent className="space-y-2">
-        <div className="rounded-md border px-4 py-3 font-mono text-sm">
-          @radix-ui/colors
-        </div>
-        <div className="rounded-md border px-4 py-3 font-mono text-sm">
-          @stitches/react
-        </div>
-        <div className="rounded-md border px-4 py-3 font-mono text-sm">
-        @radix-ui/primitives
-      </div>
-      </CollapsibleContent>
-    </Collapsible>
-    </div>
-  </div>
-  );
-
-};
