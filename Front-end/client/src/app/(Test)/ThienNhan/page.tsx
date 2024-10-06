@@ -1,10 +1,24 @@
 import HeaderAuth from '@/components/HeaderAuth';
 import FooterAuth from "@/components/FooterAuth";
 import React from 'react'
-import Carousel from '@/components/Carousel';
 import { Button } from '@/components/ui/button';
+import { Carousel } from '@/components/ui/carousel';
+import { CarouselSpacing } from '@/components/Carousel';
 
 export default function page() {
+
+  const itemsData = [
+    { icon: '🔥', text: 'Hot', number: 1 },
+    { icon: '🌟', text: 'Star', number: 2 },
+    { icon: '🚀', text: 'Rocket', number: 3 },
+    { icon: '💎', text: 'Diamond', number: 4 },
+    { icon: '🍀', text: 'Lucky', number: 5 },
+    { icon: '🍀', text: 'Lucky', number: 6 },
+    { icon: '🍀', text: 'Lucky', number: 7 },
+    { icon: '🍀', text: 'Lucky', number: 8 },
+    { icon: '🍀', text: 'Lucky', number: 9 },
+  ];
+
   return (
     <div>
     <HeaderAuth>
@@ -33,14 +47,14 @@ export default function page() {
       </div>
     </section>
     <section className='flex pt-[120px] ' >
-    <div className='w-full flex flex-col  justify-center text-center pl-80 pr-80 ' >
+    <div className='w-full flex flex-col  justify-center text-center pl-60 pr-60 ' >
       <div id='content-text' className='flex flex-col text-black ' >
         <span>Trending Categories</span>
         <h3>Top Category We Have</h3>
         <p>when known printer took a galley of type scrambl edmake</p>
         </div>      
-    <div id='category-chosse' className='' >
-      <Carousel></Carousel>
+    <div id='category-chosse' className='h-[300px] w-full flex flex-row justify-around items-center bg-[#f7f7f9] rounded-full ' >
+        <CarouselSpacing items={itemsData} ></CarouselSpacing>
       </div>      
     </div>
     </section>
