@@ -11,10 +11,6 @@ export class AuthController {
     private readonly authService: AuthService,
 
   ) {}
-
-  // create(@Body() createAuthDto: CreateAuthDto) {
-  //   return this.authService.signIn(createAuthDto.username,createAuthDto.password);
-  // }
   @Public()
   @UseGuards(LocalAuthGuard)
   @Post('login')

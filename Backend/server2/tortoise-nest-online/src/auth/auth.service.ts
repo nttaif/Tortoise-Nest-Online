@@ -16,6 +16,8 @@ export class AuthService {
       throw new UnauthorizedException('User not found');
     }
     if(!user) return null;
+    const isCompar =await comparePass(pass,user.password)
+    if(!isCompar) return null;
     return user;
   }
 
