@@ -15,10 +15,6 @@ export class AuthService {
     if (!user) {
       throw new UnauthorizedException('User not found');
     }
-    const isValidPassword=await comparePass(pass,user.password)
-    if (!isValidPassword) {
-      throw new UnauthorizedException();
-    }
     if(!user) return null;
     return user;
   }

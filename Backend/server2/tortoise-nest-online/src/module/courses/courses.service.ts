@@ -50,8 +50,9 @@ export class CoursesService {
     return await this.courseModel.findOne({_id});
   }
 
-  async update(id: number, updateCourseDto: UpdateCourseDto) {
-    return `This action updates a #${id} course`;
+  async update(updateCourseDto: UpdateCourseDto) {
+    const { _id, ...updateData } = updateCourseDto;  // Tách riêng _id
+    return await this.courseModel.updateOne({_id:_id},{$set:updateData});
   }
 
   async remove(_id: string) {
