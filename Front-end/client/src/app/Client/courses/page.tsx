@@ -5,16 +5,6 @@ import Image from 'next/image';
 export default function Page() {
   return (
 <div className="bg-white py-8 px-4 relative">
-       <div className=" absolute inset-0 z-0"> 
-          <Image
-        src="/images/bg.jpg" 
-        alt='bg'
-          layout="fill"
-          objectFit="cover"
-          className="opacity-20"
-          />
-       </div>
-
     <div className="relative z-10 text-left mb-8">
     <h1 className="text-5xl font-semibold text-gray-900">All Courses</h1>
     <div className="mt-2 text-sm text-gray-500">
@@ -92,8 +82,16 @@ export default function Page() {
         </div>
 
         <div className="w-3/4 grid grid-cols-3 gap-4">
-         
-          <ItemCourses 
+    
+            <ItemCourses/>
+          <ItemCourses/>
+          <ItemCourses/>
+          <ItemCourses/>
+          <ItemCourses/>
+          <ItemCourses/>
+          <ItemCourses/>
+          <ItemCourses/>
+          {/* <ItemCourses 
             imageSrc="/images/bgAuth.jpg"
             category="Development"
             title="Learning JavaScript With Imagination"
@@ -181,7 +179,7 @@ export default function Page() {
             price="$15.00"
             reviews={5}
           />
-          
+           */}
          
         </div>
       </div>

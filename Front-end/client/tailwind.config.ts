@@ -9,6 +9,14 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		animation: {
+			shine: "shine 1s",
+		  },
+		  keyframes: {
+			shine: {
+			  "100%": { left: "125%" },
+			},
+		  },
 		backgroundImage:{
 			'banner-main':"url('/images/banner_bg.png')"
 		},

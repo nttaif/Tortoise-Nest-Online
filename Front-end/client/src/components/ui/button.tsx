@@ -19,7 +19,8 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "font-bold",
         link: "text-primary underline-offset-4 hover:underline",
-        icon_social: "bg-white"
+        icon_social: "bg-white",
+        btn_home:"btn shadow-[9px_9px_0_rgb(0,0,0)] duration-700 hover:shadow-[0_0_0px_rgb(0,0,0)] hover:duration-700 text-black bg-white ease-out hover:translate-y-0 transition-all rounded " 
         
       },
       size: {

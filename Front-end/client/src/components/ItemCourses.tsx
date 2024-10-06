@@ -3,14 +3,18 @@ import React from 'react'
 
 export default function ItemCourses() {
   return (
-    <div className='max-w-xs mx-auto rouded overflow-hidden shadow-lg bg-white pl-4'>
+    <div className='group max-w-xs mx-auto rouded overflow-hidden shadow-lg bg-white pl-4'>
       <div className='card'>
-      <Image
-        src="/images/bgAuth.jpg" 
-        alt='d'
-        width={248}
-        height={190}
-        />
+          <div className=' justify-center items-center relative w-full bg-red-200 cursor-pointer'>
+            <Image
+            src="/images/bgAuth.jpg" 
+            alt='d'
+            width={350}
+            height={110}
+            />
+          <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-60 group-hover:animate-shine" />
+        </div>
+      
       </div>
       <div className="px-4 pt-4 flex justify-between  items-center ">
         <span className="bg-gray-200 text-gray-600 text-sm font-semibold py-1 px-2 rounded">
