@@ -23,7 +23,15 @@ export class UsersService {
     if(user!=null) return true;
     return false;
   }
-
+  isLecturerExist= async(_id:string)=>{
+    const user= await this.userModel.exists({_id})
+    if(user!=null){
+       const isLecturer= await this.findUserByID(_id);
+       if(isLecturer.role==='Lecturer')
+        return true;
+    } ;
+    return false;
+  }
   async create(createUserDto: CreateUserDto) {
     const{name,email,password,phoneNumber,image,dateOfBirth}=createUserDto;
     const isExists= await this.isEmailExist(email);
@@ -66,8 +74,8 @@ export class UsersService {
     return { results, totalPage };
   }
   
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async findUserByID(_id: string) {
+    return await this.userModel.findOne({_id});
   }
 
   async findUserByEmail(email:string){

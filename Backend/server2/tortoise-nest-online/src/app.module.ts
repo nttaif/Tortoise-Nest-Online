@@ -9,6 +9,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/passport/jwt-auth.guard';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { CoursesModule } from './module/courses/courses.module';
 @Module({
 imports: [
   ConfigModule.forRoot({
@@ -16,6 +17,7 @@ imports: [
   }),
   UsersModule,
   AuthModule,
+  CoursesModule,
   MongooseModule.forRootAsync({
     imports: [ConfigModule],
     useFactory: async (configService: ConfigService) => ({
