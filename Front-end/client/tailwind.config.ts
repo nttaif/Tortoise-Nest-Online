@@ -9,8 +9,12 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		backgroundImage:{
+			'banner-main':"url('/images/banner_bg.png')"
+		},
   		colors: {
   			background: 'hsl(var(--background))',
+			
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
