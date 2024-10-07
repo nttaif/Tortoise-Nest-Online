@@ -5,11 +5,11 @@ declare global {
     interface IRequest {
         url: string;
         method: string;
-        body?: { [key: string]: any };
-        queryParams?: any;
+        body?: { [key: string]: unknown };  // Use `unknown` instead of `any` for stricter type-checking
+        queryParams?: Record<string, string | number | boolean>;  // Define `queryParams` more precisely
         useCredentials?: boolean;
-        headers?: any;
-        nextOption?: any;
+        headers?: Record<string, string>;  // Use a string-to-string mapping for headers
+        nextOption?: unknown;  // Replace `any` with `unknown` if you don't have a specific type for `nextOption`
     }
 
     interface IBackendRes<T> {

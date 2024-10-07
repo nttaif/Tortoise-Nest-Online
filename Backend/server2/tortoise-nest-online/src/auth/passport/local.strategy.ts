@@ -16,6 +16,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     if(user.isActivity===false){ 
       throw new BadRequestException("account is not activity")
     }
+    console.log('>>>Check user: ',user)
     return user;
   }
 }
