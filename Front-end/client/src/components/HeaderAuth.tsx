@@ -12,10 +12,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { RiArrowDropDownLine, RiCloseLine, RiMenuLine, RiSearch2Line } from "@remixicon/react";
-
+import { useSession } from 'next-auth/react';
 export default function HeaderAuth() {
+
+  const {data:session,status }=useSession();
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false); // State cho mobile menu
+
   const dropdownContents = {
     Home: (
       <>
@@ -65,7 +68,7 @@ export default function HeaderAuth() {
           <nav id='header-form' className='w-full flex justify-between px-4 md:px-10 items-center'>
             {/* Logo */}
             <div className='text-[#161439]'>
-              <p>Logo Name</p>
+              <p>{session?.user?.email??"Null"}</p>
             </div>
 
             {/* Menu Toggle Button (Hamburger for mobile) */}

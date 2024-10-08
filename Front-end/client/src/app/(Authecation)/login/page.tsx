@@ -1,15 +1,32 @@
 'use client'
 import React, { useState } from 'react'
 import { authenticate } from '@/utils/actions';
+import { notification } from 'antd';
+import { useRouter } from 'next/navigation';
 export default function Page() {
     // State để lưu giá trị của email và password
-    const [email, setEmail] = useState('');
+    const router = useRouter();
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const onFinish = async (e: React.FormEvent) => {
     e.preventDefault(); // Ngăn chặn hành động mặc định (reload trang)
-    const res = await authenticate(email,password)
-    console.log('>>>check res: ',res)
+    const res = await authenticate(username,password)
+    if(res?.error){
+      //error
+      notification.error({
+        message:"Error login",
+        description:res?.error
+      })
+      if(res?.code===2){
+        //yeeu caauf xac thuc nguoi dung
+      }
+    }else{
+      router.push('/')
+    }
+
+    
+    console.log('>>>check res in login----login form is submit: ',res)
   };
 
   return (
@@ -23,7 +40,7 @@ export default function Page() {
       <div>
         <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
         <div className="mt-2  ">
-          <input  onChange={(e) => setEmail(e.target.value)}  id="email" name="email" type="email" placeholder='Enter your email ' autoComplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-4 "></input>
+          <input  onChange={(e) => setUsername(e.target.value)}  id="email" name="email" type="email" placeholder='Enter your email ' autoComplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-4 "></input>
         </div>
       </div>
 

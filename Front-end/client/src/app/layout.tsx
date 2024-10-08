@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/app/globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import NextAuthWrapper from "@/lib/next.auth.wrapper";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,7 +32,9 @@ export default function RootLayout({
       >
         <main className="h-full w-full">
           <AntdRegistry>
+            <NextAuthWrapper>
             {children}
+            </NextAuthWrapper>
           </AntdRegistry>
         </main>
       </body>
