@@ -37,7 +37,7 @@ export default function ItemCourses() {
         {/* <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full">
           Enroll Now
         </button> */}
-        <Button variant={'btn_home'} className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full">
+        <Button variant={'btn_home'} className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-full">
           Enroll Now
         </Button>
 

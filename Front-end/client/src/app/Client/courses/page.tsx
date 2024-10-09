@@ -38,10 +38,10 @@ export default function Page() {
         </section>
       </div>
 
-      <div className="container mx-auto flex flex-col md:flex-row mt-6">
+      <div className="container mx-auto flex flex-col md:flex-row mt-6 lg:mt-32">
         {/* Sidebar */}
-        <div className="md:w-1/5 p-4 md:pr-6">
-          <div className='bg-gray-200 p-4 rounded shadow-lg'>
+        <div className="md:w-1/5 lg:w-1/4 p-4 md:pr-6">
+          <div className='bg-gray-50 p-4 rounded shadow-lg'>
             <h2 className="font-bold mb-4">Categories</h2>
             <ul className="space-y-2">
               <li><input type="checkbox" /> All Category</li>
@@ -55,7 +55,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <div className='bg-gray-200 p-4 mt-6 rounded shadow-lg'>
+          <div className='bg-gray-50 p-4 mt-6 rounded shadow-lg'>
             <h2 className="font-bold mb-4">Languages</h2>
             <ul className="space-y-2">
               <li><input type="checkbox" /> Arabic</li>
@@ -64,7 +64,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <div className='bg-gray-200 p-4 mt-6 rounded shadow-lg'>
+          <div className='bg-gray-50 p-4 mt-6 rounded shadow-lg'>
             <h2 className="font-bold mb-4">Price</h2>
             <ul className="space-y-2">
               <li><input type="checkbox" /> All Price</li>
@@ -73,7 +73,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <div className='bg-gray-200 p-4 mt-6 rounded shadow-lg'>
+          <div className='bg-gray-50 p-4 mt-6 rounded shadow-lg'>
             <h2 className="font-bold mb-4">Skill level</h2>
             <ul className="space-y-2">
               <li><input type="checkbox" /> All Skill</li>
@@ -83,7 +83,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <div className='bg-gray-200 p-4 mt-6 rounded shadow-lg'>
+          <div className='bg-gray-50 p-4 mt-6 rounded shadow-lg'>
             <h2 className="font-bold mb-4">Instructors</h2>
             <ul className="space-y-2">
               <li><input type="checkbox" /> All Instructors</li>
@@ -93,7 +93,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <div className="bg-gray-200 p-4 mt-6 rounded shadow-lg">
+          <div className="bg-gray-50 p-4 mt-6 rounded shadow-lg">
             <h2 className="font-bold mb-4">Ratings</h2>
             <ul className="space-y-2">
               <li><input type="checkbox" /> ★★★★★</li>
@@ -106,7 +106,7 @@ export default function Page() {
         </div>
 
         {/* Course Grid */}
-        <div className="md:w-4/5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="md:w-4/5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:ml-8 lg:mr-16 gap-4">
           <ItemCourses />
           <ItemCourses />
           <ItemCourses />
