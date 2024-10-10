@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import {InputNoOutLine } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import clsx from 'clsx';
+import { signOut } from 'next-auth/react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,11 +12,16 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { RiArrowDropDownLine, RiCloseLine, RiMenuLine, RiSearch2Line } from "@remixicon/react";
-import { useSession } from 'next-auth/react';
-export default function HeaderAuth() {
+import { useRouter } from 'next/navigation';
 
-  const {data:session,status }=useSession();
+import { RiArrowDropDownLine, RiCloseLine, RiMenuLine, RiSearch2Line } from "@remixicon/react";
+
+
+
+export default function HeaderAuth(props:IBackendRes<ILogin>) {
+  const {session} = props;
+  const router=useRouter();
+  console.log(">>>check session: ",{session})
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false); // State cho mobile menu
 
@@ -44,7 +50,7 @@ export default function HeaderAuth() {
       <>
         <DropdownMenuLabel>Pages</DropdownMenuLabel>
         <DropdownMenuRadioGroup>
-          <DropdownMenuRadioItem value="about"><a href="" className="block w-full h-full" >About Us</a></DropdownMenuRadioItem>
+          <DropdownMenuRadioItem  onClick={()=>{router.push("/ThanhTai")}} value="about"><a className="block w-full h-full"  >About Us</a></DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="contact"><a href=""className="block w-full h-full">Contact Us</a></DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="faq"><a href=""className="block w-full h-full">FAQ</a></DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
@@ -56,7 +62,7 @@ export default function HeaderAuth() {
         <DropdownMenuRadioGroup>
           <DropdownMenuRadioItem value="profile"><a href="">Profile</a></DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="settings"><a href="">Setting</a></DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="logout"><a href="">Log out</a></DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="logout"><a href="" onClick={()=>signOut()}>Log out</a></DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </>
     ),
@@ -68,9 +74,8 @@ export default function HeaderAuth() {
           <nav id='header-form' className='w-full flex justify-between px-4 md:px-10 items-center'>
             {/* Logo */}
             <div className='text-[#161439]'>
-              <p>{session?.user?.email??"Null"}</p>
+              <p>{session?.user?.email??"null"}</p>
             </div>
-
             {/* Menu Toggle Button (Hamburger for mobile) */}
             <div className="lg:hidden">
               <Button

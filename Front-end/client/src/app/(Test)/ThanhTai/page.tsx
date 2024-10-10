@@ -1,11 +1,18 @@
+import { auth } from '@/auth'
+import HeaderAuth from '@/components/HeaderAuth'
+import InfiniteSlider from '@/components/InfiniteSlider'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import React from 'react'
 
 
-export default function page() {
+export  default async function page() {
+  //nên viết trực tiếp trong layout
+  const session = await auth();
   return (
     <div>
+
+    <HeaderAuth session={session}/>
     {/* banner about us */}
     <section id='banner' className='w-full flex flex-col md:flex-row bg-banner-main pt-2'>
       <div className='w-full'>
@@ -19,7 +26,7 @@ export default function page() {
             </p>
 
             <div className='pt-10'>
-              <Button className='w-[200px] md:w-[250px]' variant="btn_home">
+              <Button className='w-[200px] md:w-[250px] h-[55px] bg-blue-700 hover:bg-yellow-600 text-white  font-bold py-2 px-4 rounded-full' variant="btn_home">
                 <a href="#">Bắt đầu ngay thôi</a>
               </Button>
             </div>
@@ -35,15 +42,16 @@ export default function page() {
         </div>
       </div>
     </section>
-
+    {/*done banner about us */}
+    
     {/* content */}
     <div className='Main-Content'>
       <div className="w-full flex flex-col md:flex-row justify-center items-center py-10 bg-white">
         {/* Hình ảnh bên trái */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
-          <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden">
+          {/* <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full content-center overflow-hidden">
             <Image
-              src='/images/pic1-removebg-preview.png'
+              src='/images/laravel8.0.png'
               width={500}
               height={500}
               alt='Hello'
@@ -55,7 +63,8 @@ export default function page() {
                 </svg>
               </span>
             </button>
-          </div>
+          </div> */}
+          {/*Lamf lauj*/}
         </div>
 
         {/* Nội dung bên phải */}
@@ -108,47 +117,10 @@ export default function page() {
       {/* Phần logo đối tác */}
       <div className="w-full bg-gray-50 py-12">
         <div className="w-full flex justify-center items-center py-6 bg-indigo-900">
-          <div className="flex space-x-6 overflow-x-auto">
-            <Image
-              src='/images/pic1-removebg-preview.png'
-              width={250}
-              height={250}
-              alt='Hello'
-            />
-            <Image
-              src='/images/pic1-removebg-preview.png'
-              width={250}
-              height={250}
-              alt='Hello'
-            />
-            <Image
-              src='/images/pic1-removebg-preview.png'
-              width={250}
-              height={250}
-              alt='Hello'
-            />
-            <Image
-              src='/images/pic1-removebg-preview.png'
-              width={250}
-              height={250}
-              alt='Hello'
-            />
-            <Image
-              src='/images/pic1-removebg-preview.png'
-              width={250}
-              height={250}
-              alt='Hello'
-            />
-            <Image
-              src='/images/pic1-removebg-preview.png'
-              width={250}
-              height={250}
-              alt='Hello'
-            />
-          </div>
+          <InfiniteSlider/>
         </div>
-
-        {/* Phần giới thiệu */}
+        {/*Kết thúc phần logo đối tác */}
+        {/*Bắt đầu Phần giới thiệu */}
         <div className="text-center py-10">
           <span className="inline-block text-sm text-indigo-600 bg-indigo-100 rounded-full px-4 py-1 mb-4">Our Top Features</span>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Achieve Your Goal With SkillGrow</h1>

@@ -11,11 +11,18 @@ const config: Config = {
   	extend: {
 		animation: {
 			shine: "shine 1s",
+			["infinite-slider"]: "infiniteSlider 20s linear infinite",
 		  },
 		  keyframes: {
 			shine: {
 			  "100%": { left: "125%" },
 			},
+			infiniteSlider: {
+				"0%": { transform: "translateX(0)" },
+				"100%": {
+				  transform: "translateX(calc(-250px * 5))",
+				},
+			}
 		  },
 		backgroundImage:{
 			'banner-main':"url('/images/banner_bg.png')"
