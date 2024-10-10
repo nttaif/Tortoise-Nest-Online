@@ -15,7 +15,7 @@ export default function Page() {
     if(res?.error){
       //error
       notification.error({
-        message:"Error login",
+        message:"Đăng nhập thất bại",
         description:res?.error
       })
       if(res?.code===2){
@@ -63,7 +63,7 @@ export default function Page() {
           <div className='h-fit w-fit mt-12 ' >
           <p className="text-sm text-gray-500">
           Not a member?
-          <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Register</a>
+          <a href="/register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Register</a>
         </p>
         </div>
         </section>

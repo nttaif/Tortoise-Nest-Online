@@ -50,7 +50,7 @@ export default function HeaderAuth(props:IBackendRes<ILogin>) {
       <>
         <DropdownMenuLabel>Pages</DropdownMenuLabel>
         <DropdownMenuRadioGroup>
-          <DropdownMenuRadioItem  onClick={()=>{router.push("/ThanhTai")}} value="about"><a className="block w-full h-full"  >About Us</a></DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="about"><a href="/ThanhTai" className="block w-full h-full"  >About Us</a></DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="contact"><a href=""className="block w-full h-full">Contact Us</a></DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="faq"><a href=""className="block w-full h-full">FAQ</a></DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
@@ -129,7 +129,7 @@ export default function HeaderAuth(props:IBackendRes<ILogin>) {
 
             {/* Login Button */}
             <div className='hidden lg:flex'>
-              <Button className='w-28 h-12 rounded-3xl font-bold bg-[#ffc224] text-[#161439] hover:bg-[#161439] hover:text-white duration-300'>
+              <Button onClick={()=>{router.push('/login')}} className='w-28 h-12 rounded-3xl font-bold bg-[#ffc224] text-[#161439] hover:bg-[#161439] hover:text-white duration-300'>
                 Log in
               </Button>
             </div>

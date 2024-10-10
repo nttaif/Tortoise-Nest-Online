@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request }
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './passport/local-auth.guard';
 import { Public, ResponseMessage } from 'src/decorator/customize';
-import { CreateAuthDto } from './dto/create-auth.dto';
+import { CodeAuthDto, CreateAuthDto } from './dto/create-auth.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -23,6 +23,13 @@ export class AuthController {
   register(@Body() registerDto:CreateAuthDto) {
     return this.authService.handleRegister(registerDto);
   }
+
+  @Public()
+  @Post('verify')
+  verify(@Body() codeAuthDto:CodeAuthDto) {
+    return this.authService.handleActivity(codeAuthDto);
+  }
+
   @Public()
   @Get('sendEmail') 
   sendEmail() {
