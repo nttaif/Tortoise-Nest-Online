@@ -150,5 +150,37 @@ export class UsersService {
 
     return{checkIsBefore}; 
   }
+  async reActivity(email:string){
+    const user = await this.userModel.findOne({email})
+    if(!user){
+      throw new BadRequestException('Không tìm thấy nguời dùng trong hệ thống: ',email)
+    }
+    if(user.isActivity){
+      throw new BadRequestException('Tài khoản đã được kích hoạt')
+    }
+    //send emai
+    const code_id= uuidv4();
+    //update user
+    await user.updateOne({
+      code_id:code_id,
+      code_expried:dayjs().add(5,'minutes')
+    })
+    this.mailerService
+    .sendMail({
+      to:  user.email, // list of receivers
+      subject: 'Activity your account at Tortoise Nest Online', // Subject line
+      text: 'welcome', // plaintext body
+      template: "register",
+      context:{
+        name:user.name??user.email,
+        activationCode:code_id
+      }
+    })
+    .then(() => {})
+    .catch(() => {});
+    return {
+      _id:user._id
+    }
+  }
 
 }

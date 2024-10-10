@@ -29,6 +29,15 @@ export class AuthController {
   verify(@Body() codeAuthDto:CodeAuthDto) {
     return this.authService.handleActivity(codeAuthDto);
   }
+  @Public()
+  @Post('re-verify')
+  reVerify(@Body("email") email:string) {
+    return this.authService.reVerify(email);
+  }
+
+
+
+
 
   @Public()
   @Get('sendEmail') 

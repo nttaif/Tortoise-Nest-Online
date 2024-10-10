@@ -44,4 +44,9 @@ export class AuthService {
     //hash password
     return await this.usersService.handleActivity(codeAuthDto);
   }
+  reVerify = async(email:string) => {
+    //check email
+    //hash password
+    return await this.usersService.reActivity(email);
+  }
 } 

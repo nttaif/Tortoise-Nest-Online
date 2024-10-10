@@ -55,7 +55,6 @@ export default function page() {
         message: "Xác thực thành công",
         description: "Tài khoản của bạn đã được xác thực"
       });
-    console.log('>>>>check res: ',verifyRes?.data)
       setIsModalOpen(false);  //Đóng modal
       router.push('/login');  //Chuyển hướng sau khi xác thực thành công
     } else {
