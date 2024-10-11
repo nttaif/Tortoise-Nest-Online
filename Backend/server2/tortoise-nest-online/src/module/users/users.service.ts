@@ -6,7 +6,7 @@ import { User } from './schemas/user.schema';
 import mongoose, { Model } from 'mongoose';
 import { hashPassword } from 'src/helper/util';
 import aqp from 'api-query-params';
-import { CreateAuthDto } from 'src/auth/dto/create-auth.dto';
+import { CodeAuthDto, CreateAuthDto } from 'src/auth/dto/create-auth.dto';
 import {v4 as uuidv4} from 'uuid';
 import { MailerService } from '@nestjs-modules/mailer';
 import dayjs from 'dayjs';
@@ -112,9 +112,59 @@ export class UsersService {
       name,email,password:hashPass,
       isActivity:false,
       code_id: code_id,
-      code_expried:dayjs().add(60,'seconds')
+      code_expried:dayjs().add(5,'minutes')
     })
     //send email
+    this.mailerService
+    .sendMail({
+      to:  user.email, // list of receivers
+      subject: 'Activity your account at Tortoise Nest Online', // Subject line
+      text: 'welcome', // plaintext body
+      template: "register",
+      context:{
+        name:user.name??user.email,
+        activationCode:code_id
+      }
+    })
+    .then(() => {})
+    .catch(() => {});
+    return {
+      _id:user._id
+    }
+  }
+  async handleActivity(data:CodeAuthDto){
+    const user = await this.userModel.findOne({
+      _id:data._id,
+      code_id:data.verificationCode
+    })
+    if(!user){
+      throw new BadRequestException('Mã code không hợp lệ hoặc đã hết hạn')
+    }
+    //check expired
+    const checkIsBefore =dayjs().isBefore(user.code_expried);
+    if(checkIsBefore){
+      await  this.userModel.updateOne({_id:data._id},{isActivity:true})
+    }else{
+      throw new BadRequestException('Mã code của bạn đã hết hạn')
+    }
+
+    return{checkIsBefore}; 
+  }
+  async reActivity(email:string){
+    const user = await this.userModel.findOne({email})
+    if(!user){
+      throw new BadRequestException('Không tìm thấy nguời dùng trong hệ thống: ',email)
+    }
+    if(user.isActivity){
+      throw new BadRequestException('Tài khoản đã được kích hoạt')
+    }
+    //send emai
+    const code_id= uuidv4();
+    //update user
+    await user.updateOne({
+      code_id:code_id,
+      code_expried:dayjs().add(5,'minutes')
+    })
     this.mailerService
     .sendMail({
       to:  user.email, // list of receivers

@@ -17,7 +17,7 @@ export const sendRequest = async <T>(props: IRequest) => {
         method: method,
         headers: new Headers({ 'content-type': 'application/json', ...headers }),
         body: body ? JSON.stringify(body) : null,
-        ...nextOption
+        ...(nextOption && typeof nextOption === 'object' ? nextOption : {})
     };
 
     if (useCredentials) options.credentials = "include";
@@ -28,7 +28,7 @@ export const sendRequest = async <T>(props: IRequest) => {
 
     return fetch(url, options).then(res => {
         if (res.ok) {
-            return res.json() as T;
+            return (res.json() as T) ;
         } else {
             return res.json().then(function (json) {
                 return {
@@ -58,7 +58,8 @@ export const sendRequestFile = async <T>(props: IRequest) => {
         method: method,
         headers: new Headers({ 'content-type': 'application/json', ...headers }),
         body: body && Object.keys(body).length > 0 ? JSON.stringify(body) : null, // Chỉ stringify nếu body có dữ liệu
-        ...nextOption
+        ...(nextOption && typeof nextOption === 'object' ? nextOption : {})
+
       };
 
     if (useCredentials) options.credentials = "include";

@@ -3,12 +3,12 @@ import { signIn } from "@/auth";
 
 //call to server
 //server returns response and we return to client
-export async function authenticate(email: string, password: string) {
+export async function authenticate(username: string, password: string) {
   try {
     const r = await signIn("credentials", {
-      email: email,
+      username: username,
       password: password,
-      // callbackUrl: "/",
+      // callbackUrl: "/login",
       redirect: false,
     });
     return r;
