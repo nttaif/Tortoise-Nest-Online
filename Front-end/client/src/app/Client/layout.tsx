@@ -1,14 +1,16 @@
 import HeaderAuth from "@/components/HeaderAuth";
 import FooterAuth from "@/components/FooterAuth";
+import { auth } from '@/auth'
 export default function AdminLayout({
     children,
   }: Readonly<{
     children: React.ReactNode;
   }>) {
+  const session = await auth();
     return (
       <div>
         <div className="header">
-          <HeaderAuth></HeaderAuth>
+          <HeaderAuth session={session} ></HeaderAuth>
         </div>
         <div className="main">
           {children}
