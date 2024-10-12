@@ -353,65 +353,57 @@ export default function page() {
     </div>
   </div>
 </section>
-<section>
-  <div className="flex justify-between items-center bg-gradient-to-r from-purple-50 to-purple-100 p-10 rounded-lg">
-    <div className="w-1/2 flex flex-col items-center text-center relative">
-      {/* <div className="absolute top-[-40px]">
-        <svg className="w-[300px] h-[150px]" viewBox="0 0 200 200">
-          <defs>
-            <path
-              id="circlePath"
-              d="M 100, 100 m -100, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
-            />
-          </defs>
-          <text fontSize="24" fontWeight="bold" fill="#6B46C1">
-            <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
-              *EDUCATION * SYSTEM * CAN * MAKE * CHANGE *
-            </textPath>
-          </text>
-        </svg>
-      </div> */}
-      
-      <div className="relative rounded-full bg-yellow-300 w-[300px] h-96 overflow-hidden">
-        <img
-          src="\images\introduce-student.png" 
+<section className="w-full h-fit pb-16">
+  <div className="flex flex-col lg:flex-row h-[800px] items-center justify-center bg-gradient-to-r from-purple-50 to-purple-100 p-10 rounded-lg space-y-10 lg:space-y-0 lg:space-x-10">
+    <div className="w-full lg:w-1/4 flex justify-center lg:justify-start">
+      <div className="relative w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px]">
+        <Image
+          src="/images/introduce-student.png"
           alt="student"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 object-cover"
+          width={500}
+          height={500}
         />
       </div>
-      
     </div>
-
-    {/* Right side (Text content) */}
-    <div className="w-1/2 space-y-5">
-      <h2 className="text-3xl font-bold text-purple-900">Start Learning From World's Pro Instructors</h2>
-      <p className="text-gray-600">
-        Groove’s intuitive shared inbox makes it easy for team members to organize, prioritize, and collaborate.
-      </p>
-    </div>
-    <div>
-    <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Is it styled?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It comes with default styles that matches the other
-          components&apos; aesthetic.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Is it animated?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It&apos;s animated by default, but you can disable it if you
-          prefer.
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+    <div className="flex flex-col items-center content-center lg:items-start text-center lg:text-left space-y-6">
+      <div className="flex justify-center lg:justify-start pb-4">
+        <Badge className="w-45 h-auto text-xl text-center rounded-3xl" variant="mainbadge">
+          Danh mục thịnh hành
+        </Badge>
+      </div>
+      <div className="w-full lg:w-[75%] space-y-5">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-purple-900">
+          Start Learning From World's Pro Instructors
+        </h2>
+        <p className="text-gray-600 text-lg md:text-xl">
+          Groove’s intuitive shared inbox makes it easy for team members to organize, prioritize, and collaborate.
+        </p>
+      </div>
+      <div className="w-full lg:w-[75%] text-black">
+        <Accordion type="single" collapsible className="w-1/2 absolute">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+            Hộp thư đến chia sẻ trực quan của Groove giúp các thành viên trong Hộp thư đến chia 
+            Hộp thư đến chia sẻ trực quan của Groove giúp các thành viên trong Hộp thư đến chia 
+            Hộp thư đến chia sẻ trực quan của Groove giúp các thành viên trong Hộp thư đến chia 
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Is it styled?</AccordionTrigger>
+            <AccordionContent>
+            Hộp thư đến chia sẻ trực quan của Groove giúp các thành viên trong nhóm dễ dàng sắp xếp mức độ ưu tiên và. Trong tập này. Đã tồn tại không chỉ năm thế kỷ. Edhen, một nhà in không xác định đã lấy một bản in và xáo trộn
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Is it animated?</AccordionTrigger>
+            <AccordionContent>
+            Hộp thư đến chia sẻ trực quan của Groove giúp các thành viên trong nhóm dễ dàng sắp xếp mức độ ưu tiên và. Trong tập này. Đã tồn tại không chỉ năm thế kỷ. Edhen, một nhà in không xác định đã lấy một bản in và xáo trộn
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
     </div>
   </div>
 </section>
