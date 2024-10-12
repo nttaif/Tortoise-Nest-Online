@@ -33,7 +33,8 @@ export class UsersService {
     return false;
   }
   async create(createUserDto: CreateUserDto) {
-    const{name,email,password,phoneNumber,image,dateOfBirth}=createUserDto;
+    console.log(">>>>create user: ")
+    const{name,email,password,phoneNumber,image,dateOfBirth,biography}=createUserDto;
     const isExists= await this.isEmailExist(email);
     if(isExists===true){
       throw new BadRequestException(`Email exits in database: ${email}.please enter new email`)
@@ -41,7 +42,7 @@ export class UsersService {
     //hash password
     const hashPass =await hashPassword(password)
     const user=await this.userModel.create({
-      name,email,password:hashPass,phoneNumber,image,dateOfBirth
+      name,email,password:hashPass,phoneNumber,image,dateOfBirth,biography
     })
     return{
       _id:user._id
