@@ -8,6 +8,12 @@ import { Badge } from '@/components/ui/badge';
 import Marquee from "react-fast-marquee";
 import ItemCourses from '@/components/ItemCourses';
 import Image from 'next/image'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 
 export default function page() {
@@ -131,7 +137,7 @@ export default function page() {
             </div>
         </div>
       </section>
-      <section className='flex flex-col ' >
+      <section className='flex flex-col pb-16 ' >
       <div className='w-full flex flex-col  justify-center text-center pl-60 pr-60 ' >
       <div id='content-text' className='flex flex-col text-black pb-10 ' >
         <span className='text-center flex justify-center items-center pb-10  ' >
@@ -147,6 +153,268 @@ export default function page() {
        <CoursesCarousel></CoursesCarousel>
        </div>
       </section>
+
+      <section className="flex items-center justify-center bg-[#5751e1] p-8 rounded-lg relative overflow-hidden pb-16 ">
+      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+        <div className="w-1/2 h-full bg-[#5771e1] rounded-full transform scale-[2] opacity-30"></div>
+        <div className="w-1/2 h-full bg-[#5751e1] rounded-full transform scale-[2] opacity-10"></div>
+      </div>
+      <div className="relative z-10 flex items-center w-full max-w-5xl">
+        <div className="flex-1">
+          <img
+            src="\images\student-demo.png"
+            alt="Student"
+            className="w-64 h-64"
+          />
+        </div>
+        <div className="flex-1 text-center md:text-left ml-4">
+          <h2 className="text-white text-2xl md:text-4xl font-semibold mb-2">
+          Bạn muốn được <span className="text-yellow-400">thông tin </span> các khóa học và nghiên cứu mới?
+          </h2>
+          <div className="flex mt-4 ">
+            <input
+              type="email"
+              placeholder="Type Your E-Mail"
+              className="flex-1 p-4 rounded-full outline-none mr-5 ring-2-[#433ec2] bg-[#4a44d1] "
+            />
+            <Button variant={'btn_home'} className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold h-10 w-36 rounded-full">
+            Subscribe Now
+              </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className="container mx-auto flex flex-col md:flex-row items-start justify-between p-8 bg-white pb-16 ">
+      <div className="flex-1 mb-8 md:mb-0 pt-20 ">
+        <span className='text-center flex  items-center'>
+        <Badge className='w-45 flex text-center rounded-3xl ' variant="mainbadge" >
+        Skilled Introduce
+        </Badge>
+        </span>
+        <h2 className="text-5xl font-extrabold mt-4 mb-4 text-gray-900">
+          Our Top Class & Expert Instructors In One Place
+        </h2>
+        <p className="text-gray-600 mb-8 font-light ">
+          when an unknown printer took a galley of type and scrambled makespecimen book has survived not only five centuries
+        </p>
+        <Button variant={'btn_home'} className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold h-10 w-36 rounded-full">
+            Subscribe Now
+              </Button>
+      </div>
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="flex items-center space-x-4 mb-4">
+            <img
+              src="/path-to-image/instructor1.png"
+              alt="Instructor 1"
+              className="w-16 h-16 rounded-full object-cover"
+            />
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900">Mark Jukarberg</h4>
+              <p className="text-blue-500 text-sm">UX Design Lead</p>
+            </div>
+          </div>
+          <p className="text-yellow-500 text-sm flex items-center">
+            ⭐ 4.8 Ratings
+          </p>
+          <div className="flex mt-4 space-x-2">
+            <a href="#" className="text-blue-400">
+              {/* Add social media icons or placeholders */}
+              F
+            </a>
+            <a href="#" className="text-blue-400">
+              T
+            </a>
+            <a href="#" className="text-blue-400">
+              W
+            </a>
+            <a href="#" className="text-blue-400">
+              I
+            </a>
+          </div>
+        </div>
+        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="flex items-center space-x-4 mb-4">
+            <img
+              src="/path-to-image/instructor1.png"
+              alt="Instructor 1"
+              className="w-16 h-16 rounded-full object-cover"
+            />
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900">Mark Jukarberg</h4>
+              <p className="text-blue-500 text-sm">UX Design Lead</p>
+            </div>
+          </div>
+          <p className="text-yellow-500 text-sm flex items-center">
+            ⭐ 4.8 Ratings
+          </p>
+          <div className="flex mt-4 space-x-2">
+            <a href="#" className="text-blue-400">
+              {/* Add social media icons or placeholders */}
+              F
+            </a>
+            <a href="#" className="text-blue-400">
+              T
+            </a>
+            <a href="#" className="text-blue-400">
+              W
+            </a>
+            <a href="#" className="text-blue-400">
+              I
+            </a>
+          </div>
+        </div><div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="flex items-center space-x-4 mb-4">
+            <img
+              src="/path-to-image/instructor1.png"
+              alt="Instructor 1"
+              className="w-16 h-16 rounded-full object-cover"
+            />
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900">Mark Jukarberg</h4>
+              <p className="text-blue-500 text-sm">UX Design Lead</p>
+            </div>
+          </div>
+          <p className="text-yellow-500 text-sm flex items-center">
+            ⭐ 4.8 Ratings
+          </p>
+          <div className="flex mt-4 space-x-2">
+            <a href="#" className="text-blue-400">
+              {/* Add social media icons or placeholders */}
+              F
+            </a>
+            <a href="#" className="text-blue-400">
+              T
+            </a>
+            <a href="#" className="text-blue-400">
+              W
+            </a>
+            <a href="#" className="text-blue-400">
+              I
+            </a>
+          </div>
+        </div>
+        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="flex items-center space-x-4 mb-4">
+            <img
+              src="/path-to-image/instructor1.png"
+              alt="Instructor 1"
+              className="w-16 h-16 rounded-full object-cover"
+            />
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900">Mark Jukarberg</h4>
+              <p className="text-blue-500 text-sm">UX Design Lead</p>
+            </div>
+          </div>
+          <p className="text-yellow-500 text-sm flex items-center">
+            ⭐ 4.8 Ratings
+          </p>
+          <div className="flex mt-4 space-x-2">
+            <a href="#" className="text-blue-400">
+              {/* Add social media icons or placeholders */}
+              F
+            </a>
+            <a href="#" className="text-blue-400">
+              T
+            </a>
+            <a href="#" className="text-blue-400">
+              W
+            </a>
+            <a href="#" className="text-blue-400">
+              I
+            </a>
+          </div>
+        </div>
+        {/* Add more instructor cards similarly */}
+      </div>
+    </section>
+    <section className="flex justify-center py-16 bg-gray-100 pb-16 ">
+  <div className="container mx-auto ">
+    <div className="bg-[#282568] shadow-lg shadow-indigo-500/100 rounded-[70px] p-8 text-white text-center  flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8 h-72  ">
+      <div className="flex-1 content-center ">
+        <h3 className="text-5xl font-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>45K+</h3>
+        <p className="text-sm mt-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Active Students</p>
+      </div>
+      <div className="w-px bg-white opacity-50 mx-4 hidden md:block"></div>
+      <div className="flex-1 content-center ">
+        <h3 className="text-5xl font-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>89+</h3>
+        <p className="text-sm mt-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Faculty Courses</p>
+      </div>
+      <div className="w-px bg-white opacity-50 mx-4 hidden md:block"></div>
+      <div className="flex-1 content-center">
+        <h3 className="text-5xl font-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>156K</h3>
+        <p className="text-sm mt-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Best Professors</p>
+      </div>
+      <div className="w-px bg-white opacity-50 mx-4 hidden md:block"></div>
+      <div className="flex-1 content-center">
+        <h3 className="text-5xl font-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>42K</h3>
+        <p className="text-sm mt-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Award Achieved</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div className="flex justify-between items-center bg-gradient-to-r from-purple-50 to-purple-100 p-10 rounded-lg">
+    <div className="w-1/2 flex flex-col items-center text-center relative">
+      {/* <div className="absolute top-[-40px]">
+        <svg className="w-[300px] h-[150px]" viewBox="0 0 200 200">
+          <defs>
+            <path
+              id="circlePath"
+              d="M 100, 100 m -100, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+            />
+          </defs>
+          <text fontSize="24" fontWeight="bold" fill="#6B46C1">
+            <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
+              *EDUCATION * SYSTEM * CAN * MAKE * CHANGE *
+            </textPath>
+          </text>
+        </svg>
+      </div> */}
+      
+      <div className="relative rounded-full bg-yellow-300 w-[300px] h-96 overflow-hidden">
+        <img
+          src="\images\introduce-student.png" 
+          alt="student"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+      
+    </div>
+
+    {/* Right side (Text content) */}
+    <div className="w-1/2 space-y-5">
+      <h2 className="text-3xl font-bold text-purple-900">Start Learning From World's Pro Instructors</h2>
+      <p className="text-gray-600">
+        Groove’s intuitive shared inbox makes it easy for team members to organize, prioritize, and collaborate.
+      </p>
+    </div>
+    <div>
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It adheres to the WAI-ARIA design pattern.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It comes with default styles that matches the other
+          components&apos; aesthetic.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It&apos;s animated by default, but you can disable it if you
+          prefer.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+    </div>
+  </div>
+</section>
       </div>
     <FooterAuth></FooterAuth>
     </div>
