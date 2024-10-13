@@ -1,10 +1,10 @@
-import ItemCourses from '@/components/ItemCourses'
+import ItemCourses2 from '@/components/ui/ItemCourses2'
 import React from 'react'
 
 export default function page() {
   return (
     <div>
-      <ItemCourses></ItemCourses>
+      <ItemCourses2></ItemCourses2>
     </div>
   )
 }
