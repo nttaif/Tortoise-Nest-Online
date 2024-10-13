@@ -44,6 +44,7 @@ interface User{
     biography?: string,
     phoneNumber?: string,
     image?: string,
+    age?:number,
     accountType?: string;
     isActivity?: boolean;
     code_id?: string;

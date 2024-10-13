@@ -24,7 +24,7 @@ export default async function Page (props:IProps) {
       Authorization: `Bearer ${session?.user?.access_token}`,
     },
     nextOption:{
-      next:{tag:['list-users']}
+      next:{tag:['list-users']} //call revalidate Tag
     }
   });
   return (

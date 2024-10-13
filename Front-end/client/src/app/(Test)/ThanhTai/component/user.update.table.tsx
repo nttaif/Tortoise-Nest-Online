@@ -6,20 +6,35 @@ import {
     DialogTitle,
   } from "@/components/ui/dialog";
 import { User } from '@/types/next-auth';
+import { handleUpdateUserAction } from '@/utils/actions';
+import { notification } from 'antd';
 interface IProps{
     selectedUser:User| null
     setSelectedUser:(value:User)=>void
     isShowDialog:boolean
     setIsShowDialog: (value: boolean)=>void
     isEditable:boolean
-}
+    }
     export default function UserViewAndUpdateTable(props:IProps) {
-    const {selectedUser,setSelectedUser,isShowDialog,setIsShowDialog,isEditable}=props
-    const handleConfirm = () => {
-        console.log("Xác nhận thay đổi:", selectedUser);
-        setIsShowDialog(false);
-    };
-  return (
+        const {selectedUser,setSelectedUser,isShowDialog,setIsShowDialog,isEditable}=props
+        const handleConfirm = async () => {
+            console.log("Xác nhận thay đổi:", selectedUser);
+            const res = await handleUpdateUserAction(selectedUser);
+            if(res.statusCode===200){
+                notification.success({
+                    message:"Cập nhật thông tin thành công"
+                })
+                setIsShowDialog(!isShowDialog);
+            }else{
+                notification.error({
+                    message:"Cập nhật thông tin thất bại vui lòng thử lại sau!"
+                })
+            }
+            console.log(">>>>>>>check res:", res);
+
+        };
+        
+    return (
     <div>
         <Dialog open={isShowDialog} onOpenChange={setIsShowDialog}>
                     <DialogContent className="max-w-lg mx-auto p-6 rounded-lg shadow-lg bg-white">
@@ -28,7 +43,6 @@ interface IProps{
                                 {isEditable ? 'Chỉnh sửa thông tin người dùng' : 'Thông tin người dùng'}
                             </DialogTitle>
                         </DialogHeader>
-
                         {selectedUser ? (
                             <div className="grid grid-cols-2 gap-4 mt-4">
                                 <div className="col-span-2 flex items-center justify-center">
@@ -45,7 +59,7 @@ interface IProps{
                                 <div>
                                     <p className="font-semibold text-gray-600">Họ và tên:</p>
                                     <input
-                                        type="text"
+                                        type="name"
                                         className="w-full border rounded p-2"
                                         value={selectedUser.name}
                                         onChange={(e) =>
@@ -63,13 +77,13 @@ interface IProps{
                                         onChange={(e) =>
                                             setSelectedUser({ ...selectedUser, email: e.target.value })
                                         }
-                                        disabled={!isEditable}
+                                        disabled={true}
                                     />
                                 </div>
                                 <div className="col-span-2">
                                     <p className="font-semibold text-gray-600">Vai trò:</p>
                                     <input
-                                        type="email"
+                                        type="role"
                                         className="w-full border rounded p-2"
                                         value={selectedUser.role}
                                         onChange={(e) =>
@@ -81,7 +95,7 @@ interface IProps{
                                 <div className="col-span-2">
                                     <p className="font-semibold text-gray-600">Số điện thoại:</p>
                                     <input
-                                        type="email"
+                                        type="phoneNumber"
                                         className="w-full border rounded p-2"
                                         value={selectedUser.phoneNumber}
                                         onChange={(e) =>
@@ -90,7 +104,7 @@ interface IProps{
                                         disabled={!isEditable}
                                     />
                                 </div>
-                                <div className="col-span-2">
+                                <div>
                                     <p className="font-semibold text-gray-600">Ngày sinh</p>
                                     <input
                                         type="email"
@@ -102,10 +116,22 @@ interface IProps{
                                         disabled={!isEditable}
                                     />
                                 </div>
+                                <div>
+                                    <p className="font-semibold text-gray-600">Tuổi</p>
+                                    <input
+                                        type="email"
+                                        className="w-full border rounded p-2"
+                                        value={selectedUser.age}
+                                        onChange={(e) =>
+                                            setSelectedUser({ ...selectedUser, age: parseInt(e.target.value) })
+                                        }
+                                        disabled={!isEditable}
+                                    />
+                                </div>
                                 <div className="col-span-2">
                                     <p className="font-semibold text-gray-600">Giới thiệu cá nhân</p>
                                     <input
-                                        type="email"
+                                        type="bio"
                                         className="w-full border rounded p-2"
                                         value={selectedUser.biography}
                                         onChange={(e) =>

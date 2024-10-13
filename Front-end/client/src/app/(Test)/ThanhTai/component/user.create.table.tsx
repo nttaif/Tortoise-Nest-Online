@@ -32,7 +32,6 @@ export default function UserCreateTable(props:IProps) {
         };
         console.log('Response:', newUser);
         const res = await handleCreateUserAction(newUser);
-        console.log('>>>>>>>>>>>Response:', res);
         if(res.statusCode===201){
             setIsCreate(false)
         }else if(res.statusCode===400){

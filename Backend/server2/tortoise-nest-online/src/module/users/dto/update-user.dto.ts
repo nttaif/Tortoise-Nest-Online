@@ -9,6 +9,8 @@ export class UpdateUserDto{
     @IsOptional()
     age: number;
     @IsOptional()
+    role:string;
+    @IsOptional()
     phoneNumber:number;
     @IsOptional()
     image:string;

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     Table,
     TableBody,
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/table";
 
 import { User } from '@/types/next-auth';
-import { Pagination } from 'antd';
+import { notification, Pagination } from 'antd';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
     AlertDialog,
@@ -26,6 +26,7 @@ import {
 import { Button } from '@/components/ui/button';
 import UserCreateTable from './component/user.create.table';
 import UserViewAndUpdateTable from './component/user.update.table';
+import { handleDeleteUserAction } from '@/utils/actions';
 
 interface IProps {
     users: User[] | [];
@@ -66,10 +67,27 @@ export default function UserTable(props: IProps) {
         }
     };
 
-    const handleDelete = (userId: string) => {
-        console.log("Xóa người dùng với ID:", userId);
-        setIsDelete(true);
+    const handleDelete =(userId: string) => {
+        const user = users.find(item => item._id === userId);
+        if (user) {
+            setSelectedUser(user);
+            setIsDelete(!isDelete);
+        }
     };
+    const handleSubmitDelete = async (userId?:string)=>{
+        console.log("Xóa người dùng với ID:", userId);
+        const res = await handleDeleteUserAction(userId);
+        if(res.statusCode===200){
+            notification.success({
+                message:"Xoá người dùng thành công"
+            })
+            setIsDelete(!isDelete);
+        }else{
+            notification.error({
+                message:"Xoá người dùng vui lòng thử lại sau!"
+            })
+        }
+    }
 
     const handleCreate = () => {
         setIsCreate(true);
@@ -133,7 +151,7 @@ export default function UserTable(props: IProps) {
                 />
             </div>
 
-            <AlertDialog open={isDelete} onOpenChange={setIsDelete}>
+            <AlertDialog open={isDelete}>
                 <AlertDialogContent className="max-w-md mx-auto p-6 rounded-lg shadow-lg bg-white">
                     <AlertDialogHeader>
                         <div className="flex items-center gap-3">
@@ -152,7 +170,7 @@ export default function UserTable(props: IProps) {
 
                     <AlertDialogFooter className="flex justify-end gap-4 mt-6">
                         <AlertDialogCancel className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300">Huỷ</AlertDialogCancel>
-                        <AlertDialogAction className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">Xác nhận</AlertDialogAction>
+                        <AlertDialogAction className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700" onClick={()=>{handleSubmitDelete(selectedUser?._id)}}>Xác nhận</AlertDialogAction>
                     </AlertDialogFooter>
                 </AlertDialogContent>
             </AlertDialog>

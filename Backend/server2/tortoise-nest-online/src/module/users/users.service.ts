@@ -33,7 +33,6 @@ export class UsersService {
     return false;
   }
   async create(createUserDto: CreateUserDto) {
-    console.log(">>>>create user: ")
     const{name,email,password,phoneNumber,image,dateOfBirth,biography}=createUserDto;
     const isExists= await this.isEmailExist(email);
     if(isExists===true){
