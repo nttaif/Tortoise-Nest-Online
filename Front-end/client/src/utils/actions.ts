@@ -16,17 +16,17 @@ export async function authenticate(username: string, password: string) {
     // Sử dụng kiểm tra loại để đảm bảo error có thuộc tính 'name' và 'type'
     if (error instanceof Error && error.name === "InvalidEmailPasswordError") {
       return {
-        error: error.name,
+        error:  'Sai tên đăng nhập hoặc mật khẩu!',
         code: 1
       };
     } else if (error instanceof Error && error.name === "InActiveAccountError") {
       return {
-        error: error.name,
+        error: 'Tài khoản chưa được kích hoạt vui lòng kích hoạt tài khoản!',
         code: 2
       };
     } else {
       return {
-        error: 'Internal server error',
+        error: 'Lỗi kết nối đến server vui lòng thử lại sau!',
         code: 0
       };
     }
