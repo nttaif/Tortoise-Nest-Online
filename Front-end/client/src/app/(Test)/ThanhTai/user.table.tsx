@@ -1,5 +1,5 @@
-'use client'
-import React, { useState } from 'react'
+'use client';
+import React, { useState } from 'react';
 import {
     Table,
     TableBody,
@@ -9,14 +9,9 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-  } from "@/components/ui/dialog"
+
 import { User } from '@/types/next-auth';
-import { Pagination } from 'antd';
+import { notification, Pagination } from 'antd';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
     AlertDialog,
@@ -27,66 +22,87 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-  } from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
+import { Button } from '@/components/ui/button';
+import UserCreateTable from './component/user.create.table';
+import UserViewAndUpdateTable from './component/user.update.table';
+import { handleDeleteUserAction } from '@/utils/actions';
+
 interface IProps {
     users: User[] | [];
-    meta:{
-        current:number,
-        pageSize:number,
-        pages:number,
-        total:number,
-    }
+    meta: {
+        current: number;
+        pageSize: number;
+        pages: number;
+        total: number;
+    };
 }
 
 export default function UserTable(props: IProps) {
     const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-    const { users,meta} = props;
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const { users, meta } = props;
     const [isShowDialog, setIsShowDialog] = useState(false);
-    const [selectedUser, setSelectedUser] = useState<User | null>(null); // State để lưu người dùng được chọn
-    const [isEditable, setIsEditable] = useState(false); // Trạng thái chỉnh sửa
-    const [isDelete, setisDelete] = useState(false); // Trạng thái chỉnh sửa
+    const [selectedUser, setSelectedUser] = useState<User | null>(null);
+    const [isEditable, setIsEditable] = useState(false);
+    const [isDelete, setIsDelete] = useState(false);
+    const [isCreate, setIsCreate] = useState(false);
+
     const handleView = (userId: string) => {
-        // Thực hiện hành động xem người dùng
-        console.log("Xem người dùng với ID:",users.find(item=>item._id===userId) );
         const user = users.find(item => item._id === userId);
         if (user) {
             setSelectedUser(user);
-            setIsEditable(false); // Chế độ xem
+            setIsEditable(false);
             setIsShowDialog(true);
         }
-        
     };
+
     const handleEdit = (userId: string) => {
-        // Thực hiện hành động sửa người dùng
         const user = users.find(item => item._id === userId);
         if (user) {
             setSelectedUser(user);
-            setIsEditable(true); // Chế độ chỉnh sửa
+            setIsEditable(true);
             setIsShowDialog(true);
         }
-       
-        
     };
-    const handleConfirm = () => {
-        console.log("Xác nhận thay đổi:", selectedUser);
-        setIsShowDialog(false);
+
+    const handleDelete =(userId: string) => {
+        const user = users.find(item => item._id === userId);
+        if (user) {
+            setSelectedUser(user);
+            setIsDelete(!isDelete);
+        }
     };
-    const handleDelete = (userId: string) => {
-        // Thực hiện hành động xóa người dùng
+    const handleSubmitDelete = async (userId?:string)=>{
         console.log("Xóa người dùng với ID:", userId);
-        setisDelete(true);
+        const res = await handleDeleteUserAction(userId);
+        if(res.statusCode===200){
+            notification.success({
+                message:"Xoá người dùng thành công"
+            })
+            setIsDelete(!isDelete);
+        }else{
+            notification.error({
+                message:"Xoá người dùng vui lòng thử lại sau!"
+            })
+        }
+    }
+
+    const handleCreate = () => {
+        setIsCreate(true);
     };
+
     const onChange = (page: number, pageSize?: number) => {
-        const params = new URLSearchParams(searchParams.toString()); // Chuyển đổi sang mutable
+        const params = new URLSearchParams(searchParams.toString());
         params.set('current', page.toString());
         if (pageSize) params.set('pageSize', pageSize.toString());
-        // Cập nhật URL mà không reload trang
         router.replace(`${pathname}?${params.toString()}`);
-      };
+    };
+
     return (
         <div className='container mx-auto mt-10'>
+            <Button variant={"btn_home"} onClick={handleCreate} className='mb-5'>Tạo người dùng</Button>
             <Table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden" key={"id"}>
                 <TableCaption className="text-lg font-semibold text-gray-700">Danh sách người dùng</TableCaption>
                 <TableHeader className="bg-gray-200">
@@ -111,21 +127,9 @@ export default function UserTable(props: IProps) {
                                     </span>
                                 </TableCell>
                                 <TableCell className="p-4">
-                                    <button 
-                                        onClick={() => handleView(user._id)} 
-                                        className="text-blue-600 hover:underline mr-2">
-                                        Xem
-                                    </button>
-                                    <button 
-                                        onClick={() => handleEdit(user._id)} 
-                                        className="text-yellow-600 hover:underline mr-2">
-                                        Sửa
-                                    </button>
-                                    <button 
-                                        onClick={() => handleDelete(user._id)} 
-                                        className="text-red-600 hover:underline">
-                                        Xóa
-                                    </button>
+                                    <button onClick={() => handleView(user._id)} className="text-blue-600 hover:underline mr-2">Xem</button>
+                                    <button onClick={() => handleEdit(user._id)} className="text-yellow-600 hover:underline mr-2">Sửa</button>
+                                    <button onClick={() => handleDelete(user._id)} className="text-red-600 hover:underline">Xóa</button>
                                 </TableCell>
                             </TableRow>
                         ))
@@ -146,135 +150,34 @@ export default function UserTable(props: IProps) {
                     onChange={onChange}
                 />
             </div>
-            <>
-                <Dialog open={isShowDialog} onOpenChange={setIsShowDialog}>
-                    <DialogContent className="max-w-lg mx-auto p-6 rounded-lg shadow-lg bg-white">
-                        <DialogHeader>
-                            <DialogTitle className="text-2xl font-bold text-gray-700">
-                                {isEditable ? 'Chỉnh sửa thông tin người dùng' : 'Thông tin người dùng'}
-                            </DialogTitle>
-                        </DialogHeader>
 
-                        {selectedUser ? (
-                            <div className="grid grid-cols-2 gap-4 mt-4">
-                                <div className="col-span-2 flex items-center justify-center">
-                                    <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <span className="text-3xl font-semibold text-white">
-                                            {selectedUser.name.charAt(0).toUpperCase()}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-gray-600">ID:</p>
-                                    <p className="text-gray-800">{selectedUser._id}</p>
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-gray-600">Họ và tên:</p>
-                                    <input
-                                        type="text"
-                                        className="w-full border rounded p-2"
-                                        value={selectedUser.name}
-                                        onChange={(e) =>
-                                            setSelectedUser({ ...selectedUser, name: e.target.value })
-                                        }
-                                        disabled={!isEditable}
-                                    />
-                                </div>
-                                <div className="col-span-2">
-                                    <p className="font-semibold text-gray-600">Email:</p>
-                                    <input
-                                        type="email"
-                                        className="w-full border rounded p-2"
-                                        value={selectedUser.email}
-                                        onChange={(e) =>
-                                            setSelectedUser({ ...selectedUser, email: e.target.value })
-                                        }
-                                        disabled={!isEditable}
-                                    />
-                                </div>
-                                <div className="col-span-2">
-                                    <p className="font-semibold text-gray-600">Vai trò:</p>
-                                    <input
-                                        type="email"
-                                        className="w-full border rounded p-2"
-                                        value={selectedUser.role}
-                                        onChange={(e) =>
-                                            setSelectedUser({ ...selectedUser, email: e.target.value })
-                                        }
-                                        disabled={!isEditable}
-                                    />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-gray-600">Loại tài khoản:</p>
-                                    <p className="text-gray-800">{selectedUser.accountType}</p>
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-gray-600">Ngày tạo tài khoản:</p>
-                                    <p className="text-gray-800">{selectedUser.createdAt}</p>
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-gray-600">Ngày cập nhật gần nhất:</p>
-                                    <p className="text-gray-800">{selectedUser.updatedAt}</p>
-                                </div>
+            <AlertDialog open={isDelete}>
+                <AlertDialogContent className="max-w-md mx-auto p-6 rounded-lg shadow-lg bg-white">
+                    <AlertDialogHeader>
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="red" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m0 0v6m0-6h6m-6 0H6" />
+                                </svg>
                             </div>
-                        ) : (
-                            <p className="text-center text-gray-500">Không tìm thấy thông tin người dùng.</p>
-                        )}
-
-                        <div className="flex justify-end gap-4 mt-6">
-                            {isEditable && (
-                                <div className="flex justify-end gap-4 mt-6">
-                                    <button
-                                        onClick={() => setIsShowDialog(false)}
-                                        className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">
-                                        Huỷ
-                                    </button>
-                                    <button
-                                        onClick={handleConfirm}
-                                        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-                                        Xác nhận
-                                    </button>
-                                </div>
-                            )}
+                            <AlertDialogTitle className="text-xl font-semibold text-gray-800">Bạn có chắc chắn muốn xóa?</AlertDialogTitle>
                         </div>
-                    </DialogContent>
-                </Dialog>
-                <AlertDialog open={isDelete} onOpenChange={setisDelete}>
-                    <AlertDialogContent className="max-w-md mx-auto p-6 rounded-lg shadow-lg bg-white">
-                        <AlertDialogHeader>
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full">
-                                    <svg 
-                                        xmlns="http://www.w3.org/2000/svg" 
-                                        fill="none" 
-                                        viewBox="0 0 24 24" 
-                                        strokeWidth="1.5" 
-                                        stroke="red" 
-                                        className="w-6 h-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                </div>
-                                <AlertDialogTitle className="text-xl font-semibold text-gray-800">
-                                    Bạn có chắc chắn muốn xóa?
-                                </AlertDialogTitle>
-                            </div>
-                        </AlertDialogHeader>
+                    </AlertDialogHeader>
 
-                        <AlertDialogDescription className="mt-4 text-gray-600">
-                            Hành động này không thể hoàn tác. Người dùng sẽ bị xóa vĩnh viễn và toàn bộ dữ liệu liên quan cũng sẽ bị xóa khỏi hệ thống.
-                        </AlertDialogDescription>
+                    <AlertDialogDescription className="mt-4 text-gray-600">
+                        Hành động này không thể hoàn tác. Người dùng sẽ bị xóa vĩnh viễn và toàn bộ dữ liệu liên quan cũng sẽ bị xóa khỏi hệ thống.
+                    </AlertDialogDescription>
 
-                        <AlertDialogFooter className="flex justify-end gap-4 mt-6">
-                            <AlertDialogCancel className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300">
-                                Huỷ
-                            </AlertDialogCancel>
-                            <AlertDialogAction className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">
-                                Xác nhận
-                            </AlertDialogAction>
-                        </AlertDialogFooter>
-                    </AlertDialogContent>
-                </AlertDialog>
-            </>
+                    <AlertDialogFooter className="flex justify-end gap-4 mt-6">
+                        <AlertDialogCancel className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300">Huỷ</AlertDialogCancel>
+                        <AlertDialogAction className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700" onClick={()=>{handleSubmitDelete(selectedUser?._id)}}>Xác nhận</AlertDialogAction>
+                    </AlertDialogFooter>
+                </AlertDialogContent>
+            </AlertDialog>
+            
+            <UserViewAndUpdateTable selectedUser={selectedUser} isEditable={isEditable} isShowDialog={isShowDialog} setIsShowDialog={setIsShowDialog} setSelectedUser={setSelectedUser} />
+            {/* Taọ user */}
+            <UserCreateTable isCreate={isCreate} setIsCreate={setIsCreate} />
         </div>
-    )
+    );
 }
