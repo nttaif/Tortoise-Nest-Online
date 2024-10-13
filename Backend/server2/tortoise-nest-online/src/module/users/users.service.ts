@@ -71,7 +71,15 @@ export class UsersService {
       .sort(sort as any);
   
     // Trả về kết quả và tổng số trang
-    return { results, totalPage };
+    return { 
+      meta:{
+        current:current,
+        pageSize:pageSize,
+        pages:totalPage,
+        total:totalItems,
+      },
+      results
+      };
   }
   
   async findUserByID(_id: string) {
