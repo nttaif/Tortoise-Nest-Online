@@ -54,27 +54,27 @@ export default function page() {
           {/* Thông tin chi tiết khóa học */}
           <div className="text-gray-600 space-y-3 mb-4">
             <div className="flex justify-between">
-              <span className="font-semibold">Level:</span> 
+              <span className="font-semibold">Level:</span>
               <span>Expert</span>
             </div>
             <div className="flex justify-between">
-              <span className="font-semibold">Duration:</span> 
+              <span className="font-semibold">Duration:</span>
               <span>11h 20m</span>
             </div>
             <div className="flex justify-between">
-              <span className="font-semibold">Lessons:</span> 
+              <span className="font-semibold">Lessons:</span>
               <span>12</span>
             </div>
             <div className="flex justify-between">
-              <span className="font-semibold">Quizzes:</span> 
+              <span className="font-semibold">Quizzes:</span>
               <span>145</span>
             </div>
             <div className="flex justify-between">
-              <span className="font-semibold">Certifications:</span> 
+              <span className="font-semibold">Certifications:</span>
               <span>Yes</span>
             </div>
             <div className="flex justify-between">
-              <span className="font-semibold">Graduation:</span> 
+              <span className="font-semibold">Graduation:</span>
               <span>25K</span>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function page() {
       <div className="mt-6 bg-white rounded-lg shadow-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-2xl font-bold">Resolving Conflicts Between Designers And Engineers</h1>
-          <div className="text-yellow-500 flex items-center">★ 4.5 Reviews</div>
+          <div className="text-yellow-500 flex items-center">4.5 Reviews</div>
         </div>
         <p className="text-gray-600">By David Millar</p>
         <p className="text-gray-600 mb-6">24/07/2024 • 2,250 Students</p>

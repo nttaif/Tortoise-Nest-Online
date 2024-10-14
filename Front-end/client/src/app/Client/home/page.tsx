@@ -24,8 +24,7 @@ export default async function page() {
 
   return (
     <div>
-    <HeaderAuth>
-    </HeaderAuth>
+    <HeaderAuth></HeaderAuth>
     <div className='w-full h-[2000px] bg-white '  >
     <section id='banner' className=' w-[full] flex bg-banner-main pt-2  ' >
       <div className='w-full' >

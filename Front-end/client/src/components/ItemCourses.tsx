@@ -33,7 +33,7 @@ export default function ItemCourses({
 }: ItemCoursesProps) {
   return (
     <div className='group content-center max-w-xs mx-auto rounded-xl overflow-hidden  bg-white p-4 border-gray-400 border-2 shadow-[0_0_0_rgb(224,224,224)] duration-700 hover:shadow-[9px_9px_0px_rgb(224,224,224)] hover:duration-700 text-black ease-out hover:translate-y-0 transition-all '>
-      <div className=' card'>
+      <div className='card'>
         <div className='  relative w-full bg-red-200 cursor-pointer rounded-[10px]'>
           <Image
             className='rounded-[10px]'

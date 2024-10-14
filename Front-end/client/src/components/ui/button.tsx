@@ -20,8 +20,9 @@ const buttonVariants = cva(
         ghost: "font-bold",
         link: "text-primary underline-offset-4 hover:underline",
         icon_social: "bg-white",
-        btn_home:"btn shadow-[9px_9px_0_rgb(0,0,0)] duration-700 hover:shadow-[0_0_0px_rgb(0,0,0)] hover:duration-700 text-black bg-white ease-out hover:translate-y-0 transition-all rounded " 
-        
+        btn_home: "btn shadow-[9px_9px_0_rgb(0,0,0)] duration-700 hover:shadow-[0_0_0px_rgb(0,0,0)] hover:duration-700 text-black bg-white ease-out hover:translate-y-0 transition-all rounded ",
+        btn_submit_courses: "btn shadow-[7px_7px_0_rgb(0,0,0)] duration-700 hover:shadow-[0_0_0px_rgb(0,0,0)] hover:duration-700 text-black bg-white ease-out hover:translate-y-0 transition-all rounded "
+
       },
       size: {
         default: "h-9 px-4 py-2",
@@ -39,7 +40,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 
