@@ -18,6 +18,51 @@ import {
 
 export default function page() {
 
+  const features = [
+    {
+      id: 1,
+      title: 'Learn with Experts',
+      description: 'Curate and share area with Pluralsight content to reach your goals.',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 sm:h-12 sm:w-12" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 15l-5-4h10l-5 4z" />
+          <path d="M5 10h10V5H5v5zm5-9C4.48 1 0 5.48 0 11s4.48 10 10 10 10-4.48 10-10S15.52 1 10 1z" />
+        </svg>
+      ),
+    },
+    {
+      id: 2,
+      title: 'Learn Anything',
+      description: 'Curate and share area with Pluralsight content to reach your goals.',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 sm:h-12 sm:w-12" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M13 7V4H7v3H4v6h3v3h6v-3h3V7h-3zm-1 5h-4V9h4v3z" />
+        </svg>
+      ),
+    },
+    {
+      id: 3,
+      title: 'Get Online Certificate',
+      description: 'Curate and share area with Pluralsight content to reach your goals.',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 sm:h-12 sm:w-12" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M4 3h12v2H4V3zm2 4h8v1H6V7zm0 3h8v1H6v-1zM4 14v-1h12v1H4z" />
+        </svg>
+      ),
+    },
+    {
+      id: 4,
+      title: 'Email Marketing',
+      description: 'Curate and share area with Pluralsight content to reach your goals.',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 sm:h-12 sm:w-12" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M4 3h12v2H4V3zm2 4h8v1H6V7zm0 3h8v1H6v-1zM4 14v-1h12v1H4z" />
+        </svg>
+      ),
+    },
+  ];
+  
+
   const itemsData = [
     { icon: '🔥', text: 'Hot', number: 1 },
     { icon: '🌟', text: 'Star', number: 2 },
@@ -353,20 +398,20 @@ export default function page() {
     </div>
   </div>
 </section>
-<section className="w-full h-fit pb-16">
-  <div className="flex flex-col lg:flex-row h-[800px] items-center justify-center bg-gradient-to-r from-purple-50 to-purple-100 p-10 rounded-lg space-y-10 lg:space-y-0 lg:space-x-10">
+<section className="w-full h-full pb-16">
+  <div className="flex flex-col lg:flex-row h-auto items-center justify-center bg-gradient-to-r from-purple-50 to-purple-100 p-10 rounded-lg space-y-10 lg:space-y-0 lg:space-x-10  ">
     <div className="w-full lg:w-1/4 flex justify-center lg:justify-start">
       <div className="relative w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px]">
         <Image
           src="/images/introduce-student.png"
           alt="student"
           className="absolute inset-0 object-cover"
-          width={500}
-          height={500}
+          width={300}
+          height={300}
         />
       </div>
     </div>
-    <div className="flex flex-col items-center content-center lg:items-start text-center lg:text-left space-y-6">
+    <div className="flex flex-col lg:w-1/2 h-auto items-center lg:items-start text-center lg:text-left space-y-6">
       <div className="flex justify-center lg:justify-start pb-4">
         <Badge className="w-45 h-auto text-xl text-center rounded-3xl" variant="mainbadge">
           Danh mục thịnh hành
@@ -380,7 +425,7 @@ export default function page() {
           Groove’s intuitive shared inbox makes it easy for team members to organize, prioritize, and collaborate.
         </p>
       </div>
-      <div className="w-full lg:w-[75%] text-black">
+      <div className="w-full min-h-[40vh] lg:w-[90%] text-black">
         <Accordion type="single" collapsible className="w-1/2 absolute">
           <AccordionItem value="item-1">
             <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -405,6 +450,35 @@ export default function page() {
         </Accordion>
       </div>
     </div>
+  </div>
+</section>
+<section className="w-full h-fit bg-gradient-to-r from-purple-900 to-indigo-900 text-white py-16">
+  <div className="container mx-auto flex flex-col items-center text-center space-y-16 md:space-y-20 px-4 md:px-0">
+    
+    {/* Header Section */}
+    <div className="space-y-6 md:space-y-12">
+      <Badge className="h-auto w- md:w-50 rounded-full text-base md:text-lg" variant="mainbadge">Hành Trình Của Chúng Ta</Badge>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+        Hãy bắt đầu hành trình học tập của bạn ngay hôm nay!
+      </h1>
+      <p className="text-sm sm:text-base md:text-lg font-thin  max-w-lg sm:max-w-xl md:max-w-2xl mx-auto text-[#acaacc]">
+        Groove’s intuitive shared inbox makes team members organize, prioritize, and collaborate effectively.
+      </p>
+    </div>
+    {/* Features Section */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 w-full">
+       {features.map((feature) => (
+      <div key={feature.id} className="flex flex-col items-center space-y-4">
+      <div className="bg-white text-purple-900 p-4 rounded-full hover:translate-y-2 duration-500">
+        {feature.icon}
+      </div>
+      <h3 className="text-lg sm:text-xl font-bold">{feature.title}</h3>
+      <p className="text-center text-sm md:text-base text-[#acaacc]">
+        {feature.description}
+      </p>
+    </div>
+  ))}
+</div>
   </div>
 </section>
       </div>
