@@ -59,3 +59,13 @@ interface User{
     updatedAt?: string; // Cũng có thể là string, nếu cần sử dụng đối tượng Date thì chuyển đổi sau
     __v?: number;
 }
+
+interface Courses{
+    _id?: string;
+    image?: File | string,
+    description?:string,
+    _idLecture?:string,
+    createdAt?: string; // Cũng có thể là string, nếu cần sử dụng đối tượng Date thì chuyển đổi sau
+    updatedAt?: string; // Cũng có thể là string, nếu cần sử dụng đối tượng Date thì chuyển đổi sau
+    __v?: number;
+}

@@ -10,7 +10,7 @@ import {
     TableRow,
 } from "@/components/ui/table";
 
-import { User } from '@/types/next-auth';
+import { UploadUrlData, User } from '@/types/next-auth';
 import { notification, Pagination } from 'antd';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
@@ -36,13 +36,14 @@ interface IProps {
         pages: number;
         total: number;
     };
+    resUpload:UploadUrlData
 }
 
 export default function UserTable(props: IProps) {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    const { users, meta } = props;
+    const { users, meta,resUpload } = props;
     const [isShowDialog, setIsShowDialog] = useState(false);
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
     const [isEditable, setIsEditable] = useState(false);
@@ -177,7 +178,7 @@ export default function UserTable(props: IProps) {
             
             <UserViewAndUpdateTable selectedUser={selectedUser} isEditable={isEditable} isShowDialog={isShowDialog} setIsShowDialog={setIsShowDialog} setSelectedUser={setSelectedUser} />
             {/* Taọ user */}
-            <UserCreateTable isCreate={isCreate} setIsCreate={setIsCreate} />
+            <UserCreateTable isCreate={isCreate} resUpload={resUpload} setIsCreate={setIsCreate} />
         </div>
     );
 }

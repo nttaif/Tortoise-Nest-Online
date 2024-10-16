@@ -2,6 +2,7 @@ import { sendRequest } from '@/utils/api';
 import React from 'react';
 import { auth } from '@/auth';
 import UserTable from '../../Admin/component/user.table';
+import handlerUrlUploadImage from '@/utils/actions';
 
 interface IProps {
   params:{id:string}
@@ -16,6 +17,7 @@ export default async function Page (props:IProps) {
     current: typeof current === 'string' ? current : current.toString(),
     pageSize: typeof pageSize === 'string' ? pageSize : pageSize.toString(),
   };
+  const resUpload =await handlerUrlUploadImage();
   const res = await sendRequest<IBackendRes<any>>({
     method: 'GET',
     url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users`,
@@ -29,7 +31,7 @@ export default async function Page (props:IProps) {
   });
   return (
     <div>
-      <UserTable users={res?.data?.results??[]} meta={res?.data?.meta}></UserTable>
+      <UserTable resUpload={resUpload?.data} users={res?.data?.results??[]} meta={res?.data?.meta}></UserTable>
     </div>
   );
 }
