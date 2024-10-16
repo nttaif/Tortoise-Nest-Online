@@ -90,7 +90,7 @@ export default function HeaderAuth(props:IBackendRes<ILogin>) {
             <div className={`hidden lg:flex lg:items-center`}>
               <ul className='flex justify-between text-[#161439] space-x-6'>
                 {["Home", "Courses", "Pages", "Dashboard"].map((menuItem, index) => (
-                  <li key={menuItem} className='flex items-center'>
+                  <li key={menuItem} className='flex items-center  '>
                     <DropdownMenu open={openDropdown === index} onOpenChange={() => {}}>
                       <DropdownMenuTrigger
                         asChild
