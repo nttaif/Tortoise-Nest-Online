@@ -24,8 +24,8 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from '@/components/ui/button';
-import UserCreateTable from './component/user.create.table';
-import UserViewAndUpdateTable from './component/user.update.table';
+import UserCreateTable from './user.create.table';
+import UserViewAndUpdateTable from './user.update.table';
 import { handleDeleteUserAction } from '@/utils/actions';
 
 interface IProps {

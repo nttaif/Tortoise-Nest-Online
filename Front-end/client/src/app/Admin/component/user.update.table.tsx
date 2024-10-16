@@ -8,6 +8,7 @@ import {
 import { User } from '@/types/next-auth';
 import { handleUpdateUserAction } from '@/utils/actions';
 import { notification } from 'antd';
+import Image from '@/components/popular/Image';
 interface IProps{
     selectedUser:User| null
     setSelectedUser:(value:User)=>void
@@ -46,11 +47,7 @@ interface IProps{
                         {selectedUser ? (
                             <div className="grid grid-cols-2 gap-4 mt-4">
                                 <div className="col-span-2 flex items-center justify-center">
-                                    <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <span className="text-3xl font-semibold text-white">
-                                            {selectedUser.name.charAt(0).toUpperCase()}
-                                        </span>
-                                    </div>
+                                    <Image/>
                                 </div>
                                 <div>
                                     <p className="font-semibold text-gray-600">ID:</p>

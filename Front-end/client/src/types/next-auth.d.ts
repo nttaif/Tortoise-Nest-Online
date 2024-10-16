@@ -33,6 +33,12 @@ declare module "next-auth" {
     }
 }
 
+interface UploadUrlData{
+        url: string;
+        signature: string;
+        api_key: string;
+        timestamp: number;
+}
 
 interface User{
     _id?: string;
@@ -43,7 +49,7 @@ interface User{
     dateOfBirth?: DateTime,
     biography?: string,
     phoneNumber?: string,
-    image?: string,
+    image?: File | string,
     age?:number,
     accountType?: string;
     isActivity?: boolean;
