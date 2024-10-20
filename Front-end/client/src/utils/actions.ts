@@ -3,7 +3,6 @@ import { auth, signIn } from "@/auth";
 import { sendRequest } from "./api";
 import { revalidateTag } from "next/cache";
 import { User } from "@/types/next-auth";
-
 //call to server
 //server returns response and we return to client
 export async function authenticate(username: string, password: string) {
@@ -88,3 +87,15 @@ export async function handleCreateUserAction(data:any) {
   return res;
 }
 
+
+export default async function handlerUrlUploadImage() {
+  const session = await auth();
+  const res = await sendRequest<IBackendRes<any>>({
+    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/upload/presigned-url`,
+    method: 'GET',
+    headers:{
+      Authorization: `Bearer ${session?.user.access_token}`,
+    },
+  })
+  return res;
+}
