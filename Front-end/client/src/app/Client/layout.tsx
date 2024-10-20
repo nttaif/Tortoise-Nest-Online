@@ -1,7 +1,7 @@
 import HeaderAuth from "@/components/HeaderAuth";
 import FooterAuth from "@/components/FooterAuth";
 import { auth } from '@/auth'
-export default function AdminLayout({
+export default async function AdminLayout({
     children,
   }: Readonly<{
     children: React.ReactNode;

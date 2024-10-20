@@ -11,8 +11,13 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { CoursesModule } from './module/courses/courses.module';
 import { TransformInterceptor } from './core/transform.interceptor';
+import { CloudinaryModule } from 'cloudinary.config';
+import { UploadModule } from './upload/upload.module';
+
 @Module({
 imports: [
+  CloudinaryModule,
+  UploadModule,
   ConfigModule.forRoot({
     isGlobal: true,
   }),
