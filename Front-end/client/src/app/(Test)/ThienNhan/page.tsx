@@ -78,10 +78,9 @@ export default function page() {
   ];
 
   return (
-    <div>
-    <HeaderAuth>
-    </HeaderAuth>
-    <div className='w-full h-fit bg-white pb-14 '  >
+    <div >
+    <HeaderAuth/>
+    <div className='w-full h-full bg-white pb-14 '  >
     <section id='banner' className='w-full flex flex-col md:flex-row bg-banner-main pt-2'>
       <div className='w-full'>
         <div className='flex flex-col md:flex-row justify-around w-full text-black'>
