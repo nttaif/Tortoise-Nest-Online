@@ -1,7 +1,5 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { HydratedDocument, HydrateOptions } from "mongoose";
-import { User } from "src/module/users/schemas/user.schema";
-
 export type CourseDocument = HydratedDocument<Course>;
 @Schema({timestamps:true})
 export class Course{
@@ -12,7 +10,7 @@ export class Course{
     @Prop()
     description:string;
     @Prop({type:mongoose.Types.ObjectId,ref:"Owner"})
-    _idLecture:User;
+    _idLecture:string;
 }
 
-export const CourseSchema =SchemaFactory.createForClass(Course)
+export const CourseSchema = SchemaFactory.createForClass(Course)
