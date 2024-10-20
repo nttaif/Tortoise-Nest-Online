@@ -1,317 +1,105 @@
-import React from 'react'
+import React from 'react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@radix-ui/react-accordion";
 
-export default function page() {
+export default function Page() {
   return (
-    <div className='flex flex-grow '>
-        <div className='w-1/4 bg-gray-50 p-4'>
+    <div className='flex flex-grow bg-gray-100 min-h-screen'>
+      {/* Sidebar with Accordion for Course Content */}
+      <div className='w-1/4 bg-white p-4 shadow-lg'>
         <h2 className='text-2xl font-semibold mb-4'>Course Content</h2>
-        <ul className='space-y-4'>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="introduction">
+            <AccordionTrigger className='text-xl flex justify-between items-center border-b border-slate-200 py-3 hover:bg-gray-50 transition-colors'>
+              <span>Introduction</span>
+              <div className='text-gray-500 text-xl ml-20'>1/3</div>
+            </AccordionTrigger>
+            <AccordionContent className='pl-4 text-sm'>
+              <div className='space-y-2 text-xl'>
+                <p className='mb-2'>Course Installation</p>
+                <p className='mb-2'>Create a Simple React App</p>
+                <p className='mb-2'>React for the Rest of Us</p>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
 
-            <div className=' border-b border-slate-200 text-xl flex justify-between items-center'>
-                
-                <span>Introduction</span>
-               <div className='flex items-center space-x-2'>
-              <span className='text-gray-500 text-sm '>1/3</span>
-              <button className='text-indigo-600'>-</button>
+          <AccordionItem value="capacitance">
+            <AccordionTrigger className='text-xl flex justify-between items-center border-b border-slate-200 py-3 hover:bg-gray-50 transition-colors'>
+              <span>Capacitance and Inductance</span>
+              <div className='text-gray-500 text-xl '>1/5</div>
+            </AccordionTrigger>
+            <AccordionContent className='pl-4 text-sm'>
+              <div className='space-y-2 text-xl'>
+                <p className='mb-2'>Understanding Capacitance</p>
+                <p className='mb-2'>Practical Applications</p>
+                <p className='mb-2'>Working with Inductors</p>
               </div>
-                </div>
-                <div className='pl-4'>
-                    
-                    <div className='flex justify-between items-center mb-2'>
-                        <div className='flex items-center space-x-2'>
-                            <button className='text-indigo-600'>
-                                <svg
-                                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    className="w-5 h-5">
-                              <path
-                                    strokeLinecap="round"
-                                 strokeLinejoin="round"
-                                 d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z" />
-                                </svg>
-                            </button>
-                            <p>Course Installation</p>
-                        </div>
-                        <span className="text-sm text-gray-500">03:03</span>
-                    </div>
-                    
-                    <div className="flex justify-between items-center mb-2">
-              <div className="flex items-center space-x-2">
-                <button className="text-indigo-600">
-                  <svg
-                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z"
-                    />
-                  </svg>
-                </button>
-                <p>Create a Simple React App</p>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-gray-500">07:48</span>
-                
-              </div>
-            </div>           
-            <div className="flex justify-between items-center mb-2">
-              <div className="flex items-center space-x-2">
-                <button className="text-indigo-600">
-                  <svg
-                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z"
-                    />
-                  </svg>
-                </button>
-                <p>React for the Rest for us</p>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-gray-500">10:48</span>
-                
-              </div>
-            </div>               
-             </div>
+            </AccordionContent>
+          </AccordionItem>
 
-             <div className=' border-b border-slate-200 text-xl flex justify-between items-center'>
-                <span>Capacitance and Inductance</span>
-               <div className='flex items-center space-x-2'>
-              <span className='text-gray-500 text-sm '>1/5</span>
-              <button className='text-indigo-600'>-</button>
+          <AccordionItem value="final-audit">
+            <AccordionTrigger className='text-xl flex justify-between items-center border-b border-slate-200 py-3 hover:bg-gray-50 transition-colors'>
+              <span>Final Audit</span>
+              <div className='text-gray-500 text-sm'>1/2</div>
+            </AccordionTrigger>
+            <AccordionContent className='pl-4 text-sm'>
+              <div className='space-y-2 text-xl'>
+                <p className='mb-2'>Review of Key Concepts</p>
+                <p className='mb-2'>Final Project Walkthrough</p>
               </div>
-                </div>
-                <div className='pl-4'>
-                    <div className='flex justify-between items-center mb-2'>
-                        <div className='flex items-center space-x-2'>
-                            <button className='text-indigo-600'>
-                                <svg
-                                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    className="w-5 h-5">
-                              <path
-                                    strokeLinecap="round"
-                                 strokeLinejoin="round"
-                                 d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z" />
-                                </svg>
-                            </button>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
 
-                            <p>Course Installation</p>
-                        </div>
-                        <span className="text-sm text-gray-500">03:03</span>
-                    </div>
-                    <div className="flex justify-between items-center mb-2">
-              <div className="flex items-center space-x-2">
-                <button className="text-indigo-600">
-                  <svg
-                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z"
-                    />
-                  </svg>
-                </button>
-                <p>Create a Simple React App</p>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-gray-500">07:48</span>
-                
-              </div>
-            </div>           
-            <div className="flex justify-between items-center mb-2">
-              <div className="flex items-center space-x-2">
-                <button className="text-indigo-600">
-                  <svg
-                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z"
-                    />
-                  </svg>
-                </button>
-                <p>React for the Rest for us</p>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-gray-500">10:48</span>
-             </div>
-            </div>  
-            <div className='flex justify-between items-center mb-2'>
-                        <div className='flex items-center space-x-2'>
-                            <button className='text-indigo-600'>
-                                <svg
-                                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    className="w-5 h-5">
-                              <path
-                                    strokeLinecap="round"
-                                 strokeLinejoin="round"
-                                 d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z" />
-                                </svg>
-                            </button>
-                            <p>Create a Simple React App</p>
-                        </div>
-                        <span className="text-sm text-gray-500">07:48</span>
-           </div>
-           <div className='flex justify-between items-center mb-2'>
-                        <div className='flex items-center space-x-2'>
-                            <button className='text-indigo-600'>
-                                <svg
-                                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    className="w-5 h-5">
-                              <path
-                                    strokeLinecap="round"
-                                 strokeLinejoin="round"
-                                 d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z" />
-                                </svg>
-                            </button>
-                            <p>React for the Rest for us</p>
-                        </div>
-                        <span className="text-sm text-gray-500">10:48</span>
-                    </div>
-
-        </div>
-        <div className=' border-b border-slate-200 text-xl flex justify-between items-center'>
-                
-                <span>Final Audit</span>
-               <div className='flex items-center space-x-2'>
-              <span className='text-gray-500 text-sm '>1/2</span>
-              <button className='text-indigo-600'>-</button>
-              </div>
-                </div>
-                <div className='pl-4'>
-                    
-                    <div className='flex justify-between items-center mb-2'>
-                        <div className='flex items-center space-x-2'>
-                            <button className='text-indigo-600'>
-                                <svg
-                                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    className="w-5 h-5">
-                              <path
-                                    strokeLinecap="round"
-                                 strokeLinejoin="round"
-                                 d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z" />
-                                </svg>
-                            </button>
-                            <p>Course Installation</p>
-                        </div>
-                        <span className="text-sm text-gray-500">03:03</span>
-                    </div>
-                    
-                    <div className="flex justify-between items-center mb-2">
-              <div className="flex items-center space-x-2">
-                <button className="text-indigo-600">
-                  <svg
-                    xmlns="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M14.752 11.168l-6.5-3.25A1 1 0 007 8.618v6.764a1 1 0 001.252.95l6.5-3.25a1 1 0 000-1.764z"
-                    />
-                  </svg>
-                </button>
-                <p>Create a Simple React App</p>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-gray-500">07:48</span>
-                
-              </div>
-            </div>           
-                       
-             </div>
-             
-        </ul>
+      {/* Main content area with video and course details */}
+      <div className='w-3/4 p-6'>
+        {/* Video Section */}
+        <div className=' p-4 rounded-md shadow-md mb-6'>
+          <iframe
+            className="w-full h-96 rounded-md"
+            src="https://www.youtube.com/embed/Ml4XCF-JS0k"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
 
-        <div className='w-3/4 bg-white p-6'>
-        <div className='mb-6'>
-            <iframe
-                className="w-full h-96 rounded-md"
-                src="https://www.youtube.com/embed/Ml4XCF-JS0k"
-                title="YouTube video"
-                allow="accelerometer;
-                       autoplay; 
-                       clipboard-write;
-                        encrypted-media;
-                        gyroscope; 
-                        picture-in-picture"
-                allowFullScreen
-                ></iframe>
-                
-        </div>
-
-        <div className="flex space-x-4">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
+        {/* Navigation buttons */}
+        <div className="flex space-x-3 mb-6 text-xl">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-full transition">
             Overview
           </button>
-          <button className="bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full">
+          <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-6 rounded-full transition">
             Instructors
           </button>
-          <button className="bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full">
+          <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-6 rounded-full transition">
             Reviews
           </button>
         </div>
 
-         <div className='bg-white p-4  mt-6 rounded shadow-lg'> 
-          <h2 className="text-xl font-semibold mb-2">Course Description</h2>
-          <p className="text-gray-700 mb-4">
-          Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.dolor sit amet, consectetur adipiscing elited do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        {/* Course description section */}
+        <div className='bg-white p-6 rounded-lg shadow-md'>
+          <h2 className="text-2xl font-semibold mb-3">Course Description</h2>
+          <p className="text-gray-700 mb-4 text-xl">
+            Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
           </p>
-          <h3 className="text-xl font-semibold mb-2">What you'll learn in this course?</h3>
-          <p className="text-gray-700 mb-4">
-          Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.dolor sit amet, consectetur adipiscing elited do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <ul className="list-disc pl-5 space-y-2">
+          <h3 className="text-2xl font-semibold mb-2">What you'll learn in this course?</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 text-xl">
             <li>Work with Core 6.0 Generation of data</li>
             <li>All the useful shortcuts</li>
             <li>Be able to create Flyers, Brochures, Advertisements</li>
             <li>How to work with Images and Text</li>
           </ul>
-          <p className="text-gray-700 mb-4">
-          Morem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magn.</p>
-
+          <p className="text-gray-700 mt-4 text-xl">
+            Morem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
         </div>
-
-       </div>
+      </div>
     </div>
-   
-  )
-} 
+  );
+}
