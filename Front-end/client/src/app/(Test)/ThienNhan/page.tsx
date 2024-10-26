@@ -9,6 +9,8 @@ import Marquee from "react-fast-marquee";
 import ItemCourses from '@/components/ItemCourses';
 import Image from 'next/image'
 import CardSubject from '@/components//CardSubject';
+import Instructors from '@/components/InstructorCard';
+
 import {
   Accordion,
   AccordionContent,
@@ -253,127 +255,15 @@ export default function page() {
       </div>
       <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-          <div className="flex items-center space-x-4 mb-4">
-            <img
-              src="/path-to-image/instructor1.png"
-              alt="Instructor 1"
-              className="w-16 h-16 rounded-full object-cover"
-            />
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Mark Jukarberg</h4>
-              <p className="text-blue-500 text-sm">UX Design Lead</p>
-            </div>
-          </div>
-          <p className="text-yellow-500 text-sm flex items-center">
-            ⭐ 4.8 Ratings
-          </p>
-          <div className="flex mt-4 space-x-2">
-            <a href="#" className="text-blue-400">
-              {/* Add social media icons or placeholders */}
-              F
-            </a>
-            <a href="#" className="text-blue-400">
-              T
-            </a>
-            <a href="#" className="text-blue-400">
-              W
-            </a>
-            <a href="#" className="text-blue-400">
-              I
-            </a>
-          </div>
+        <Instructors/>
         </div>
         <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-          <div className="flex items-center space-x-4 mb-4">
-            <img
-              src="/path-to-image/instructor1.png"
-              alt="Instructor 1"
-              className="w-16 h-16 rounded-full object-cover"
-            />
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Mark Jukarberg</h4>
-              <p className="text-blue-500 text-sm">UX Design Lead</p>
-            </div>
-          </div>
-          <p className="text-yellow-500 text-sm flex items-center">
-            ⭐ 4.8 Ratings
-          </p>
-          <div className="flex mt-4 space-x-2">
-            <a href="#" className="text-blue-400">
-              {/* Add social media icons or placeholders */}
-              F
-            </a>
-            <a href="#" className="text-blue-400">
-              T
-            </a>
-            <a href="#" className="text-blue-400">
-              W
-            </a>
-            <a href="#" className="text-blue-400">
-              I
-            </a>
-          </div>
+        <Instructors/>
+        </div>
+        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+        <Instructors/>
         </div><div className="bg-gray-100 p-6 rounded-lg shadow-md">
-          <div className="flex items-center space-x-4 mb-4">
-            <img
-              src="/path-to-image/instructor1.png"
-              alt="Instructor 1"
-              className="w-16 h-16 rounded-full object-cover"
-            />
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Mark Jukarberg</h4>
-              <p className="text-blue-500 text-sm">UX Design Lead</p>
-            </div>
-          </div>
-          <p className="text-yellow-500 text-sm flex items-center">
-            ⭐ 4.8 Ratings
-          </p>
-          <div className="flex mt-4 space-x-2">
-            <a href="#" className="text-blue-400">
-              {/* Add social media icons or placeholders */}
-              F
-            </a>
-            <a href="#" className="text-blue-400">
-              T
-            </a>
-            <a href="#" className="text-blue-400">
-              W
-            </a>
-            <a href="#" className="text-blue-400">
-              I
-            </a>
-          </div>
-        </div>
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-          <div className="flex items-center space-x-4 mb-4">
-            <img
-              src="/path-to-image/instructor1.png"
-              alt="Instructor 1"
-              className="w-16 h-16 rounded-full object-cover"
-            />
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Mark Jukarberg</h4>
-              <p className="text-blue-500 text-sm">UX Design Lead</p>
-            </div>
-          </div>
-          <p className="text-yellow-500 text-sm flex items-center">
-            ⭐ 4.8 Ratings
-          </p>
-          <div className="flex mt-4 space-x-2">
-            <a href="#" className="text-blue-400">
-              {/* Add social media icons or placeholders */}
-              F
-            </a>
-            <a href="#" className="text-blue-400">
-              T
-            </a>
-            <a href="#" className="text-blue-400">
-              W
-            </a>
-            <a href="#" className="text-blue-400">
-              I
-            </a>
-          </div>
+        <Instructors/>
         </div>
         {/* Add more instructor cards similarly */}
       </div>
