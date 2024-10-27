@@ -18,20 +18,7 @@ export class UsersService {
     private readonly mailerService: MailerService
   ){}
 
-  isEmailExist= async(email:string)=>{
-    const user= await this.userModel.exists({email})
-    if(user!=null) return true;
-    return false;
-  }
-  isLecturerExist= async(_id:string)=>{
-    const user= await this.userModel.exists({_id})
-    if(user!=null){
-       const isLecturer= await this.findUserByID(_id);
-       if(isLecturer.role==='Lecturer')
-        return true;
-    } ;
-    return false;
-  }
+  
   async create(createUserDto: CreateUserDto) {
     const{name,email,password,phoneNumber,image,dateOfBirth}=createUserDto;
     const isExists= await this.isEmailExist(email);
@@ -189,6 +176,32 @@ export class UsersService {
     return {
       _id:user._id
     }
+  }
+
+  isEmailExist= async(email:string)=>{
+    const user= await this.userModel.exists({email})
+    if(user!=null) return true;
+    return false;
+  }
+
+  isLecturerExist= async(_id:string)=>{
+    const user= await this.userModel.exists({_id})
+    if(user!=null){
+       const isLecturer= await this.findUserByID(_id);
+       if(isLecturer.role==='Lecturer')
+        return true;
+    } ;
+    return false;
+  }
+
+  isStudentExist= async(_id:string)=>{
+    const user= await this.userModel.exists({_id})
+    if(user!=null){
+       const isLecturer= await this.findUserByID(_id);
+       if(isLecturer.role==='Users')
+        return true;
+    } ;
+    return false;
   }
 
 }

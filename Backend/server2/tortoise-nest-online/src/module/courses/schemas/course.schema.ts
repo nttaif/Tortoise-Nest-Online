@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { HydratedDocument, HydrateOptions } from "mongoose";
+import { CourseCategory } from "../dto/create-course.dto";
 export type CourseDocument = HydratedDocument<Course>;
 @Schema({timestamps:true})
 export class Course{
@@ -9,8 +10,10 @@ export class Course{
     image:string;
     @Prop()
     description:string;
-    @Prop({type:mongoose.Types.ObjectId,ref:"Owner"})
+    @Prop({type:mongoose.Types.ObjectId,ref:"Users"})
     _idLecture:string;
+    @Prop({ required: true, enum: CourseCategory })  // Đảm bảo enum trong schema
+    category: CourseCategory;
 }
 
 export const CourseSchema = SchemaFactory.createForClass(Course)

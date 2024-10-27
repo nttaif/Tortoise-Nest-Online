@@ -13,6 +13,8 @@ import { CoursesModule } from './module/courses/courses.module';
 import { TransformInterceptor } from './core/transform.interceptor';
 import { CloudinaryModule } from 'cloudinary.config';
 import { UploadModule } from './upload/upload.module';
+import { EnrollmentModule } from './module/enrollment/enrollment.module';
+import { LessonModule } from './module/lesson/lesson.module';
 
 @Module({
 imports: [
@@ -23,6 +25,7 @@ imports: [
   }),
   UsersModule,
   AuthModule,
+  LessonModule,
   CoursesModule,
   MongooseModule.forRootAsync({
     imports: [ConfigModule],
@@ -59,6 +62,7 @@ imports: [
     }),
     inject: [ConfigService],
   }),
+  EnrollmentModule,
 ],
 
   controllers: [AppController],

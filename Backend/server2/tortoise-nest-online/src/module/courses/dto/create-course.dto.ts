@@ -1,5 +1,12 @@
 import { IsMongoId, IsNotEmpty } from "class-validator";
 
+export  enum CourseCategory {
+    Technology = 'Technology',
+    Science = 'Science',
+    Art = 'Art',
+    Develop= 'Develop'
+    // Thêm các category khác nếu cần
+}
 export class CreateCourseDto {
     @IsNotEmpty()
     name:string;
@@ -10,5 +17,7 @@ export class CreateCourseDto {
     @IsNotEmpty()
     @IsMongoId()
     _idLecture:string;
+    @IsNotEmpty()
+    category:CourseCategory
 
 }
