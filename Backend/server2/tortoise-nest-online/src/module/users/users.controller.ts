@@ -17,10 +17,14 @@ export class UsersController {
     return this.usersService.findAll(query,+current,+pageSize);
   }
 
-  @Get(':id')
+  @Get('id/:id')
   findOne(@Param('id') id: string) {
     return this.usersService.findUserByID(id);
   }
+  @Get('/lecturer')
+  async findLecturer() {
+  return this.usersService.findAllByRole('Lecturer');
+}
 
   @Patch()
   update( @Body() updateUserDto: UpdateUserDto) {
