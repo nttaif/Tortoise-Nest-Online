@@ -54,18 +54,34 @@ interface User{
     accountType?: string;
     isActivity?: boolean;
     code_id?: string;
-    code_expried?: string; // Sử dụng string để lưu trữ ngày, sau đó có thể chuyển đổi thành Date nếu cần.
-    createdAt?: string; // Cũng có thể là string, nếu cần sử dụng đối tượng Date thì chuyển đổi sau
-    updatedAt?: string; // Cũng có thể là string, nếu cần sử dụng đối tượng Date thì chuyển đổi sau
+    code_expried?: string;
+    createdAt?: string;
+    updatedAt?: string; 
     __v?: number;
 }
 
 interface Courses{
     _id?: string;
-    image?: File | string,
-    description?:string,
-    _idLecture?:string,
-    createdAt?: string; // Cũng có thể là string, nếu cần sử dụng đối tượng Date thì chuyển đổi sau
-    updatedAt?: string; // Cũng có thể là string, nếu cần sử dụng đối tượng Date thì chuyển đổi sau
+    name?:string;
+    image?: File | string;
+    description?:string;
+    category?:string;
+    _idLecture?:string;
+    createdAt?: string;
+    updatedAt?: string;
+    __v?: number;
+}
+
+interface Lesson{
+    _id?: string;
+    _idCourses?:string;
+    image?: File | string;
+    content?:string;
+    category?:string;
+    view?:number;
+    isPublic?:boolean
+    point?:number;
+    createdAt?: string; 
+    updatedAt?: string; 
     __v?: number;
 }

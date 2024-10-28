@@ -1,7 +1,7 @@
-import React from 'react';
-import MenuAdmin from '@/components/MenuAdmin';
-import BannerAdmin from '@/components/BannerAdmin';
-import CoursesTab from '@/components/CoursesTab';
+import React from "react";
+import MenuAdmin from "@/components/MenuAdmin";
+import BannerAdmin from "@/components/BannerAdmin";
+import CoursesTab from "@/components/CoursesTab";
 
 export default function HomePage() {
   return (
@@ -14,17 +14,17 @@ export default function HomePage() {
           <div className="bg-gray-100 min-h-[80vh] flex flex-col lg:flex-row justify-between">
             {/* Sidebar */}
             <MenuAdmin />
-            
             {/* Content */}
             <div className="p-8">
-                <div className='bg-white rounded-xl'>
-                    <div className="px-12 py-12 ">
-                        <h2 className='font-semibold text-xl text-black pb-12'>Enrolled Courses</h2>
-                        <CoursesTab />
-                    </div>
+              <div className="bg-white rounded-xl">
+                <div className="px-12 py-12 ">
+                  <h2 className="font-semibold text-xl text-black pb-12">
+                    Enrolled Courses
+                  </h2>
+                  <CoursesTab />
                 </div>
+              </div>
             </div>
-            
           </div>
         </div>
       </div>

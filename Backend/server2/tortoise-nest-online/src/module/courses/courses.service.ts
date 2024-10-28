@@ -51,7 +51,7 @@ export class CoursesService {
   }
 
   async update(updateCourseDto: UpdateCourseDto) {
-    const { _id, ...updateData } = updateCourseDto;  // Tách riêng _id
+    const { _id, ...updateData } = updateCourseDto;  //Tách riêng _id
     return await this.courseModel.updateOne({_id:_id},{$set:updateData});
   }
 
@@ -64,5 +64,14 @@ export class CoursesService {
       throw new BadRequestException('Id không đúng định dạng mongoDB')
     }
     return mongoose;
+  }
+
+  isCoursesExist= async(_id:string)=>{
+    const courses= await this.courseModel.exists({_id})
+    if(courses!=null){
+       const isLecturer= await this.findCoursesById(_id);
+      return true;
+    } ;
+    return false;
   }
 }
