@@ -1,10 +1,10 @@
-import ItemCourses2 from '@/components/ui/ItemCourses2'
-import React from 'react'
+import React from 'react';
+import Skills from '@/components/instructorsdetail/skills';
 
-export default function page() {
+export default function Page() {
   return (
     <div>
-      <ItemCourses2></ItemCourses2>
+      < Skills />
     </div>
-  )
+  );
 }
