@@ -7,10 +7,15 @@ export class Lesson {
     @Prop({type:mongoose.Types.ObjectId,ref:'Courses'})
     _idCourses:string;
     @Prop()
-    lessonName:string;
+    category:string;
     @Prop()
     content:string;
-    @Prop()
+    @Prop({default:0})
     view:number;
+    @Prop({default:false})
+    isPublic:boolean;
+    @Prop({default:0})
+    point:number;
+    
 }
 export   const LessonSchema= SchemaFactory.createForClass(Lesson)

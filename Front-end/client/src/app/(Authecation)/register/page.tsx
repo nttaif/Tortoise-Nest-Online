@@ -4,7 +4,7 @@ import { Input, message, Modal, notification } from 'antd';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
-export default function page() {
+export default function Page() {
 
   const router = useRouter();
   const [name,setName]=useState('');
@@ -15,10 +15,33 @@ export default function page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [_idUser, set_idUser] = useState(''); 
 
+  const validatePassword = (password:string) => {
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumbers = /\d/.test(password);
+    const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const isValidLength = password.length >= 6;
+    return hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChars && isValidLength;
+  };
   const onFinish=async(e: React.FormEvent)=>{
     e.preventDefault();
     //logic validation đăng kí
+    // Validation
+    if (!validatePassword(password)) {
+      notification.error({
+        message: "Mật khẩu không hợp lệ",
+        description: "Mật khẩu phải có ít nhất 6 ký tự, ít nhất một ký tự in hoa, một số và một ký tự đặc biệt."
+      });
+      return;
+    }
 
+    if (password !== rePassword) {
+      notification.error({
+        message: "Mật khẩu không khớp",
+        description: "Mật khẩu và nhập lại mật khẩu không khớp."
+      });
+      return;
+    }
     //gọi API
     const res = await sendRequest<IBackendRes<any>>({
       method:'POST',

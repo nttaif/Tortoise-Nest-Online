@@ -2,9 +2,8 @@ import { IsMongoId, IsNotEmpty } from "class-validator";
 
 export  enum CourseCategory {
     Technology = 'Technology',
-    Science = 'Science',
-    Art = 'Art',
-    Develop= 'Develop'
+    Economy = 'Economy',
+    Education = 'Education',
     // Thêm các category khác nếu cần
 }
 export class CreateCourseDto {

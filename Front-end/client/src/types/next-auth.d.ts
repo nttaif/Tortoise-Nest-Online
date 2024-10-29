@@ -75,7 +75,6 @@ interface Courses{
 interface Lesson{
     _id?: string;
     _idCourses?:string;
-    image?: File | string;
     content?:string;
     category?:string;
     view?:number;
