@@ -1,6 +1,4 @@
 import React from 'react'
-import ImageUpload from '@/components/popular/ImageUpload';
-import { Input } from '@/components/ui/input';
 import AddCoursesTable from './component/add.courses.table';
 import { sendRequest } from '@/utils/api';
 import { auth } from '@/auth';

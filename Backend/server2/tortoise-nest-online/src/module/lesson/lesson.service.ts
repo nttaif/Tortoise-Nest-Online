@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { CreateLessonDto, createMultipleLessonsDto } from './dto/create-lesson.dto';
+import { CreateLessonDto } from './dto/create-lesson.dto';
 import { UpdateLessonDto } from './dto/update-lesson.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Lesson } from './schemas/lesson.schema';

@@ -86,17 +86,17 @@ export default function AddCoursesTable(props: IProp) {
     formData.append("timestamp", resUploadImage.timestamp.toString());
     formData.append("signature", resUploadImage.signature);
     try {
-      // const cloudinaryRes = await fetch(resUploadImage.url, {
-      //   method: "POST",
-      //   body: formData,
-      // });
-      // if (!cloudinaryRes.ok) throw new Error("Upload to Cloudinary failed");
-      // const cloudinaryData = await cloudinaryRes.json();
-      // const imageUrl = cloudinaryData.secure_url;
-      // if (!imageUrl) throw new Error("Failed to retrieve image URL from Cloudinary");
-      const resUploadCourses = await handleCreateCourses({ ...courses,image:"default"});
+      const cloudinaryRes = await fetch(resUploadImage.url, {
+        method: "POST",
+        body: formData,
+      });
+      if (!cloudinaryRes.ok) throw new Error("Upload to Cloudinary failed");
+      const cloudinaryData = await cloudinaryRes.json();
+      const imageUrl = cloudinaryData.secure_url;
+      if (!imageUrl) throw new Error("Failed to retrieve image URL from Cloudinary");
+      const resUploadCourses = await handleCreateCourses({ ...courses,image:imageUrl});
   
-      if (resUploadCourses.statusCode === 201) {
+      if (resUploadCourses.statusCode === 201) {  
         const iDNewCourses= resUploadCourses.data.course_id
         const listLessons = listLesson.map(lesson => ({
           ...lesson,

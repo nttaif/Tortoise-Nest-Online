@@ -120,13 +120,12 @@ export async function createMultipleLessons(lessonsArray:Lesson[]) {
   const session = await auth();
   try {
     console.log("Is array:", Array.isArray(lessonsArray));
-    console.log(">>>>check lesson: ",JSON.stringify({ lessons: lessonsArray }))
     const response = await sendRequest<IBackendRes<any>>({
       url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/lesson/mutipleLesson`,
       method: 'POST',
       headers: {
         Authorization: `Bearer ${session?.user.access_token}`,
-        'Content-Type': 'application/json',
+        'content-type': 'application/json',
       },
       body: { lessons: lessonsArray },
     });

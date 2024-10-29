@@ -16,7 +16,8 @@ export class CreateLessonDto {
     @IsOptional()
     view:number;
 }
-export class createMultipleLessonsDto {
+export  class CreateMultipleLessonsDto {
+    @IsNotEmpty()
     @IsArray()
     @ValidateNested({ each: true })
     @Type(() => CreateLessonDto)
