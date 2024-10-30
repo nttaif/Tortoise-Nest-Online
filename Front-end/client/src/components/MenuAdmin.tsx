@@ -1,14 +1,17 @@
+'use client'
 import React from 'react'
 import { RiBallPenLine, RiChat3Line, RiDashboardLine, RiFileList2Line, RiGitRepositoryLine, RiIdCardLine, RiMegaphoneLine, RiMenu2Line, RiQuestionLine, RiQuestionnaireLine, RiUserStarLine } from '@remixicon/react'
 import { RiSettings3Line } from 'react-icons/ri'
+import {useRouter } from 'next/navigation'
 
 export default function MenuAdmin() {
+    const router = useRouter();
   return (
     <div className=" lg:w-1/4 ">
         <div className='bg-white p-4 rounded-s-lg shadow-lg'>
             <ul className="space-y-2 p-3">
                 <h2 className="font-semibold text-gray-500 p-1">Welcome, Long Nguyen</h2>
-                <div className='bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300'>
+                <div className='bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300' onClick={()=>{router.push("/Admin/dashboard")}}>
                     <li className='flex items-center gap-2 font-semibold text-gray-500 ml-2 group'>
                     <RiDashboardLine
                     size={25}
@@ -17,7 +20,7 @@ export default function MenuAdmin() {
                     </li>
                 </div>
                 
-                <div className='bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300'>
+                <div className='bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300' onClick={()=>{router.push("/Admin/account")}}>
                     <li className='flex items-center gap-2 font-semibold text-gray-500 ml-2 group'>
                     <RiIdCardLine 
                     size={25}
@@ -26,7 +29,7 @@ export default function MenuAdmin() {
                     </li>
                 </div>
                     
-                <div className='bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300'>
+                <div className='bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300' onClick={()=>{router.push("/Admin/enrolled-courses")}}>
                     <li className='flex items-center gap-2 font-semibold text-gray-500 ml-2 group'>
                     <RiGitRepositoryLine
                     size={25}

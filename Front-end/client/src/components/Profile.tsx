@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function () {
+export default function Profile() {
   return (
-    <div className="bg-white shadow-lg rounded-xl p-10 w-full max-w-4xl mx-auto">
+    <div className="bg-white shadow-lg rounded-xl p-10 w-full max-w-7xl mx-auto">
       <h2 className="text-2xl font-bold mb-8 text-gray-800">My Profile</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
         {/* Row 1 */}

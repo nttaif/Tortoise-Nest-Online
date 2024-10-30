@@ -1,5 +1,5 @@
 import React from 'react'
-import AddCoursesTable from './component/add.courses.table';
+import AddCoursesTable from '../../../components/admin/courses/add.courses.table';
 import { sendRequest } from '@/utils/api';
 import { auth } from '@/auth';
 import { handlerUrlUploadImage } from '@/utils/actions';
@@ -17,5 +17,6 @@ export  default async function page() {
     <div className='container mx-auto'>
       <AddCoursesTable resUploadImage={resUploadImage?.data} listLecturer={listLecturer.data}></AddCoursesTable>
     </div>
+    
   )
 }

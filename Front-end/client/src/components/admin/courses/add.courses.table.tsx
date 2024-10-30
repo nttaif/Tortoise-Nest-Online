@@ -137,8 +137,8 @@ export default function AddCoursesTable(props: IProp) {
   return (
     <div>
       <AlertDialog>
-        <AlertDialogTrigger className="bg-black text-yellow-500 py-2 px-4 rounded-md font-semibold">
-          Open
+        <AlertDialogTrigger className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-full gap-1 btn shadow-[9px_9px_0_rgb(0,0,0)] duration-700 hover:shadow-[0_0_0px_rgb(0,0,0)] hover:duration-700 text-black bg-white ease-out hover:translate-y-0 transition-all rounded">
+          Thêm khoá học mới
         </AlertDialogTrigger>
         <AlertDialogContent className="bg-slate-50 sm:max-w-[800px] p-6 rounded-md shadow-lg">
           <AlertDialogHeader>
