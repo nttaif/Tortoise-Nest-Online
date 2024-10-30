@@ -1,6 +1,5 @@
-import HeaderAuth from '@/components/HeaderAuth';
 import FooterAuth from "@/components/FooterAuth";
-import React from 'react'
+import React , { useRef } from 'react'
 import { Button } from '@/components/ui/button';
 import { Carousel } from '@/components/ui/carousel';
 import { CarouselSpacing , CoursesCarousel  } from '@/components/Carousel';
@@ -10,7 +9,6 @@ import ItemCourses from '@/components/ItemCourses';
 import Image from 'next/image'
 import CardSubject from '@/components//CardSubject';
 import Instructors from '@/components/InstructorCard';
-
 import {
   Accordion,
   AccordionContent,
@@ -18,10 +16,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import BlogsItems from '@/components/BlogItems';
+import { HeaderAuth2 } from '@/components/ui/HeaderAuth2';
+import HeaderAuth from "@/components/HeaderAuth";
 
 
 export default function page() {
-
   const features = [
     {
       id: 1,
@@ -78,7 +77,6 @@ export default function page() {
     { icon: '🍀', text: 'Lucky', number: 8 },
     { icon: '🍀', text: 'Lucky', number: 9 },
   ];
-
   return (
     <div >
     <HeaderAuth/>
@@ -122,7 +120,7 @@ export default function page() {
         <h3 className='text-[#161439] text-[54px] font-bold ' >Danh mục hàng đầu chúng tôi có</h3>
         <p>when known printer took a galley of type scrambl edmake</p>
         </div>      
-    <div id='category-chosse' className='h-[300px] w-full flex flex-row justify-around items-center bg-[#f7f7f9] rounded-full ' >
+    <div id='category-chosse' className='h-[200px] w-full flex flex-row justify-around  items-center bg-[#f7f7f9] rounded-full ' >
         <CarouselSpacing items={itemsData} ></CarouselSpacing>
       </div>      
     </div>
@@ -200,11 +198,10 @@ export default function page() {
     </div>
   </div>
   <div id='category-chosse' className='w-full flex flex-row justify-around items-center'>
-    <CoursesCarousel />
+    <CoursesCarousel 
+    />
   </div>
 </section>
-
-
       <section className="flex items-center justify-center bg-[#5751e1] p-8 rounded-lg relative overflow-hidden pb-16">
   <div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
     <div className="w-1/2 h-full bg-[#5771e1] rounded-full transform scale-[2] opacity-30"></div>
@@ -254,17 +251,8 @@ export default function page() {
               </Button>
       </div>
       <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <Instructors/>
-        </div>
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <Instructors/>
-        </div>
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <Instructors/>
-        </div><div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <Instructors/>
-        </div>
+         <Instructors
+         />
         {/* Add more instructor cards similarly */}
       </div>
     </section>
