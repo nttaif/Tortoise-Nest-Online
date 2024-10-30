@@ -10,12 +10,12 @@ export async function authenticate(username: string, password: string) {
     const r = await signIn("credentials", {
       username: username,
       password: password,
-      // callbackUrl: "/login",
+      //callbackUrl: "/login",
       redirect: false,
     });
     return r;
   } catch (error: unknown) {
-    // Sử dụng kiểm tra loại để đảm bảo error có thuộc tính 'name' và 'type'
+    //Sử dụng kiểm tra loại để đảm bảo error có thuộc tính 'name' và 'type'
     if (error instanceof Error && error.name === "InvalidEmailPasswordError") {
       return {
         error:  'Sai tên đăng nhập hoặc mật khẩu!',

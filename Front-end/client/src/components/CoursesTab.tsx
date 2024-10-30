@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import ItemCourses from './ItemCourses';
+import ItemCourses from './popular/ItemCourses';
 
 // Định nghĩa kiểu dữ liệu cho từng khóa học
 interface Course {

@@ -1,12 +1,10 @@
-import HeaderAuth from "@/components/HeaderAuth";
-import FooterAuth from "@/components/FooterAuth";
+import HeaderAuth from "@/components/client/HeaderAuth";
+import FooterAuth from "@/components/client/FooterAuth";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Carousel } from "@/components/ui/carousel";
 import { CarouselSpacing, CoursesCarousel } from "@/components/Carousel";
 import { Badge } from "@/components/ui/badge";
 import Marquee from "react-fast-marquee";
-import ItemCourses from "@/components/ItemCourses";
 import Image from "next/image";
 import CardSubject from "@/components//CardSubject";
 import Instructors from "@/components/InstructorCard";
@@ -307,9 +305,11 @@ export default async function page() {
           </div>
           <div className="relative z-10 flex items-center w-full max-w-5xl flex-col md:flex-row">
             <div className="flex-1 flex justify-center mb-4 md:mb-0">
-              <img
-                src="\images\student-demo.png"
+              <Image
+                src="/images/student-demo.png"
                 alt="Student"
+                height={250}
+                width={300}
                 className="w-full h-auto max-w-[250px] md:max-w-[300px] hidden md:block"
               />
             </div>

@@ -1,5 +1,5 @@
-import HeaderAuth from "@/components/HeaderAuth";
-import FooterAuth from "@/components/FooterAuth";
+import HeaderAuth from "@/components/client/HeaderAuth";
+import FooterAuth from "@/components/client/FooterAuth";
 import Image from "next/image";
 export default function AuthecationLayout({
     children,

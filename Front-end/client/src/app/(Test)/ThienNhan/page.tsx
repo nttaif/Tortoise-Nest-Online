@@ -1,11 +1,11 @@
-import FooterAuth from "@/components/FooterAuth";
+import FooterAuth from "@/components/client/FooterAuth";
 import React , { useRef } from 'react'
 import { Button } from '@/components/ui/button';
 import { Carousel } from '@/components/ui/carousel';
 import { CarouselSpacing , CoursesCarousel  } from '@/components/Carousel';
 import { Badge } from '@/components/ui/badge';
 import Marquee from "react-fast-marquee";
-import ItemCourses from '@/components/ItemCourses';
+import ItemCourses from '@/components/popular/ItemCourses';
 import Image from 'next/image'
 import CardSubject from '@/components//CardSubject';
 import Instructors from '@/components/InstructorCard';
@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/accordion"
 import BlogsItems from '@/components/BlogItems';
 import { HeaderAuth2 } from '@/components/ui/HeaderAuth2';
-import HeaderAuth from "@/components/HeaderAuth";
+import HeaderAuth from "@/components/client/HeaderAuth";
 
 
 export default function page() {

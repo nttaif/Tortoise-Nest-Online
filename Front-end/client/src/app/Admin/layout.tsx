@@ -1,8 +1,8 @@
 import { auth } from "@/auth";
 import { sendRequest } from "@/utils/api";
 import { handlerUrlUploadImage } from "@/utils/actions";
-import BannerAdmin from "@/components/BannerAdmin";
-import MenuAdmin from "@/components/MenuAdmin";
+import BannerAdmin from "@/components/admin/BannerAdmin";
+import MenuAdmin from "@/components/admin/layout/MenuAdmin";
 
 export default async function AdminLayout({
   children,

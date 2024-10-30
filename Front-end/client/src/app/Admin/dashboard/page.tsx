@@ -1,6 +1,5 @@
 import React from "react";
-import ItemCourses from "@/components/ItemCourses";
-import ItemDashboard from "@/components/ItemDashboard";
+import ItemDashboard from "@/components/admin/courses/ItemDashboard";
 export default async function Page() {
   return (
     <div>
@@ -19,9 +18,9 @@ export default async function Page() {
         In progress Courses
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:ml-8 gap-6">
+        {/* <ItemCourses />
         <ItemCourses />
-        <ItemCourses />
-        <ItemCourses />
+        <ItemCourses /> */}
       </div>
     </div>
   );

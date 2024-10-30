@@ -1,7 +1,7 @@
 import { auth } from '@/auth'
 import React from 'react'
-import HeaderAuth from '@/components/HeaderAuth';
-import FooterAuth from "@/components/FooterAuth";
+import HeaderAuth from '@/components/client/HeaderAuth';
+import FooterAuth from "@/components/client/FooterAuth";
 import { Button } from '@/components/ui/button';
 import { Carousel } from '@/components/ui/carousel';
 import { CarouselSpacing } from '@/components/Carousel';

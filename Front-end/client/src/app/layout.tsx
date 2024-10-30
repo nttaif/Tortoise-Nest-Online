@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "@/app/globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import NextAuthWrapper from "@/lib/next.auth.wrapper";
+import { PaginationProvider } from "@/context/PaginationContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,11 +32,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex items-center justify-between`}
       >
         <main className="h-full w-full">
-          <AntdRegistry>
-            <NextAuthWrapper>
-            {children}
-            </NextAuthWrapper>
-          </AntdRegistry>
+          <PaginationProvider>
+            <AntdRegistry>
+              <NextAuthWrapper>{children}</NextAuthWrapper>
+            </AntdRegistry>
+          </PaginationProvider>
         </main>
       </body>
     </html>

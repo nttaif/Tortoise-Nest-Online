@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from 'react';
-import Link from "next/link";
 import { InputNoOutLine } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import clsx from 'clsx';
@@ -14,13 +13,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import {
     DropdownMenu,
     DropdownMenuContent,
+    DropdownMenuItem,
     DropdownMenuLabel,
-    DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
@@ -31,34 +29,34 @@ import { RiArrowDropDownLine, RiCloseLine, RiMenuLine, RiSearch2Line } from "@re
 const components_courses: { title: string; href: string; description: string }[] = [
     {
       title: "Tất cả khóa học",
-      href: "/docs/primitives/alert-dialog",
+      href: "/Client/courses",
       description: "A modal dialog that interrupts the user with important content and expects a response.",
     },
     {
-      title: "Chi tiết khóa học",
-      href: "/docs/primitives/hover-card",
+      title: "Công nghệ",
+      href: "/Client/courses",
       description: "For sighted users to preview content available behind a link.",
     },
     {
-      title: "Khóa học lớp học",
-      href: "/docs/primitives/progress",
+      title: "Kinh tế",
+      href: "/Client/courses",
       description: "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
     },
     {
-      title: "Đánh giá khóa học",
-      href: "/docs/primitives/scroll-area",
+      title: "Giáo dục",
+      href: "/Client/courses",
       description: "Visually or semantically separates content.",
     },
   ];
   const components_page: { title: string; href: string; description: string }[] = [
     {
       title: "Thông tin về chúng tôi",
-      href: "/docs/primitives/alert-dialog",
+      href: "/Client/about-us",
       description: "A modal dialog that interrupts the user with important content and expects a response.",
     },
     {
       title: "Tất cả giảng viên của chúng tôi",
-      href: "/docs/primitives/hover-card",
+      href: "/DangQuynh",
       description: "For sighted users to preview content available behind a link.",
     },
     {
@@ -109,17 +107,14 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
   const { session } = props;
   const router = useRouter();
   console.log(">>>check session: ", { session });
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false); // State cho mobile menu
-  const [position, setPosition] = React.useState("bottom");
-
   return (
     <div className="h-16 w-full border-b-2 content-center text-center bg-white sticky top-0 z-50">
       <div id='sticky-header' className='w-full'>
         <div className='container min-w-full flex justify-between items-center'>
           <nav id='header-form' className='w-full flex justify-between px-4 md:px-10 items-center'>
             <div className='text-[#161439]'>
-              <p>{session?.user?.email ?? "null"}</p>
+              <p>TORTOISE NEST ONLINE</p>
             </div>
              {/* Menu Toggle Button (Hamburger for mobile) */}
              <div className="lg:hidden">
@@ -133,7 +128,7 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
             <NavigationMenu className={`hidden lg:flex lg:items-center`} >
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className='text-black font-bold hover:text-[#5751e1] ' >Home</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className='text-black font-bold hover:text-[#5751e1] '><a href='/'>Home</a> </NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className='text-black font-bold hover:text-[#5751e1]   ' >Courses</NavigationMenuTrigger>
@@ -214,9 +209,36 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
                   </div>
                 </div>
                 <div className='hidden lg:flex'>
-              <Button onClick={()=>{router.push('/login')}} className='w-28 h-12 rounded-3xl font-bold bg-[#ffc224] text-[#161439] hover:bg-[#161439] hover:text-white duration-300'>
-                Log in
-              </Button>
+              {/* Login Button */}
+            {session ? (
+              <div className="hidden lg:flex">
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Avatar>
+                      <AvatarImage src={session?.user?.image ??"https://github.com/shadcn.png"} />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>{session?.user?.name ?? "null"}</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={()=>{router.push("/Admin/account")}}>Profile</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => signOut()}>Logout</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            ) : (
+              <div className="hidden lg:flex">
+                <Button
+                  onClick={() => {
+                    router.push("/login");
+                  }}
+                  className="w-28 h-12 rounded-3xl font-bold bg-[#ffc224] text-[#161439] hover:bg-[#161439] hover:text-white duration-300"
+                >
+                  Log in
+                </Button>
+              </div>
+            )}
             </div>
           </nav>
           <div

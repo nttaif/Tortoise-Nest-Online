@@ -31,9 +31,13 @@ export default function LoginFormComponent() {
           setIsModalOpen(true); // Yêu cầu xác thực
         }
       } else {
+        console.log('>>>>check ress: ',res?.role)
+        notification.success({
+          message: 'Đăng nhập thành công.',
+          description:`Chào mừng bạn ${res?.name} đến với TORTOISE NEST ONLINE`
+        });
         router.push('/'); // Điều hướng khi đăng nhập thành công
       }
-      console.log('>>>check res in login----login form is submit: ', res);
     } catch (error) {
       notification.error({ message: 'Lỗi hệ thống', description: 'Vui lòng thử lại sau!' });
     } finally {

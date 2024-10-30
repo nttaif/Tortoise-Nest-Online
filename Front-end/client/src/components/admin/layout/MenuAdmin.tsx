@@ -3,6 +3,7 @@ import React from 'react'
 import { RiBallPenLine, RiChat3Line, RiDashboardLine, RiFileList2Line, RiGitRepositoryLine, RiIdCardLine, RiMegaphoneLine, RiMenu2Line, RiQuestionLine, RiQuestionnaireLine, RiUserStarLine } from '@remixicon/react'
 import { RiSettings3Line } from 'react-icons/ri'
 import {useRouter } from 'next/navigation'
+import { signOut } from 'next-auth/react'
 
 export default function MenuAdmin() {
     const router = useRouter();
@@ -111,7 +112,7 @@ export default function MenuAdmin() {
                     <span className='group-hover:text-indigo-700 transition duration-300'>Setting</span>
                     </li>
                 </div>
-                <div className='bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300'>
+                <div className='bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300' onClick={()=>{signOut()}}>
                     <li className='flex items-center gap-2 font-semibold text-gray-500 ml-2 group'>
                     <RiMenu2Line
                     size={25}

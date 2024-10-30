@@ -22,6 +22,7 @@ export class UsersController {
     return this.usersService.findUserByID(id);
   }
   @Get('/lecturer')
+  @Public()
   async findLecturer() {
   return this.usersService.findAllByRole('Lecturer');
 }

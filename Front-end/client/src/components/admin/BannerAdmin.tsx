@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import { Button } from '@/components/ui/button'
-import AddCoursesTable from './admin/courses/add.courses.table';
+import AddCoursesTable from './courses/add.courses.table';
 import { UploadUrlData, User } from '@/types/next-auth';
 
 interface IProps{
