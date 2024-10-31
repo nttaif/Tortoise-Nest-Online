@@ -6,7 +6,7 @@ import { FaFacebook, FaTwitter, FaWhatsapp, FaInstagram, FaYoutube } from 'react
 
 export default function SectionInstructors() {
     return (
-        <div className='flex w-[950px]  mx-auto rounded-xl overflow-hidden bg-white p-6 border-gray-300 border shadow-md duration-300 hover:shadow-lg transition-all'>
+        <div className='flex   mx-auto rounded-xl overflow-hidden bg-white p-6  border shadow-md duration-300 hover:shadow-lg transition-all'>
 
             {/* Profile Image Section */}
             <div className='relative w-[255px] h-[255px] flex-shrink-0'>

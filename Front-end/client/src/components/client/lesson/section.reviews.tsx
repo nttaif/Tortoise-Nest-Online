@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function SectionReviews() {
     return (
-        <div className="flex flex-col w-[950px] mx-auto rounded-xl overflow-hidden bg-gray-50 p-6 border-gray-300 border shadow-md duration-300 hover:shadow-lg transition-all">
+        <div className="flex flex-col  mx-auto rounded-xl overflow-hidden bg-gray-50 p-6  border shadow-md duration-300 hover:shadow-lg transition-all">
             <h2 className="text-2xl font-semibold mb-4 text-black">Reviews</h2>
 
             {/* Overall Rating Section */}

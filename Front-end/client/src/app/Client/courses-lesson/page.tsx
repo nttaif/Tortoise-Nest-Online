@@ -5,6 +5,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@radix-ui/react-accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import SectionOverview from '@/components/client/lesson/section.overview';
+import SectionInstructors from '@/components/client/lesson/section.instructors';
+import SectionReviews from '@/components/client/lesson/section.reviews';
 
 export default function Page() {
   return (
@@ -200,8 +204,8 @@ export default function Page() {
         </div>
 
         {/* Navigation buttons */}
-        <div className="flex space-x-4 text-2xl">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
+        {/* <div className="flex space-x-4 text-2xl">
+          <button >
             Overview
           </button>
           <button className="bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full">
@@ -210,9 +214,30 @@ export default function Page() {
           <button className="bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full">
             Reviews
           </button>
-        </div>
+        </div> */}
+        <Tabs defaultValue="Overview" >
+          <TabsList className='h-18 py- px-10 sm:mb-6'>
+            <TabsTrigger value="Overview" className="bg-gray-200 sm:text-xl text-gray-600  py-3 px-8  rounded-full">
+              Overview
+            </TabsTrigger>
+            <TabsTrigger value="Instructors" className="bg-gray-200 sm:text-xl ml-10 text-gray-600  py-3 px-8  rounded-full">
+              Instructors
+            </TabsTrigger>
+            <TabsTrigger value="Reviews" className="bg-gray-200 sm:text-xl ml-10 text-gray-600  py-3 px-8 rounded-full">
+              Reviews
+            </TabsTrigger>
+          </TabsList>
 
-
+          <TabsContent value="Overview" className="sm:w-full ">
+            <SectionOverview />
+          </TabsContent>
+          <TabsContent value="Instructors" className="sm:w-full">
+            <SectionInstructors />
+          </TabsContent>
+          <TabsContent value="Reviews" >
+            <SectionReviews />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
