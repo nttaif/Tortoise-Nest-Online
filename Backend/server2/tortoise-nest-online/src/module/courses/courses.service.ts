@@ -30,7 +30,7 @@ export class CoursesService {
     if (filter.pageSize) delete filter.pageSize;
     // Gán giá trị mặc định nếu current hoặc pageSize không được truyền
     if (!current) current = 1;
-    if (!pageSize) pageSize = 10;
+    if (!pageSize) pageSize = 9;
     // Đếm tổng số lượng bản ghi
     const totalItems = await this.courseModel.countDocuments(filter);
     // Tính toán tổng số trang
@@ -43,7 +43,14 @@ export class CoursesService {
     .limit(pageSize)
     .skip(skip)
     .sort(sort as any);
-    return {result,totalPage};
+    return {
+      meta:{
+        current:current,
+        pageSize:pageSize,
+        pages:totalPage,
+        total:totalItems,
+      },
+      result};
   }
 
   async findCoursesById(_id: string) {

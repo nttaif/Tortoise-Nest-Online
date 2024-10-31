@@ -15,7 +15,6 @@ export class LessonService {
   ){}
   async create(createLessonDto: CreateLessonDto) {
     //bắt validation 
-    console.log('>>>>check data: ',createLessonDto)
     const isCourses= await this.coursesService.isCoursesExist(createLessonDto._idCourses)
     if(!isCourses){
       throw new BadRequestException('Không tìm thấy khoá học!')
@@ -23,6 +22,11 @@ export class LessonService {
     const res = await this.lessonModel.create(createLessonDto)
     return {lessonID: res._id};
   }
+  async createMultiple(lessons:CreateLessonDto[]) {
+    //bắt validation 
+    return await this.lessonModel.insertMany(lessons);
+  }
+
 
   findAll() {
     return `This action returns all lesson`;

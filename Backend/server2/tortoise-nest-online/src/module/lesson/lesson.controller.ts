@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { LessonService } from './lesson.service';
-import { CreateLessonDto } from './dto/create-lesson.dto';
+import { LessonService } from './lesson.service'; 
+import { CreateLessonDto, CreateMultipleLessonsDto } from './dto/create-lesson.dto';
 import { UpdateLessonDto } from './dto/update-lesson.dto';
 
 @Controller('lesson')
@@ -10,6 +10,11 @@ export class LessonController {
   @Post()
   create(@Body() createLessonDto: CreateLessonDto) {
     return this.lessonService.create(createLessonDto);
+  }
+
+  @Post('mutipleLesson')
+  createMultipleLessons(@Body() createMultipleLessons: CreateMultipleLessonsDto) {
+    return this.lessonService.createMultiple(createMultipleLessons.lessons);
   }
 
   @Get()

@@ -49,6 +49,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               _id:res.data?.user._id,
               name:res.data?.user.name,
               role:res.data?.user.role,
+              image:res.data?.user.image,
               access_token:res.data?.access_token,
             }
           }else if(+res.statusCode===401){

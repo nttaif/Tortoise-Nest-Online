@@ -2,7 +2,7 @@
 import { auth, signIn } from "@/auth";
 import { sendRequest } from "./api";
 import { revalidateTag } from "next/cache";
-import { User } from "@/types/next-auth";
+import { Courses, Lesson, User } from "@/types/next-auth";
 //call to server
 //server returns response and we return to client
 export async function authenticate(username: string, password: string) {
@@ -10,12 +10,12 @@ export async function authenticate(username: string, password: string) {
     const r = await signIn("credentials", {
       username: username,
       password: password,
-      // callbackUrl: "/login",
+      //callbackUrl: "/login",
       redirect: false,
     });
     return r;
   } catch (error: unknown) {
-    // Sử dụng kiểm tra loại để đảm bảo error có thuộc tính 'name' và 'type'
+    //Sử dụng kiểm tra loại để đảm bảo error có thuộc tính 'name' và 'type'
     if (error instanceof Error && error.name === "InvalidEmailPasswordError") {
       return {
         error:  'Sai tên đăng nhập hoặc mật khẩu!',
@@ -87,8 +87,8 @@ export async function handleCreateUserAction(data:any) {
   return res;
 }
 
-
-export default async function handlerUrlUploadImage() {
+//upload image to cloudinary 
+export async function handlerUrlUploadImage() {
   const session = await auth();
   const res = await sendRequest<IBackendRes<any>>({
     url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/upload/presigned-url`,
@@ -99,3 +99,39 @@ export default async function handlerUrlUploadImage() {
   })
   return res;
 }
+
+//create courses
+export async function handleCreateCourses(course?:Courses) {
+  const session = await auth();
+  const res = await sendRequest<IBackendRes<any>>({
+    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/courses`,
+    method:'POST',
+    headers:{
+      Authorization: `Bearer ${session?.user.access_token}`,
+    },
+    body:{
+      ...course
+    }
+  })
+  return res;
+}
+
+export async function createMultipleLessons(lessonsArray:Lesson[]) {
+  const session = await auth();
+  try {
+    console.log("Is array:", Array.isArray(lessonsArray));
+    const response = await sendRequest<IBackendRes<any>>({
+      url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/lesson/mutipleLesson`,
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${session?.user.access_token}`,
+        'content-type': 'application/json',
+      },
+      body: { lessons: lessonsArray },
+    });
+    console.log("Check response: ",response )
+    return response
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};

@@ -1,9 +1,8 @@
 import React from 'react'
-import ImageUpload from '@/components/popular/ImageUpload';
-import { Input } from '@/components/ui/input';
-import AddCoursesTable from './component/add.courses.table';
+import AddCoursesTable from '../../../components/admin/courses/add.courses.table';
 import { sendRequest } from '@/utils/api';
 import { auth } from '@/auth';
+import { handlerUrlUploadImage } from '@/utils/actions';
 export  default async function page() {
   const session = await auth();
   const listLecturer = await sendRequest<IBackendRes<any>>({
@@ -13,9 +12,11 @@ export  default async function page() {
       Authorization: `Bearer ${session?.user?.access_token}`,
     },
   })
+  const resUploadImage = await handlerUrlUploadImage()
   return (
     <div className='container mx-auto'>
-      <AddCoursesTable listLecturer={listLecturer.data}></AddCoursesTable>
+      <AddCoursesTable resUploadImage={resUploadImage?.data} listLecturer={listLecturer.data}></AddCoursesTable>
     </div>
+    
   )
 }

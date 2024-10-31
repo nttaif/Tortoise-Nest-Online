@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import ItemCourses from './ItemCourses';
+import ItemCourses from './popular/ItemCourses';
 
 
 interface CarouselItemType {
@@ -123,7 +123,7 @@ export function CoursesCarousel() {
   return (
     <Carousel className="w-full max-w-5xl pt-10">
       <CarouselContent className="-ml-1 flex">
-        {CarouselItemCourses.map((course) => (
+        {/* {CarouselItemCourses.map((course) => (
           <CarouselItem key={course.id} className="pl-10 md:basis-1/2 lg:basis-1/3">
             <ItemCourses 
               image={course.image}
@@ -135,7 +135,7 @@ export function CoursesCarousel() {
               price={course.price}
             />
           </CarouselItem>
-        ))}
+        ))} */}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />

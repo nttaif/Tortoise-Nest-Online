@@ -98,37 +98,30 @@ export class UsersService {
   }
 
   async handleRegister(registerDto:CreateAuthDto){
-    const{name,email,password}=registerDto;
-    const isExists= await this.isEmailExist(email);
-    if(isExists===true){
-      throw new BadRequestException(`Email exits in database: ${email}.please enter new email`)
+    const { name, email, password } = registerDto;
+    //Kiểm tra email tồn tại
+    const isExists = await this.isEmailExist(email);
+    if (isExists) throw new BadRequestException(`Email đã tồn tại trong hệ thống: ${email}. Vui lòng nhập email khác.`);
+    //Biểu thức chính quy để kiểm tra mật khẩu
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$/;
+    if (!passwordRegex.test(password)) {
+        throw new BadRequestException('Mật khẩu phải có ít nhất một chữ cái viết hoa, một số, một ký tự đặc biệt và độ dài lớn hơn 6 ký tự.');
     }
-    //hash password
-    const hashPass =await hashPassword(password);
-    const code_id= uuidv4();
-    const user=await this.userModel.create({
-      name,email,password:hashPass,
-      isActivity:false,
-      code_id: code_id,
-      code_expried:dayjs().add(5,'minutes')
-    })
-    //send email
-    this.mailerService
-    .sendMail({
-      to:  user.email, // list of receivers
-      subject: 'Activity your account at Tortoise Nest Online', // Subject line
-      text: 'welcome', // plaintext body
+    //Hash mật khẩu nếu mật khẩu hợp lệ
+    const hashPass = await hashPassword(password);
+    const code_id = uuidv4();
+    // Tạo người dùng mới với trạng thái chưa kích hoạt
+    const user = await this.userModel.create({
+      name, email, password: hashPass, isActivity: false, code_id, code_expried: dayjs().add(5, 'minutes')
+    });
+    //Gửi email kích hoạt tài khoản
+    this.mailerService.sendMail({
+      to: user.email,
+      subject: 'Kích hoạt tài khoản tại Tortoise Nest Online',
       template: "register",
-      context:{
-        name:user.name??user.email,
-        activationCode:code_id
-      }
-    })
-    .then(() => {})
-    .catch(() => {});
-    return {
-      _id:user._id
-    }
+      context: { name: user.name ?? user.email, activationCode: code_id }
+    }).catch(() => {});
+    return { _id: user._id };
   }
   async handleActivity(data:CodeAuthDto){
     const user = await this.userModel.findOne({

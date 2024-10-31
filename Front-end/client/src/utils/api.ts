@@ -19,7 +19,7 @@ export const sendRequest = async <T>(props: IRequest) => {
         body: body ? JSON.stringify(body) : null,
         ...(nextOption && typeof nextOption === 'object' ? nextOption : {})
     };
-
+    console.log("Sending request with body:", options.body); // Log để kiểm tra JSON.stringify
     if (useCredentials) options.credentials = "include";
 
     if (queryParams) {

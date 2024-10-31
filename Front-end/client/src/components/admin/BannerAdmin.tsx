@@ -1,9 +1,15 @@
 import React from 'react'
 import Image from 'next/image';
-import { Button } from '@/components/ui/button'
-import { RiArrowRightLine, RiDashboardLine, RiFileList2Line, RiGitRepositoryLine, RiIdCardLine, RiQuestionLine, RiQuestionnaireLine, RiUserStarLine } from '@remixicon/react'
+import AddCoursesTable from './courses/add.courses.table';
+import { UploadUrlData, User } from '@/types/next-auth';
 
-export default function BannerAdmin() {
+interface IProps{
+    listLecturer: User[];
+    resUploadImage: UploadUrlData;
+}
+export default function BannerAdmin(props:IProps) {
+const {listLecturer,resUploadImage} = props;
+console.log('>>>Check lisstlecturer: ',listLecturer)
   return (
     <div className="w-full flex ">
         <div className='w-full flex flex-col justify-center'>
@@ -45,12 +51,7 @@ export default function BannerAdmin() {
                     </div>
                 </div>
                 <div className="flex justify-between items-center px-4 pb-4 ">
-                    <Button variant={'btn_home'} className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-full gap-1">
-                        Tạo khóa học mới 
-                        <RiArrowRightLine
-                        size={18}
-                        />
-                    </Button>
+                    <AddCoursesTable resUploadImage={resUploadImage} listLecturer={listLecturer}></AddCoursesTable>
                     <span className="text-gray-800 font-semibold text-center py-2 mr-5"></span>
                 </div>
             </div>
