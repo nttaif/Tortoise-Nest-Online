@@ -96,7 +96,7 @@ interface CarouselSpacingProps {
 }
 export function CarouselSpacing({items}:CarouselSpacingProps) {
   return (
-    <Carousel className="w-full max-w-4xl pt-10 ">
+    <Carousel className="w-full max-w-4xl  ">
       <CarouselContent className="-ml-1">
         {items.map((item,index) => (
           <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/6">

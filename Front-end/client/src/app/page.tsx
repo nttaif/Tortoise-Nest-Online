@@ -109,27 +109,43 @@ export default async function page() {
         >
           <div className="w-full">
             <div className="flex flex-col md:flex-row justify-around w-full text-black">
-              <div className="content-center w-full md:w-[50%] lg:w-[30%] text-center md:text-left px-4 md:px-0">
-                <h3 className="text-[36px] md:text-[44px] lg:text-[54px] pb-4">
-                  Không ngừng <b>học tập</b> và rèn luyện
-                </h3>
-                <p className="font-thin text-[#7b798c]">
-                  Mỗi hành trình dạy và học đều là duy nhất. Theo dõi Chúng tôi
-                  sẽ giúp bạn định hướng con đường của mình.
-                </p>
-
-                <div className="pt-10">
-                  <Button
-                    className="w-[200px] md:w-[250px] h-[55px] bg-blue-700 hover:bg-yellow-600 text-white  font-bold py-2 px-4 rounded-full"
-                    variant="btn_home"
-                  >
-                    <a href="#">Bắt đầu ngay thôi</a>
-                  </Button>
+            <div className="content-center w-full md:w-[50%] lg:w-[30%] text-center md:text-left px-4 md:px-0">
+                  <h3 className="text-[24px] sm:text-[30px] md:text-[44px] lg:text-[54px] pb-4">
+                    Không ngừng 
+                    <span className="relative inline-block">
+                      <span className="relative z-10 text-white font-bold px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-8 lg:py-4">
+                        học tập
+                      </span>
+                      <svg 
+                        className="absolute inset-0 w-full h-full" 
+                        x="0px" 
+                        y="0px" 
+                        preserveAspectRatio="none" 
+                        viewBox="0 0 209 59" 
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path 
+                          d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565" 
+                          fill="#ffc224">
+                        </path>
+                      </svg>
+                    </span>
+                    và rèn luyện
+                  </h3>
+                  <p className="font-thin text-[#7b798c] text-xs sm:text-sm md:text-base lg:text-lg">
+                    Mỗi hành trình dạy và học đều là duy nhất. Theo dõi Chúng tôi sẽ giúp bạn định hướng con đường của mình.
+                  </p>
+                  <div className="pt-6 md:pt-8 lg:pt-10">
+                    <Button
+                      className="w-[150px] sm:w-[180px] md:w-[200px] lg:w-[250px] h-[45px] sm:h-[50px] md:h-[55px] lg:h-[60px] bg-blue-700 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full"
+                      variant="btn_home"
+                    >
+                      <a href="#">Bắt đầu ngay thôi</a>
+                    </Button>
+                  </div>
                 </div>
-              </div>
               <div className="w-full md:w-[50%] lg:w-[30%] flex justify-center md:justify-end">
                 <Image
-                  src="/images/pic1-removebg-preview.png"
+                  src="/images/banner-main.png"
                   width={500}
                   height={500}
                   alt="Hello"
@@ -156,7 +172,7 @@ export default async function page() {
             </div>
             <div
               id="category-chosse"
-              className="h-[300px] w-full flex flex-row justify-around items-center bg-[#f7f7f9] rounded-full "
+              className="h-[200px] w-full flex flex-row justify-around items-center bg-[#f7f7f9] rounded-full "
             >
               <CarouselSpacing items={itemsData}></CarouselSpacing>
             </div>
