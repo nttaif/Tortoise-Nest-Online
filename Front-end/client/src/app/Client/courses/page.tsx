@@ -67,10 +67,6 @@ export default async function Page(props: IProps) {
       </div>
 
       <div className="container  mx-auto flex flex-col md:flex-row mt-6 lg:mt-32">
-        {/* Sidebar */}
-        {/* <SidebarCourses/> */}
-
-        {/* Content Section */}
         <SectionContentCourse
           courses={res?.data?.result ?? []}
           meta={res?.data?.meta}

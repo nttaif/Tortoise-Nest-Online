@@ -18,22 +18,35 @@ export class UsersService {
     private readonly mailerService: MailerService
   ){}
 
-  
   async create(createUserDto: CreateUserDto) {
-    const{name,email,password,phoneNumber,image,dateOfBirth}=createUserDto;
-    const isExists= await this.isEmailExist(email);
-    if(isExists===true){
-      throw new BadRequestException(`Email exits in database: ${email}.please enter new email`)
+    const { name, email, password, phoneNumber,biography, image, dateOfBirth, inFoLecturer, role } = createUserDto;
+    // Kiểm tra xem email đã tồn tại chưa
+    const isExists = await this.isEmailExist(email);
+    if (isExists) {
+        throw new BadRequestException(`Email exists in database: ${email}. Please enter a new email.`);
     }
-    //hash password
-    const hashPass =await hashPassword(password)
-    const user=await this.userModel.create({
-      name,email,password:hashPass,phoneNumber,image,dateOfBirth
-    })
-    return{
-      _id:user._id
-    }
-  }
+    // Mã hóa mật khẩu
+    const hashPass = await hashPassword(password);
+    // Tạo người dùng với role là 'Lecturer' nếu inFoLecturer có dữ liệu
+    const userRole = inFoLecturer ? 'Lecturer' : (role || 'Users');
+    const user = await this.userModel.create({
+        name,
+        email,
+        password: hashPass,
+        phoneNumber,
+        image,
+        dateOfBirth,
+        inFoLecturer,
+        biography,
+        role: userRole,
+    });
+    return {
+        _id: user._id,
+        role: user.role
+    };
+}
+
+
 
 
   async findAll(query: string, current: number, pageSize: number) {

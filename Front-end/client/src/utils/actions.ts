@@ -36,6 +36,9 @@ export async function authenticate(username: string, password: string) {
 }
 export async function handleCreateUserAction(data:any) {
   const session = await auth();
+  if (!session) {
+    throw new Error("User session not found. Please login.");
+  }
   const res = await sendRequest<IBackendRes<any>>({
     url:`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users`,
     method:"POST",
@@ -52,6 +55,9 @@ export async function handleCreateUserAction(data:any) {
 
  export async function handleDeleteUserAction(data:any) {
     const session = await auth();
+    if (!session) {
+      throw new Error("User session not found. Please login.");
+    }
     const res = await sendRequest<IBackendRes<any>>({
       url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/${data}`,
       method: 'DELETE',
@@ -79,7 +85,9 @@ export async function handleCreateUserAction(data:any) {
       phoneNumber:data.phoneNumber,
       age: data.age,
       dateOfBirth: data.dateOfBirth,
-      biography:data.biography
+      biography:data.biography,
+       // Bổ sung inFoLecturer nếu người dùng là Lecturer
+       inFoLecturer: data.role === "Lecturer" ? data.inFoLecturer : undefined,
     }
 
   })

@@ -39,18 +39,24 @@ interface UploadUrlData{
         api_key: string;
         timestamp: number;
 }
-
+interface LecturerInfo {
+    hireDate: string;
+    academic: string;
+    specialization: string;
+    rating: number;
+  }
 interface User{
     _id?: string;
     name: string;
     email: string;
-    password?: string; // Nên xem xét không lưu mật khẩu nếu không cần thiết.
+    password?: string;
     role?: string;
     dateOfBirth?: DateTime,
     biography?: string,
     phoneNumber?: string,
     image?: File | string,
     age?:number,
+    inFoLecturer?:LecturerInfo,
     accountType?: string;
     isActivity?: boolean;
     code_id?: string;

@@ -5,13 +5,13 @@ export type UserDocument = HydratedDocument<User>;
 
 @Schema( {timestamps: true})
 export class User {
-  @Prop()
+  @Prop({ required: true })
   name: string;
   @Prop()
   age: number;
-  @Prop()
+  @Prop({ required: true, unique: true })
   email:string;
-  @Prop()
+  @Prop({ required: true })
   password:string;
   @Prop()
   phoneNumber:number;
@@ -33,6 +33,21 @@ export class User {
   code_id:string;
   @Prop()
   code_expried:Date;
+  @Prop({
+    type: {
+      hireDate: { type: String },
+      academic: { type: String },
+      specialization: { type: String },
+      rating: { type: Number, default: 0 },
+    },
+    _id: false,
+  })
+  inFoLecturer?: {
+    hireDate: string;
+    academic: string;
+    specialization: string;
+    rating: number;
+  };
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

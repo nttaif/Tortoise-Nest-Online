@@ -9,7 +9,13 @@ import { User } from "@/types/next-auth";
 import { handleUpdateUserAction } from "@/utils/actions";
 import { notification } from "antd";
 import { CldImage } from "next-cloudinary";
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 interface IProps {
   selectedUser: User | null;
   setSelectedUser: (value: User) => void;
@@ -33,7 +39,10 @@ export default function UserViewAndUpdateTable(props: IProps) {
       notification.success({ message: "Cập nhật thông tin thành công" });
       setIsShowDialog(false);
     } else {
-      notification.error({ message: "Cập nhật thất bại, thử lại sau!" });
+      notification.error({
+        message: `"Cập nhật thất bại, thử lại sau!" ${res.message}`,
+      });
+      console.log("????check user: ", res.message);
     }
   };
 
@@ -42,7 +51,9 @@ export default function UserViewAndUpdateTable(props: IProps) {
       <DialogContent className="w-[90%] max-w-3xl p-6 rounded-lg shadow-lg bg-white mx-auto">
         <DialogHeader>
           <DialogTitle className="text-xl md:text-2xl font-bold text-gray-700 text-center">
-            {isEditable ? "Chỉnh sửa thông tin người dùng" : "Thông tin người dùng"}
+            {isEditable
+              ? "Chỉnh sửa thông tin người dùng"
+              : "Thông tin người dùng"}
           </DialogTitle>
         </DialogHeader>
 
@@ -70,21 +81,29 @@ export default function UserViewAndUpdateTable(props: IProps) {
             {/* User Fields */}
             <div className="grid grid-cols-1 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-600">ID:</label>
+                <label className="block text-sm font-medium text-gray-600">
+                  ID:
+                </label>
                 <p className="text-gray-800">{selectedUser._id}</p>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-600">Họ và tên:</label>
+                <label className="block text-sm font-medium text-gray-600">
+                  Họ và tên:
+                </label>
                 <input
                   type="name"
                   className="w-full border rounded p-2"
                   value={selectedUser.name}
-                  onChange={(e) => setSelectedUser({ ...selectedUser, name: e.target.value })}
+                  onChange={(e) =>
+                    setSelectedUser({ ...selectedUser, name: e.target.value })
+                  }
                   disabled={!isEditable}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-600">Email:</label>
+                <label className="block text-sm font-medium text-gray-600">
+                  Email:
+                </label>
                 <input
                   type="email"
                   className="w-full border rounded p-2"
@@ -93,57 +112,145 @@ export default function UserViewAndUpdateTable(props: IProps) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-600">Vai trò:</label>
+                <label className="block text-sm font-medium text-gray-600">
+                  Vai trò:
+                </label>
                 <input
                   type="text"
                   className="w-full border rounded p-2"
                   value={selectedUser.role}
-                  onChange={(e) => setSelectedUser({ ...selectedUser, role: e.target.value })}
+                  onChange={(e) =>
+                    setSelectedUser({ ...selectedUser, role: e.target.value })
+                  }
                   disabled={!isEditable}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-600">Số điện thoại:</label>
+                <label className="block text-sm font-medium text-gray-600">
+                  Số điện thoại:
+                </label>
                 <input
                   type="text"
                   className="w-full border rounded p-2"
                   value={selectedUser.phoneNumber}
-                  onChange={(e) => setSelectedUser({ ...selectedUser, phoneNumber: e.target.value })}
+                  onChange={(e) =>
+                    setSelectedUser({
+                      ...selectedUser,
+                      phoneNumber: e.target.value,
+                    })
+                  }
                   disabled={!isEditable}
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-600">Ngày sinh:</label>
+                  <label className="block text-sm font-medium text-gray-600">
+                    Ngày sinh:
+                  </label>
                   <input
                     type="text"
                     className="w-full border rounded p-2"
                     value={selectedUser.dateOfBirth}
                     onChange={(e) =>
-                      setSelectedUser({ ...selectedUser, dateOfBirth: e.target.value })
+                      setSelectedUser({
+                        ...selectedUser,
+                        dateOfBirth: e.target.value,
+                      })
                     }
                     disabled={!isEditable}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-600">Tuổi:</label>
+                  <label className="block text-sm font-medium text-gray-600">
+                    Tuổi:
+                  </label>
                   <input
                     type="number"
                     className="w-full border rounded p-2"
                     value={selectedUser.age}
                     onChange={(e) =>
-                      setSelectedUser({ ...selectedUser, age: parseInt(e.target.value) })
+                      setSelectedUser({
+                        ...selectedUser,
+                        age: parseInt(e.target.value),
+                      })
                     }
                     disabled={!isEditable}
                   />
                 </div>
               </div>
+
+              {selectedUser.role === "Lecturer" ? (
+                <>
+                  <div>
+                    <p className="font-semibold text-gray-600">Học vị</p>
+                    <Select
+                      value={selectedUser.inFoLecturer?.academic}
+                      onValueChange={(e) => {
+                        setSelectedUser({
+                          ...selectedUser,
+                          inFoLecturer: {
+                            ...selectedUser?.inFoLecturer,
+                            academic: e,
+                          },
+                        });
+                      }}
+                    >
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Chọn học vị" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="TT">Tú tài</SelectItem>
+                        <SelectItem value="CN">Cử nhân</SelectItem>
+                        <SelectItem value="Ths">Thạc sĩ</SelectItem>
+                        <SelectItem value="TS">Tiến sĩ</SelectItem>
+                        <SelectItem value="PGS.TS">
+                          Phó giáo sư tiến sĩ
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-600">Lĩnh vực</p>
+                    <Select
+                      value={selectedUser.inFoLecturer?.specialization}
+                      onValueChange={(e) => {
+                        setSelectedUser({
+                          ...selectedUser,
+                          inFoLecturer: {
+                            ...selectedUser?.inFoLecturer,
+                            specialization: e,
+                          },
+                        });
+                      }}
+                    >
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Chọn lĩnh vực" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Technology">Công nghệ</SelectItem>
+                        <SelectItem value="Economy">Kinh tế</SelectItem>
+                        <SelectItem value="Education">Giáo dục</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </>
+              ) : (
+                <div></div>
+              )}
+
               <div>
-                <label className="block text-sm font-medium text-gray-600">Giới thiệu cá nhân:</label>
+                <label className="block text-sm font-medium text-gray-600">
+                  Giới thiệu cá nhân:
+                </label>
                 <textarea
                   className="w-full border rounded p-2"
                   value={selectedUser.biography}
-                  onChange={(e) => setSelectedUser({ ...selectedUser, biography: e.target.value })}
+                  onChange={(e) =>
+                    setSelectedUser({
+                      ...selectedUser,
+                      biography: e.target.value,
+                    })
+                  }
                   disabled={!isEditable}
                 />
               </div>
@@ -151,13 +258,21 @@ export default function UserViewAndUpdateTable(props: IProps) {
 
             {/* Account Info */}
             <div className="col-span-2 flex flex-col gap-2">
-              <p className="font-semibold text-gray-600">Loại tài khoản: {selectedUser.accountType}</p>
-              <p className="font-semibold text-gray-600">Ngày tạo: {selectedUser.createdAt}</p>
-              <p className="font-semibold text-gray-600">Cập nhật gần nhất: {selectedUser.updatedAt}</p>
+              <p className="font-semibold text-gray-600">
+                Loại tài khoản: {selectedUser.accountType}
+              </p>
+              <p className="font-semibold text-gray-600">
+                Ngày tạo: {selectedUser.createdAt}
+              </p>
+              <p className="font-semibold text-gray-600">
+                Cập nhật gần nhất: {selectedUser.updatedAt}
+              </p>
             </div>
           </div>
         ) : (
-          <p className="text-center text-gray-500">Không tìm thấy thông tin người dùng.</p>
+          <p className="text-center text-gray-500">
+            Không tìm thấy thông tin người dùng.
+          </p>
         )}
 
         {/* Actions */}

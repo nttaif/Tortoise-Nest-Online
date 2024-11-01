@@ -25,6 +25,7 @@ export default function ItemCourses(props: IProps) {
             width={350}
             height={150}
           />
+          <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-60 group-hover:animate-shine" />
         </div>
       </div>
       <div className="px-4 pt-4 flex justify-between  items-center ">
