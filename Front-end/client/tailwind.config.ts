@@ -13,7 +13,9 @@ const config: Config = {
                 shine: 'shine 1s',
                 ["infinite-slider"]: 'infiniteSlider 20s linear infinite',
                 'accordion-down': 'accordion-down 0.2s ease-out',
-                'accordion-up': 'accordion-up 0.2s ease-out'
+                'accordion-up': 'accordion-up 0.2s ease-out',
+                rotate: 'rotate 100s linear infinite',        
+                'hover-move': 'hover-move 0.5s ease-in-out', 
             },
             keyframes: {
                 shine: {
@@ -21,6 +23,15 @@ const config: Config = {
                         left: '125%'
                     }
                 },
+                rotate: {                                     
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' },
+                },
+                'hover-move': {
+                    '0%, 100%': { transform: 'translateY(0px)' },
+                    '50%': { transform: 'translateY(-5px)' },
+                },
+                
                 infiniteSlider: {
                     '0%': {
                         transform: 'translateX(0)'
@@ -29,6 +40,7 @@ const config: Config = {
                         transform: 'translateX(calc(-250px * 5))'
                     }
                 },
+                
                 'accordion-down': {
                     from: {
                         height: '0'
