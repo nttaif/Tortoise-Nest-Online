@@ -204,20 +204,9 @@ export default function Page() {
         </div>
 
         {/* Navigation buttons */}
-        {/* <div className="flex space-x-4 text-2xl">
-          <button >
-            Overview
-          </button>
-          <button className="bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full">
-            Instructors
-          </button>
-          <button className="bg-gray-200 text-gray-600 font-bold py-2 px-4 rounded-full">
-            Reviews
-          </button>
-        </div> */}
         <Tabs defaultValue="Overview" >
           <TabsList className='h-18 py- px-10 sm:mb-6'>
-            <TabsTrigger value="Overview" className="bg-gray-200 sm:text-xl text-gray-600  py-3 px-8  rounded-full">
+            <TabsTrigger  value="Overview" className="bg-gray-200 sm:text-xl text-gray-600  py-3 px-8  rounded-full">
               Overview
             </TabsTrigger>
             <TabsTrigger value="Instructors" className="bg-gray-200 sm:text-xl ml-10 text-gray-600  py-3 px-8  rounded-full">

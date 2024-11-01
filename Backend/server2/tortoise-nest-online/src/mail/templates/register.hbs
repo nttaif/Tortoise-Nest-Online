@@ -8,31 +8,40 @@
 </head>
 
 <body
-    style="margin: 0; padding: 0; min-width: 100%; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; background-color: #FAFAFA; color: #222222;">
-    <div style="max-width: 600px; margin: 0 auto;">
-        <div style="background-color: #0070f3; padding: 24px; color: #ffffff;">
-            <h1
-                style="font-size: 24px; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 15px; text-align: center;">
-                Welcome to Tortoise Nest Online</h1>
+    style="margin: 0; padding: 0; min-width: 100%; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; background-color: #f3f4f6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden;">
+        
+        <!-- Header -->
+        <div style="background-color: #0070f3; padding: 24px; text-align: center; color: #ffffff;">
+            <h1 style="font-size: 26px; font-weight: bold; margin: 0;">
+                Welcome to Tortoise Nest Online
+            </h1>
         </div>
-        <div style="padding: 24px; background-color: #ffffff;">
-            <p style="margin-top: 0; margin-bottom: 24px;">Hello {{name}},</p>
-            <p style="margin-top: 0; margin-bottom: 24px;">Thank you for registering with Tortoise Nest Online. To activate your
-                account, please use the following activation code:</p>
-            <h2
-                style="font-size: 20px; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 15px; text-align: center;">
-                {{activationCode}}</h2>
-            <p style="margin-top: 0; margin-bottom: 24px;">Please enter this code on the activation page within the next
-                5 minutes.</p>
-            <p style="margin-top: 0; margin-bottom: 24px;">If you did not register for a Tortoise Nest Online account, please
-                ignore this email.</p>
+        
+        <!-- Content -->
+        <div style="padding: 24px; background-color: #ffffff; border-top: 4px solid #0070f3;">
+            <p style="margin: 0 0 16px 0;">Hello <strong>{{name}}</strong>,</p>
+            <p style="margin: 0 0 24px 0;">Thank you for registering with Tortoise Nest Online. To activate your account, please use the following activation code:</p>
+            
+            <!-- Activation Code -->
+            <div style="background-color: #f0f9ff; padding: 16px; text-align: center; border-radius: 8px; margin-bottom: 24px;">
+                <h2 style="font-size: 22px; color: #0070f3; margin: 0; font-weight: bold;">{{activationCode}}</h2>
+            </div>
+            
+            <p style="margin: 0 0 16px 0;">Please enter this code on the activation page within the next <strong>5 minutes</strong>.</p>
+            <p style="margin: 0;">If you did not register for a Tortoise Nest Online account, please ignore this email.</p>
         </div>
-        <div style="background-color: #f6f6f6; padding: 24px;">
-            <p style="margin-top: 0; margin-bottom: 24px;">
-                If you have any questions, please don't hesitate to contact
-                us at <a href="" target="_blank"
-                    style="color: #000; text-decoration:none;">Toirtois Nest Online
-                </a>
+        
+        <!-- Divider -->
+        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 0;">
+        
+        <!-- Footer -->
+        <div style="padding: 24px; background-color: #f9fafb; text-align: center;">
+            <p style="margin: 0 0 16px 0;">If you have any questions, feel free to contact us at 
+                <a href="mailto:support@tortoisenest.com" style="color: #0070f3; text-decoration: none;">support@tortoisenest.com</a>
+            </p>
+            <p style="font-size: 14px; color: #666; margin: 0;">
+                © 2023 Tortoise Nest Online. All rights reserved.
             </p>
         </div>
     </div>

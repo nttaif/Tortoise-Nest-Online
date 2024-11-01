@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
+import React from "react";
 import SectionContentCourse from "@/components/client/courses/section.content.course";
 import { auth } from "@/auth";
 import { sendRequest } from "@/utils/api";
@@ -68,193 +68,13 @@ export default async function Page(props: IProps) {
 
       <div className="container  mx-auto flex flex-col md:flex-row mt-6 lg:mt-32">
         {/* Sidebar */}
-        <div className="md:w-1/5 lg:w-1/4 p-4 md:pr-6">
-          {/* Filter Section */}
-          <div className="bg-gray-100 p-4 rounded shadow-lg mb-6">
-            <h2 className="font-bold mb-4 text-xl">Thể loại</h2>
-            <ul className="space-y-2 text-base">
-              <li>
-                <input type="checkbox" /> Tất cả danh mục
-              </li>
-              <li>
-                <input type="checkbox" /> Công nghệ
-              </li>
-              <li>
-                <input type="checkbox" /> Kinh tế
-              </li>
-              <li>
-                <input type="checkbox" /> Giáo dục
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-gray-100 p-4 rounded shadow-lg mb-6">
-            <h2 className="font-bold mb-4 text-xl">Ngôn ngữ</h2>
-            <ul className="space-y-2 text-base">
-              <li>
-                <input type="checkbox" /> Tiếng Việt
-              </li>
-              <li>
-                <input type="checkbox" /> Tiếng Anh
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-gray-100 p-4 rounded shadow-lg mb-6">
-            <h2 className="font-bold mb-4 text-xl">Giá</h2>
-            <ul className="space-y-2 text-base">
-              <li>
-                <input type="checkbox" /> Tất cả giá
-              </li>
-              <li>
-                <input type="checkbox" /> Miễn phí
-              </li>
-              <li>
-                <input type="checkbox" /> Trả
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-gray-100 p-4 rounded shadow-lg mb-6">
-            <h2 className="font-bold mb-4 text-xl">Cấp độ</h2>
-            <ul className="space-y-2 text-base">
-              <li>
-                <input type="checkbox" /> Tất cả
-              </li>
-              <li>
-                <input type="checkbox" /> Người mới bắt đầu
-              </li>
-              <li>
-                <input type="checkbox" /> Trung cấp
-              </li>
-              <li>
-                <input type="checkbox" /> Cao
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-gray-100 p-4 rounded shadow-lg">
-            <h2 className="font-bold mb-4 text-xl">Xếp hạng</h2>
-            <ul className="space-y-2 text-base">
-              <li className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                <span className="flex">
-                  {Array(5)
-                    .fill(0)
-                    .map((_, index) => (
-                      <svg
-                        key={index}
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-5 h-5 text-yellow-500"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    ))}
-                </span>
-              </li>
-              <li className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                <span className="flex">
-                  {Array(4)
-                    .fill(0)
-                    .map((_, index) => (
-                      <svg
-                        key={index}
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-5 h-5 text-yellow-500"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    ))}
-                </span>
-              </li>
-              <li className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                <span className="flex">
-                  {Array(3)
-                    .fill(0)
-                    .map((_, index) => (
-                      <svg
-                        key={index}
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-5 h-5 text-yellow-500"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    ))}
-                </span>
-              </li>
-              <li className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                <span className="flex">
-                  {Array(2)
-                    .fill(0)
-                    .map((_, index) => (
-                      <svg
-                        key={index}
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-5 h-5 text-yellow-500"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    ))}
-                </span>
-              </li>
-              <li className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                <span className="flex">
-                  {Array(1)
-                    .fill(0)
-                    .map((_, index) => (
-                      <svg
-                        key={index}
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-5 h-5 text-yellow-500"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    ))}
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        {/* <SidebarCourses/> */}
 
         {/* Content Section */}
-          <SectionContentCourse
-            courses={res?.data?.result ?? []}
-            meta={res?.data?.meta}
-          />
+        <SectionContentCourse
+          courses={res?.data?.result ?? []}
+          meta={res?.data?.meta}
+        />
       </div>
     </div>
   );

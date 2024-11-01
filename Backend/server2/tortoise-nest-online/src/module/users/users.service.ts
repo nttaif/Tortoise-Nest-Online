@@ -110,7 +110,7 @@ export class UsersService {
     //Hash mật khẩu nếu mật khẩu hợp lệ
     const hashPass = await hashPassword(password);
     const code_id = uuidv4();
-    // Tạo người dùng mới với trạng thái chưa kích hoạt
+    //Tạo người dùng mới với trạng thái chưa kích hoạt
     const user = await this.userModel.create({
       name, email, password: hashPass, isActivity: false, code_id, code_expried: dayjs().add(5, 'minutes')
     });
