@@ -137,9 +137,17 @@ export async function createMultipleLessons(lessonsArray:Lesson[]) {
       },
       body: { lessons: lessonsArray },
     });
-    console.log("Check response: ",response )
     return response
   } catch (error) {
     console.error("Error:", error);
   }
 };
+
+
+export async function getLecturerByID(_id?:string) {
+  const res = await sendRequest<IBackendRes<User>>({
+    method:'GET',
+    url:`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/lecturer/${_id}`
+  })
+  return res;
+}

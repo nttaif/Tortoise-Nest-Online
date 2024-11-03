@@ -17,6 +17,7 @@ export default async function Page(props: IProps) {
     current: typeof current === "string" ? current : current.toString(),
     pageSize: typeof pageSize === "string" ? pageSize : pageSize.toString(),
   };
+  //call API
   const res = await sendRequest<IBackendRes<any>>({
     method: "GET",
     url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/courses`,
@@ -25,6 +26,7 @@ export default async function Page(props: IProps) {
       next: { tag: ["list-courses"] }, //call revalidate Tag
     },
   });
+
 
   return (
     <div className="bg-gray-50 py-8 px-4 relative">

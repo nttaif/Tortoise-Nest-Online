@@ -3,7 +3,6 @@ import React from "react";
 import { Button } from "../ui/button";
 import { Courses } from "@/types/next-auth";
 import { CldImage } from "next-cloudinary";
-import { useSharedData } from "@/context/SharedDataContextType";
 import { useRouter } from "next/navigation";
 
 interface IProps {
@@ -12,7 +11,6 @@ interface IProps {
 
 export default function ItemCourses(props: IProps) {
   const { courses } = props;
-  const { setData } = useSharedData();
   const router = useRouter();
   return (
     <div className="group content-center max-w-xs mx-auto rounded-xl overflow-hidden  bg-white p-4 border-gray-400 border-2 shadow-[0_0_0_rgb(224,224,224)] duration-700 hover:shadow-[9px_9px_0px_rgb(224,224,224)] hover:duration-700 text-black ease-out hover:translate-y-0 transition-all ">
@@ -50,7 +48,7 @@ export default function ItemCourses(props: IProps) {
         <Button
           variant={"btn_home"}
           className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-full"
-          onClick={()=>{setData(courses),router.push('/Client/coursesDetail')}}
+          onClick={()=>{router.push(`/Client/coursesDetail/${courses._id}`)}}
         >
           Xem thêm
         </Button>

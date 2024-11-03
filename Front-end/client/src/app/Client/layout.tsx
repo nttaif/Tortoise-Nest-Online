@@ -1,7 +1,6 @@
 import HeaderAuth from "@/components/client/HeaderAuth";
 import FooterAuth from "@/components/client/FooterAuth";
 import { auth } from "@/auth";
-import { SharedDataProvider } from "@/context/SharedDataContextType";
 export default async function AdminLayout({
   children,
 }: Readonly<{
@@ -15,9 +14,7 @@ export default async function AdminLayout({
   return (
     <div>
       <HeaderAuth session={session}></HeaderAuth>
-      <div className="main">
-        <SharedDataProvider>{children}</SharedDataProvider>
-      </div>
+      <div className="main">{children}</div>
       <FooterAuth></FooterAuth>
     </div>
   );

@@ -1,4 +1,4 @@
-import { IsMongoId, IsNotEmpty } from "class-validator";
+import { IsMongoId, IsNotEmpty} from "class-validator";
 
 export  enum CourseCategory {
     Technology = 'Technology',
@@ -13,6 +13,7 @@ export class CreateCourseDto {
     image:string;
     @IsNotEmpty()
     description:string;
+
     @IsNotEmpty()
     @IsMongoId()
     _idLecture:string;

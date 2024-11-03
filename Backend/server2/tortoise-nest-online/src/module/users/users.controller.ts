@@ -25,7 +25,13 @@ export class UsersController {
   @Public()
   async findLecturer() {
   return this.usersService.findAllByRole('Lecturer');
-}
+  }
+
+  @Get('/lecturer/:id')
+  @Public()
+  async findLecturerById(@Param('id') _id: string) {
+  return this.usersService.findLecturerById(_id);
+  }
 
   @Patch()
   update( @Body() updateUserDto: UpdateUserDto) {

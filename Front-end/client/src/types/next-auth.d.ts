@@ -73,6 +73,7 @@ interface Courses{
     description?:string;
     category?:string;
     _idLecture?:string;
+    totalStudent?:string;
     createdAt?: string;
     updatedAt?: string;
     __v?: number;

@@ -10,6 +10,8 @@ export class Course{
     image:string;
     @Prop()
     description:string;
+    @Prop({default:0})
+    totalStudent:string;
     @Prop({type:mongoose.Types.ObjectId,ref:"Users"})
     _idLecture:string;
     @Prop({ required: true, enum: CourseCategory })  // Đảm bảo enum trong schema
