@@ -39,8 +39,8 @@ export default function CoursesDetail() {
             <div className=" relative w-full bg-red-200 cursor-pointer rounded-[10px]">
               <CldImage
                 className="h-[600px] rounded-[10px]"
-                src={data.image}
-                alt={data.name}
+                src={data?.image ??"https://res.cloudinary.com/dhogczuic/image/upload/v1730476010/xuorql986fcsqkoklmf5.jpg"}
+                alt={data?.name}
                 width={1920}
                 height={1080}
               />
@@ -73,6 +73,7 @@ export default function CoursesDetail() {
                 </p>
               </div>
             </div>
+            {/* Navigation change content */}
             <Tabs defaultValue="Overview">
               <TabsList className="justify-center space-x-4 mb-6">
                 <TabsTrigger
@@ -199,7 +200,7 @@ export default function CoursesDetail() {
                 variant={"btn_home"}
                 className="mx-auto bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-full w-2/3 flex items-center justify-center"
                 onClick={() => {
-                  router.push("/Client/courses-lesson");
+                  router.push("/Client/coursesLesson");
                 }}
               >
                 <span>Tham gia</span>

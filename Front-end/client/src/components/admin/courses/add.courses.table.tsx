@@ -343,7 +343,7 @@ export default function AddCoursesTable(props: IProp) {
                     }}
                   >
                     <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="Theme" />
+                      <SelectValue placeholder="Chọn người phụ trách" />
                     </SelectTrigger>
                     <SelectContent>
                       {listLecturer.map((lecturer, index) => (
@@ -356,7 +356,7 @@ export default function AddCoursesTable(props: IProp) {
                       ))}
                     </SelectContent>
                   </Select>
-                  <div>Thể loại khoá học:</div>
+                  <div className="ml-12">Thể loại khoá học:</div>
                   <Select
                     value={courses?.category}
                     onValueChange={(e) => {
@@ -365,14 +365,14 @@ export default function AddCoursesTable(props: IProp) {
                     }}
                   >
                     <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="Theme" />
+                      <SelectValue placeholder="Chọn thể loại" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value={"Technology"}>Công nghệ</SelectItem>
                       <SelectItem value={"Economy"}>Kinh tế</SelectItem>
                       <SelectItem value={"Education"}>Giáo dục</SelectItem>
                     </SelectContent>
-                  </Select>
+                  </Select> 
                 </div>
               </TabsContent>
               <TabsContent value="point">Cooming soon</TabsContent>

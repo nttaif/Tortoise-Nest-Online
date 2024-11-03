@@ -51,7 +51,7 @@ const components_courses: { title: string; href: string; description: string }[]
   const components_page: { title: string; href: string; description: string }[] = [
     {
       title: "Thông tin về chúng tôi",
-      href: "/Client/about-us",
+      href: "/Client/aboutUs",
       description: "A modal dialog that interrupts the user with important content and expects a response.",
     },
     {
@@ -223,7 +223,7 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
                     <DropdownMenuLabel>{session?.user?.name ?? "null"}</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={()=>{router.push("/Admin/account")}}>Profile</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => signOut()}>Logout</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => {signOut();router.push('/login')}}>Logout</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>

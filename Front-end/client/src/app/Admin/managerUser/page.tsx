@@ -1,7 +1,7 @@
 import { sendRequest } from '@/utils/api';
 import React from 'react';
 import { auth } from '@/auth';
-import UserTable from '../../Admin/component/user.table';
+import UserTable from '../component/user.table';
 import { handlerUrlUploadImage } from '@/utils/actions';
 
 interface IProps {
