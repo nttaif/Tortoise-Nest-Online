@@ -62,14 +62,12 @@ export default function LoginFormComponent() {
       });
     }
   };
-
   const onFinishSteps1 = async () => {
     const verifyRes = await sendRequest<IBackendRes<any>>({
       method: 'POST',
       url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/auth/verify`,
       body: { _id: _idUser, verificationCode: verificationCode },
     });
-
     if (verifyRes?.data) {
       notification.success({
         message: 'Xác thực thành công',
@@ -83,22 +81,20 @@ export default function LoginFormComponent() {
       });
     }
   };
-
   return (
-    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div className="flex min-h-full flex-col justify-center px-6 py-14 lg:px-8 shadow-lg rounded-lg ">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm  ">
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Welcome back to TNO
         </h2>
       </div>
-
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className=" w-full mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form onSubmit={onFinish} className="space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
               Email address
             </label>
-            <div className="mt-2">
+            <div className="mt-2  ">
               <input
                 onChange={(e) => setUsername(e.target.value)}
                 id="email"
@@ -107,11 +103,10 @@ export default function LoginFormComponent() {
                 placeholder="Enter your email"
                 autoComplete="email"
                 required
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-4"
+                className="block h-14 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-4"
               />
             </div>
           </div>
-
           <div>
             <div className="flex items-center justify-between">
               <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
@@ -127,16 +122,15 @@ export default function LoginFormComponent() {
                 placeholder="Enter your password"
                 autoComplete="current-password"
                 required
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-4"
+                className="block h-14 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-4"
               />
             </div>
           </div>
-
           <div>
             <button
               type="submit"
               disabled={isLoading} // Vô hiệu hóa khi đang xử lý
-              className={`flex w-full justify-center items-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+              className={`flex h-14 w-full justify-center items-center rounded-sm bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
                 isLoading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
@@ -161,7 +155,6 @@ export default function LoginFormComponent() {
           </section>
         </form>
       </div>
-
       <Modal title="Xác thực tài khoản" open={isModalOpen} footer={null} onCancel={() => setIsModalOpen(false)}>
         <Steps
           current={current}
@@ -171,7 +164,6 @@ export default function LoginFormComponent() {
             { title: 'Done', icon: <SmileOutlined /> },
           ]}
         />
-
         {current === 0 && (
           <div className="mt-5">
             <p>Tài khoản của bạn chưa được kích hoạt</p>
@@ -196,7 +188,6 @@ export default function LoginFormComponent() {
             </Button>
           </div>
         )}
-
         {current === 2 && (
           <div className="mt-5">
             <p>Tài khoản của bạn đã được kích hoạt! Vui lòng đăng nhập lại</p>
