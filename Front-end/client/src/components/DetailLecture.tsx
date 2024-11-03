@@ -20,7 +20,6 @@
             youtube: "#"
           }
         };
-      
         return (
           <div className="flex justify-center items-center min-h-screen bg-white">
             <div className="bg-[#1c1a4a] p-6 rounded-2xl shadow-lg text-white flex flex-col md:flex-row items-center w-[90%] max-w-4xl">

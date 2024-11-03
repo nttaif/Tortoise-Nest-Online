@@ -88,7 +88,7 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-full flex items-center justify-center bg-gray-50 px-6 py-12">
+    <div className="min-h-full flex items-center justify-center bg-white px-6 py-12">
       <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
         <h2 className="text-center text-3xl font-extrabold text-gray-900">
           Create an Account
