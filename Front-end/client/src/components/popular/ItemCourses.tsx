@@ -20,7 +20,7 @@ export default function ItemCourses(props: IProps) {
         <div className=" relative w-full bg-red-200 cursor-pointer rounded-[10px]">
           <CldImage
             className="h-[150px] rounded-[10px]"
-            src={courses.image}
+            src={courses.image?? "https://res-console.cloudinary.com/dhogczuic/media_explorer_thumbnails/7dc261afd5c64a74de4d34b34029fe9d/detailed"}
             alt={courses.name}
             width={350}
             height={150}
@@ -50,7 +50,7 @@ export default function ItemCourses(props: IProps) {
         <Button
           variant={"btn_home"}
           className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-full"
-          onClick={()=>{setData(courses),router.push('/Client/courses-detail')}}
+          onClick={()=>{setData(courses),router.push('/Client/coursesDetail')}}
         >
           Xem thêm
         </Button>

@@ -21,16 +21,13 @@ export default async function Page(props: IProps) {
     method: "GET",
     url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/courses`,
     queryParams,
-    headers: {
-      Authorization: `Bearer ${session?.user?.access_token}`,
-    },
     nextOption: {
       next: { tag: ["list-courses"] }, //call revalidate Tag
     },
   });
 
   return (
-    <div className="bg-white py-8 px-4 relative">
+    <div className="bg-gray-50 py-8 px-4 relative">
       <div className="relative z-10 text-left mb-8">
         <section
           id="banner"

@@ -61,7 +61,6 @@ export default function UserTable(props: IProps) {
 
     const handleEdit = (userId: string) => {
         const user = users.find(item => item._id === userId);
-        console.log("????check user: ",user)
         if (user) {
             setSelectedUser(user);
             setIsEditable(true);

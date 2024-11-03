@@ -14,15 +14,11 @@ export default async function AdminLayout({
   console.log(">>>>check token_expiration: ", tokenExpiration);
   return (
     <div>
-      <div className="header">
-        <HeaderAuth session={session}></HeaderAuth>
-      </div>
+      <HeaderAuth session={session}></HeaderAuth>
       <div className="main">
         <SharedDataProvider>{children}</SharedDataProvider>
       </div>
-      <div className="footer">
-        <FooterAuth></FooterAuth>
-      </div>
+      <FooterAuth></FooterAuth>
     </div>
   );
 }
