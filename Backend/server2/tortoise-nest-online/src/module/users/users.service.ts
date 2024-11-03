@@ -88,6 +88,9 @@ export class UsersService {
   async findAllByRole(role: string): Promise<User[]> {
     return await this.userModel.find({ role }).exec(); // Giả sử bạn có một trường "role" trong User schema
   }
+  async findLecturerById(_id: string): Promise<User> {
+    return await this.userModel.findOne({_id }).exec(); // Giả sử bạn có một trường "role" trong User schema
+  }
 
   async findUserByEmail(email:string){
     return await this.userModel.findOne({email});

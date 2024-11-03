@@ -14,6 +14,7 @@ export class CoursesController {
   }
 
   @Get()
+  @Public()
   findAll(@Query() query, @Query('current') current, @Query('pageSize') pageSize) {
     return this.coursesService.findAll(query,current,pageSize);
   }
