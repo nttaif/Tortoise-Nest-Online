@@ -13,7 +13,9 @@ export class UpdateCourseDto{
     @IsOptional()
     description:string;
     @IsOptional()
-    totalStudent:string;
+    totalStudent:number;
+    @IsOptional()
+    rating:number;
     @IsOptional()
     _idLecture:string;
 }

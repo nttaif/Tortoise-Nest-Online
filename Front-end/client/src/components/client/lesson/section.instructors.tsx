@@ -1,7 +1,6 @@
 'use client';
 import { User } from '@/types/next-auth';
 import { CldImage } from 'next-cloudinary';
-import Image from 'next/image';
 import React from 'react';
 
 import { FaFacebook, FaTwitter, FaWhatsapp, FaInstagram, FaYoutube } from 'react-icons/fa';
@@ -10,7 +9,6 @@ interface IProps{
   }
 export default function SectionInstructors(props:IProps) {
     const {lecturer} = props;
-    console.log('>>>>Check data  aa: ',lecturer)
     return (
         <div className='flex  mx-auto rounded-xl overflow-hidden bg-white p-6  border shadow-md duration-300 hover:shadow-lg transition-all'>
 

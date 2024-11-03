@@ -107,7 +107,6 @@ import Image from 'next/image';
 export default function HeaderAuth(props: IBackendRes<ILogin>) {
   const { session } = props;
   const router = useRouter();
-  console.log(">>>check session: ", { session });
   const [menuOpen, setMenuOpen] = useState(false); // State cho mobile menu
   return (
     <div className="h-24 w-full border-b-2 content-center text-center bg-white sticky top-0 z-50">

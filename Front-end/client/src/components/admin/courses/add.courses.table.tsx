@@ -95,7 +95,6 @@ export default function AddCoursesTable(props: IProp) {
       const imageUrl = cloudinaryData.secure_url;
       if (!imageUrl) throw new Error("Failed to retrieve image URL from Cloudinary");
       const resUploadCourses = await handleCreateCourses({ ...courses,image:imageUrl});
-  
       if (resUploadCourses.statusCode === 201) {  
         const iDNewCourses= resUploadCourses.data.course_id
         const listLessons = listLesson.map(lesson => ({

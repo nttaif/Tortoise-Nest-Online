@@ -59,7 +59,7 @@ export default function CoursesDetail(props:IProps) {
                 <button className="bg-gray-200 hover:bg-blue-500 hover:text-white text-gray-600 font-bold py-2 px-4 rounded-full">
                   {courses?.category ?? "Không có thông tin"}
                 </button>
-                <span className="text-yellow-500">★ 4.5 Đánh giá</span>
+                <span className="text-yellow-500">★ {courses?.rating} Đánh giá</span>
               </div>
               {/* Thông tin khóa học */}
               <h1 className="text-2xl font-bold mb-4">
@@ -67,8 +67,8 @@ export default function CoursesDetail(props:IProps) {
               </h1>
               {/* Thông tin người hướng dẫn */}
               <div className="flex items-center mb-6">
-                <Image
-                  src="/images/hinh1.jpg"
+                <CldImage
+                  src={lecturer?.image?? "/images/hinh1.jpg"}
                   alt="Instructor"
                   width={30}
                   height={30}
@@ -81,7 +81,7 @@ export default function CoursesDetail(props:IProps) {
             </div>
             {/* Navigation change content */}
             <Tabs defaultValue="Overview">
-              <TabsList className="justify-center space-x-4 mb-6">
+              <TabsList className="justify-center m space-x-4 mb-6">
                 <TabsTrigger
                   value="Overview"
                   className="bg-gray-200 sm:text-xl text-gray-600 py-3 px-6 rounded-full transition duration-200 hover:text-white"
@@ -206,7 +206,7 @@ export default function CoursesDetail(props:IProps) {
                 variant={"btn_home"}
                 className="mx-auto bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-full w-2/3 flex items-center justify-center"
                 onClick={() => {
-                  router.push("/Client/coursesLesson");
+                  router.push(`/Client/coursesLesson/${courses?._id}`);
                 }}
               >
                 <span>Tham gia</span>
