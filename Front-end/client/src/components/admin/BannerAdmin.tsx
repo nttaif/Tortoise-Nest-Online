@@ -9,7 +9,6 @@ interface IProps{
 }
 export default function BannerAdmin(props:IProps) {
 const {listLecturer,resUploadImage} = props;
-console.log('>>>Check lisstlecturer: ',listLecturer)
   return (
     <div className="w-full flex ">
         <div className='w-full flex flex-col justify-center'>

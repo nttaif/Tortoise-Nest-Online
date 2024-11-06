@@ -18,7 +18,7 @@ export default async function Page(props: IProps) {
   }
 
   return (
-    <div className="container mx-auto p-4 md:p-6 min-h-screen flex flex-col">
+    <div className="container bg-white mx-auto p-4 md:p-6 min-h-screen flex flex-col">
       <CoursesDetail courses={res?.data} lecturer={resLecturer?.data} /> {/* Pass the fetched data to CoursesDetail */}
     </div>
   );

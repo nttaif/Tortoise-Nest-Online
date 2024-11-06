@@ -4,6 +4,7 @@ import ItemCourses from "@/components/popular/ItemCourses";
 import ItemCourses2 from "@/components/ui/ItemCourses2";
 import { Courses } from "@/types/next-auth";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { handleGetListCourses } from "@/utils/actions";
 
 interface IProps {
   courses: Courses[] | [];
@@ -22,13 +23,6 @@ export default function SectionContentCourse(props: IProps) {
   const searchParams = useSearchParams();
   const [isShowList, setShowList] = useState(false);
   const [currentPage, setCurrentPage] = useState(meta?.current);
-  const [filteredCourses, setFilteredCourses] = useState(courses);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([
-    "all",
-  ]);
-  useEffect(() => {
-    filterCourses();
-  }, [courses, selectedCategories]);
 
   const onChange = (page: number, pageSize?: number) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -37,32 +31,13 @@ export default function SectionContentCourse(props: IProps) {
     router.replace(`${pathname}?${params.toString()}`);
     setCurrentPage(page);
   };
-  const filterCourses = () => {
-    if (selectedCategories.includes("all")) {
-      setFilteredCourses(courses);
-    } else {
-      setFilteredCourses(
-        courses.filter((course) => selectedCategories.includes(course.category))
-      );
-    }
-  };
 
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategories((prevCategories) => {
-      if (category === "all") {
-        return prevCategories.includes("all") ? [] : ["all"];
-      } else {
-        const updatedCategories = prevCategories.includes("all")
-          ? [category]
-          : prevCategories.includes(category)
-          ? prevCategories.filter((cat) => cat !== category)
-          : [...prevCategories, category];
-        return updatedCategories.length === 0 ? ["all"] : updatedCategories;
-      }
-    });
-    setCurrentPage(1);
+  const handleCategoryChange = (category:string) => {
+    // Get current params and update category filter
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("category", category);
+    router.replace(`${pathname}?${params.toString()}`);
   };
-
   return (
     <>
       <div className="md:w-1/5 lg:w-1/4 p-4 md:pr-6">
@@ -304,12 +279,14 @@ export default function SectionContentCourse(props: IProps) {
         {/* Grid/List view content */}
         {!isShowList ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCourses.length > 0 ? (
-              filteredCourses.map((course) => (
+            {courses.length > 0 ? (
+              courses.map((course) => (
                 <ItemCourses key={course._id} courses={course} />
               ))
             ) : (
-              <div>Không có khoá học nào</div>
+              <div className="w-full content-center text-center">
+                Không có khoá học nào
+              </div>
             )}
           </div>
         ) : (
@@ -323,22 +300,42 @@ export default function SectionContentCourse(props: IProps) {
         {/* Pagination */}
         {/* Pagination */}
         <div className="flex space-x-4 justify-center mt-4">
-          <button onClick={() => onChange(currentPage - 1)} disabled={currentPage === 1}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mt-4">
+          <button
+            onClick={() => onChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-6 h-6 mt-4"
+            >
               <path d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"></path>
             </svg>
           </button>
           {[...Array(meta?.pages)].map((_, index) => (
             <button
               key={index}
-              className={`font-bold py-3 px-5 rounded-full ${currentPage === index + 1 ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-600"}`}
+              className={`font-bold py-3 px-5 rounded-full ${
+                currentPage === index + 1
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-600"
+              }`}
               onClick={() => onChange(index + 1)}
             >
               {index + 1}
             </button>
           ))}
-          <button onClick={() => onChange(currentPage + 1)} disabled={currentPage === meta?.pages}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mt-4">
+          <button
+            onClick={() => onChange(currentPage + 1)}
+            disabled={currentPage === meta?.pages}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-6 h-6 mt-4"
+            >
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
           </button>

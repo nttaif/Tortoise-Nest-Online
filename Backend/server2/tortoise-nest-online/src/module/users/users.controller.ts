@@ -17,7 +17,7 @@ export class UsersController {
     return this.usersService.findAll(query,+current,+pageSize);
   }
 
-  @Get('id/:id')
+  @Get('/id/:id')
   findOne(@Param('id') id: string) {
     return this.usersService.findUserByID(id);
   }

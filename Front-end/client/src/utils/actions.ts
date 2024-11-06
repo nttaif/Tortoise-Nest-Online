@@ -124,6 +124,22 @@ export async function handleCreateCourses(course?:Courses) {
   return res;
 }
 
+
+export async function handleGetListCourses(queryParams?:any) {
+  const res = await sendRequest<IBackendRes<any>>({
+    method: "GET",
+    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/courses`,
+    queryParams,
+    nextOption: {
+      next: { tag: ["list-courses"] }, //call revalidate Tag
+    },
+  });
+  console.log('?????Check data: ',res.data)
+  return res;
+}
+
+
+
 export async function createMultipleLessons(lessonsArray:Lesson[]) {
   const session = await auth();
   try {

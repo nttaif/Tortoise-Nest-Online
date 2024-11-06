@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex items-center justify-between`}
       >
-        <main className="h-full w-full">
+        <main className=" bg-white h-full w-full">
           <PaginationProvider>
             <AntdRegistry>
               <NextAuthWrapper>{children}</NextAuthWrapper>

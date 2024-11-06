@@ -22,6 +22,14 @@ interface IProps{
   lecturer:User | undefined;
 }
 export default function CoursesDetail(props:IProps) {
+
+  //Kiểm tra xem người dùng hiện tại đang đăng nhập có tham gia khoá học này hay chưa
+  //Nếu có button chuyển sang 'Truy cập vào khoá học ->' ngược lại hiển thị 'Tham gia'
+
+
+
+  //Khi nhấn vào Tham gia thì sẽ call API 
+
   const {courses,lecturer} = props;
   const router = useRouter();
   const courseInfo = [
@@ -142,7 +150,7 @@ export default function CoursesDetail(props:IProps) {
           </div>
 
           {/* Phần bên phải cho Quick Contact */}
-          <div className="lg:top-0 lg:right-0 lg:w-2/3 w-full max-w-sm p-4 z-50">
+          <div className=" lg:top-0 lg:right-0 lg:w-2/3 w-full max-w-sm p-4">
             {/* Cột phải - Thông tin khóa học */}
             <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-400 flex flex-col">
               {/* Nhúng video */}

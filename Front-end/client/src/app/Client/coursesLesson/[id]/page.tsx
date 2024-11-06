@@ -33,7 +33,7 @@ export default async function Page(props: IProps) {
     return <div>Course not found.</div>; // Handle case where no data is returned
   }
   return (
-    <div className="flex flex-col lg:flex-row  bg-gray-100 min-h-screen">
+    <div className="flex flex-col lg:flex-row text-black  bg-gray-100 min-h-screen">
       {/* Thanh nội dung khóa học */}
       <div className="lg:w-1/4 sm:w-full bg-white p-8 shadow-lg">
         <h2 className="text-3xl font-bold mb-8">Nội dung khóa học</h2>
@@ -43,7 +43,7 @@ export default async function Page(props: IProps) {
               resLesson.data.map((lesson)=>(
                 <AccordionItem key={lesson._id} value={lesson?._id || ''}>
                 <AccordionTrigger className="text-xl w-full font-normal flex items-center border-b border-slate-200 py-4">
-                  <span className="pr-72">{lesson.content}</span>
+                  <span className="h-full">{lesson.content}</span>
                   <div className="flex items-center ml-auto space-x-2">
                     <span className="text-gray-500 text-lg text-right ">1/3</span>
                     <span>
