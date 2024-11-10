@@ -11,7 +11,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     jwt({ token, user }) {
       if (user) { // User is available during sign-in
         token.user = (user as IUser);
-        console.log(">>>>check user in session: ",token.user)
       }
       return token
     },

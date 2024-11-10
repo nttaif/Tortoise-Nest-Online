@@ -43,20 +43,20 @@ const components_courses: {
       "A modal dialog that interrupts the user with important content and expects a response.",
   },
   {
-    title: "Công nghệ",
-    href: "/Client/courses",
+    title: `Công nghệ`,
+    href: `/Client/courses?category=Technology`,
     description:
       "For sighted users to preview content available behind a link.",
   },
   {
     title: "Kinh tế",
-    href: "/Client/courses",
+    href: `/Client/courses?category=Economy`,
     description:
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
   },
   {
     title: "Giáo dục",
-    href: "/Client/courses",
+    href: `/Client/courses?category=Education`,
     description: "Visually or semantically separates content.",
   },
 ];
@@ -234,25 +234,19 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
                       className="text-black text-base h-12"
                       variant="ghost"
                     >
-                      Categories
+                      Thể loại
                       <RiArrowDropDownLine size={35} />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-56 h-full text-lg p-6 ">
                     <DropdownMenuRadioItem value="top">
-                      Businness
+                      Công nghệ
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="bottom">
-                      Data Science
+                      Kinh tế
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="right">
-                      Art & Design
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="right">
-                      Marketing
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="right">
-                      Finance
+                      Giáo dục
                     </DropdownMenuRadioItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -312,7 +306,6 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
                       <DropdownMenuItem
                         onClick={() => {
                           signOut();
-                          router.push("/login");
                         }}
                       >
                         Đăng xuất

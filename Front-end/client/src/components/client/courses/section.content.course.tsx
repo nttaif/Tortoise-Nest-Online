@@ -37,26 +37,22 @@ export default function SectionContentCourse(props: IProps) {
 
   const handleCategoryChange = (category: string, checked: boolean) => {
     const updatedCategories = { ...categories, [category]: checked };
-
     if (category === "All") {
-      // Chọn hoặc bỏ chọn tất cả danh mục
       updatedCategories.Technology = checked;
       updatedCategories.Economy = checked;
       updatedCategories.Education = checked;
       updatedCategories.All = checked;
     } else {
-      // Nếu tất cả các danh mục con được chọn, chọn "Tất cả danh mục"
       updatedCategories.All =
         updatedCategories.Technology &&
         updatedCategories.Economy &&
         updatedCategories.Education;
     }
     setCategories(updatedCategories);
-    // Cập nhật URL
     const params = new URLSearchParams(searchParams.toString());
     params.delete("category");
     Object.entries(updatedCategories).forEach(([key, value]) => {
-      if (value && key !== "all") params.append("category", key);
+      if (value && key !== "All") params.append("category", key);
     });
     router.replace(`${pathname}?${params.toString()}`);
   };
@@ -316,9 +312,15 @@ export default function SectionContentCourse(props: IProps) {
           </div>
         ) : (
           <div className="grid grid-rows-1 sm:grid-row-2 lg:grid-rows-3 gap-6">
-            {[...Array(6)].map((_, idx) => (
-              <ItemCourses2 key={idx} />
-            ))}
+            {courses.length > 0 ? (
+              courses.map((course) => (
+                <ItemCourses2 key={course._id} />
+              ))
+            ) : (
+              <div className="w-full content-center text-center">
+                Không có khoá học nào
+              </div>
+            )}
           </div>
         )}
 

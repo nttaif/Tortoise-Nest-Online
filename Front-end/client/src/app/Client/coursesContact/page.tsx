@@ -1,12 +1,9 @@
 import React from 'react';
 import {FaArrowRight, } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-import { useRouter } from 'next/router';
-
 export default function Page() {
-    const router = useRouter();
   return (
-    <div className="container mx-auto px-4 py-10 bg-purple-50">
+    <div className="container mx-auto px-4 py-10 text-black bg-purple-50">
       <div className="flex justify-center">
         {/* Contact Details and Send Us Message Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-7xl">
@@ -77,9 +74,9 @@ export default function Page() {
               <Button
                 variant={"btn_home"}
                 className="mx-auto bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-full w-2/3 flex items-center justify-center"
-                onClick={() => {
-                  router.push("/Client/coursesLesson");
-                }}
+                // onClick={() => {
+                //   router.push("/Client/coursesLesson");
+                // }}
               >
                 <span>Tham gia</span>
                 <FaArrowRight className="ml-2" />
