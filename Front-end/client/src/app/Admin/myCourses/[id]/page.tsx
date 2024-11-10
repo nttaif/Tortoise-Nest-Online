@@ -15,7 +15,7 @@ export default async function Page(props:IProps) {
   const queryParams = {
     current: typeof current === 'string' ? current : current.toString(),
     pageSize: typeof pageSize === 'string' ? pageSize : pageSize.toString(),
-    _idLecture: typeof _idLecture === 'string' ? _idLecture : _idLecture,
+    _idLecture: typeof _idLecture === 'string' ? _idLecture : _idLecture ??'',
   };
     const listMyCourses = await sendRequest<IBackendRes<any>>({
         method: "GET",
