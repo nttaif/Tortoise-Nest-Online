@@ -1,18 +1,22 @@
 'use client';
-import Image from 'next/image';
+import { User } from '@/types/next-auth';
+import { CldImage } from 'next-cloudinary';
 import React from 'react';
 
 import { FaFacebook, FaTwitter, FaWhatsapp, FaInstagram, FaYoutube } from 'react-icons/fa';
-
-export default function SectionInstructors() {
+interface IProps{
+    lecturer:User | undefined;
+  }
+export default function SectionInstructors(props:IProps) {
+    const {lecturer} = props;
     return (
         <div className='flex  mx-auto rounded-xl overflow-hidden bg-white p-6  border shadow-md duration-300 hover:shadow-lg transition-all'>
 
             {/* Profile Image Section */}
             <div className='relative w-[255px] h-[255px] flex-shrink-0'>
-                <Image
+                <CldImage
                     className="rounded-full object-cover instructor-image"
-                    src="/images/GV4.jpg"
+                    src= {lecturer?.image}
                     alt='Profile'
                     width={200}
                     height={200}
@@ -23,8 +27,8 @@ export default function SectionInstructors() {
             {/* Content Section */}
             <div className="flex-1 px-6">
                 {/* Name and Role */}
-                <h2 className="font-bold text-2xl text-blue-900 mt-2">Ngô Thị Đăng Quỳnh</h2>
-                <a href="#" className="text-blue-500 text-xl mb-2 ">UX Design </a>
+                <h2 className="font-bold text-2xl text-blue-900 mt-2">{lecturer?.name}</h2>
+                <a href="#" className="text-blue-500 text-xl mb-2 ">{lecturer?.inFoLecturer?.specialization} </a>
 
                 {/* Star Rating */}
                 <div className="text-yellow-500 flex items-center mb-2 mt-2">
@@ -36,7 +40,7 @@ export default function SectionInstructors() {
 
                 {/* Description */}
                 <p className="text-gray-600 mb-4 text-xl">
-                    Giảng viên tài năng giảng dạy khóa Mobile App Web Design và UX Design tại TNO. Với nhiều năm kinh nghiệm trong lĩnh vực Product Design.
+                   {lecturer?.biography}
 
                 </p>
 

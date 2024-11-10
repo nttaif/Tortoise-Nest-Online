@@ -9,17 +9,29 @@ import {
   FaYoutube,
   FaArrowRight,
 } from "react-icons/fa";
-import { useSharedData } from "@/context/SharedDataContextType";
 import { CldImage } from "next-cloudinary";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SectionInstructors from "@/components/client/lesson/section.instructors";
 import SectionReviews from "@/components/client/lesson/section.reviews";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { Courses, User } from "@/types/next-auth";
 
-export default function CoursesDetail() {
+interface IProps{
+  courses:Courses | undefined;
+  lecturer:User | undefined;
+}
+export default function CoursesDetail(props:IProps) {
+
+  //Kiểm tra xem người dùng hiện tại đang đăng nhập có tham gia khoá học này hay chưa
+  //Nếu có button chuyển sang 'Truy cập vào khoá học ->' ngược lại hiển thị 'Tham gia'
+
+
+
+  //Khi nhấn vào Tham gia thì sẽ call API 
+
+  const {courses,lecturer} = props;
   const router = useRouter();
-
   const courseInfo = [
     { label: "Mức độ:", value: "Chuyên gia" },
     { label: "Khoảng thời gian:", value: "11h 20m" },
@@ -28,7 +40,6 @@ export default function CoursesDetail() {
     { label: "Chứng chỉ:", value: "Đúng" },
     { label: "Tốt nghiệp:", value: "25K" },
   ];
-  const { data } = useSharedData();
   return (
     <div>
       <div className="container mx-auto p-6 lg:p-10 min-w-[320px] justify-center">
@@ -39,8 +50,11 @@ export default function CoursesDetail() {
             <div className=" relative w-full bg-red-200 cursor-pointer rounded-[10px]">
               <CldImage
                 className="h-[600px] rounded-[10px]"
-                src={data?.image ??"https://res.cloudinary.com/dhogczuic/image/upload/v1730476010/xuorql986fcsqkoklmf5.jpg"}
-                alt={data?.name}
+                src={
+                  courses?.image ??
+                  "https://res.cloudinary.com/dhogczuic/image/upload/v1730476010/xuorql986fcsqkoklmf5.jpg"
+                }
+                alt={courses?.name}
                 width={1920}
                 height={1080}
               />
@@ -51,31 +65,31 @@ export default function CoursesDetail() {
               {/* Nút phát triển và đánh giá */}
               <div className="flex items-center space-x-2 mb-4">
                 <button className="bg-gray-200 hover:bg-blue-500 hover:text-white text-gray-600 font-bold py-2 px-4 rounded-full">
-                  {data?.category ?? "Không có thông tin"}
+                  {courses?.category ?? "Không có thông tin"}
                 </button>
-                <span className="text-yellow-500">★ 4.5 Đánh giá</span>
+                <span className="text-yellow-500">★ {courses?.rating} Đánh giá</span>
               </div>
               {/* Thông tin khóa học */}
               <h1 className="text-2xl font-bold mb-4">
-                {data?.name ?? "Không có thông tin"}
+                {courses?.name ?? "Không có thông tin"}
               </h1>
               {/* Thông tin người hướng dẫn */}
               <div className="flex items-center mb-6">
-                <Image
-                  src="/images/hinh1.jpg"
+                <CldImage
+                  src={lecturer?.image?? "/images/hinh1.jpg"}
                   alt="Instructor"
                   width={30}
                   height={30}
                   className="rounded-full"
                 />
                 <p className="text-gray-600 ml-2">
-                  By ThaiLong • {data?.createdAt} • 2,250 Học viên
+                  By {lecturer?.name} •|• {courses?.createdAt} •|• {courses?.totalStudent ?? 0} Học viên
                 </p>
               </div>
             </div>
             {/* Navigation change content */}
             <Tabs defaultValue="Overview">
-              <TabsList className="justify-center space-x-4 mb-6">
+              <TabsList className="justify-center m space-x-4 mb-6">
                 <TabsTrigger
                   value="Overview"
                   className="bg-gray-200 sm:text-xl text-gray-600 py-3 px-6 rounded-full transition duration-200 hover:text-white"
@@ -107,7 +121,7 @@ export default function CoursesDetail() {
                       Mô tả khóa học
                     </h2>
                     <p className="text-gray-600 text-sm  w-[900px] overflow-hidden">
-                      {data?.description}
+                      {courses?.description}
                     </p>
                     <h2
                       id="curriculum"
@@ -127,7 +141,7 @@ export default function CoursesDetail() {
                 </div>
               </TabsContent>
               <TabsContent value="Instructors" className="sm:w-[1050px]">
-                <SectionInstructors />
+                <SectionInstructors lecturer={lecturer} />
               </TabsContent>
               <TabsContent value="Reviews" className="sm:w-[1050px]">
                 <SectionReviews />
@@ -136,7 +150,7 @@ export default function CoursesDetail() {
           </div>
 
           {/* Phần bên phải cho Quick Contact */}
-          <div className="lg:top-0 lg:right-0 lg:w-2/3 w-full max-w-sm p-4 z-50">
+          <div className=" lg:top-0 lg:right-0 lg:w-2/3 w-full max-w-sm p-4">
             {/* Cột phải - Thông tin khóa học */}
             <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-400 flex flex-col">
               {/* Nhúng video */}
@@ -200,7 +214,7 @@ export default function CoursesDetail() {
                 variant={"btn_home"}
                 className="mx-auto bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-full w-2/3 flex items-center justify-center"
                 onClick={() => {
-                  router.push("/Client/coursesLesson");
+                  router.push(`/Client/coursesLesson/${courses?._id}`);
                 }}
               >
                 <span>Tham gia</span>

@@ -28,8 +28,8 @@ export class LessonService {
   }
 
 
-  findAll() {
-    return `This action returns all lesson`;
+  async findAllLessonByIdCourses(_idCourses:string) {
+    return await this.lessonModel.find({_idCourses});
   }
 
   findOne(id: number) {

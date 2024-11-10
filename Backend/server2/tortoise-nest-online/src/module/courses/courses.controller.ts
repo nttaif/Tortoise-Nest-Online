@@ -20,6 +20,7 @@ export class CoursesController {
   }
 
   @Get(':id')
+  @Public()
   findOne(@Param('id') id: string) {
     return this.coursesService.findCoursesById(id);
   }

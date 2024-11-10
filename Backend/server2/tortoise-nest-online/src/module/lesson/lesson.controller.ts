@@ -17,9 +17,9 @@ export class LessonController {
     return this.lessonService.createMultiple(createMultipleLessons.lessons);
   }
 
-  @Get()
-  findAll() {
-    return this.lessonService.findAll();
+  @Get(':id')
+  findAllLessonByIdCourses(@Param('id') id:string) {
+    return this.lessonService.findAllLessonByIdCourses(id);
   }
 
   @Get(':id')

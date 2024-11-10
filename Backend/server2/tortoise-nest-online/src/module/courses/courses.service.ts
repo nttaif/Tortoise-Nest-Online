@@ -10,17 +10,19 @@ import aqp from 'api-query-params';
 @Injectable()
 export class CoursesService {
   constructor(
-    @InjectModel(Course.name) private courseModel:Model<Course>,
-    private userService:UsersService
-  ){}
-  
+    @InjectModel(Course.name) private courseModel: Model<Course>,
+    private userService: UsersService,
+  ) {}
+
   async create(createCourseDto: CreateCourseDto) {
-    const isLecturer= await this.userService.isLecturerExist(createCourseDto._idLecture)
-    if(!isLecturer){
-      throw new BadRequestException('Dont find Lecturer')
+    const isLecturer = await this.userService.isLecturerExist(
+      createCourseDto._idLecture,
+    );
+    if (!isLecturer) {
+      throw new BadRequestException('Dont find Lecturer');
     }
-    const course= await this.courseModel.create(createCourseDto);
-    return {course_id: course._id}
+    const course = await this.courseModel.create(createCourseDto);
+    return { course_id: course._id };
   }
 
   async findAll(query: string, current: number, pageSize: number) {
@@ -39,46 +41,47 @@ export class CoursesService {
     const skip = (current - 1) * pageSize;
     // Lấy các kết quả theo trang và sắp xếp
     const result = await this.courseModel
-    .find(filter)
-    .limit(pageSize)
-    .skip(skip)
-    .sort(sort as any);
+      .find(filter)
+      .limit(pageSize)
+      .skip(skip)
+      .sort(sort as any);
     return {
-      meta:{
-        current:current,
-        pageSize:pageSize,
-        pages:totalPage,
-        total:totalItems,
+      meta: {
+        current: current,
+        pageSize: pageSize,
+        pages: totalPage,
+        total: totalItems,
       },
-      result};
+      result,
+    };
   }
 
   async findCoursesById(_id: string) {
-    return await this.courseModel.findOne({_id});
+    return await this.courseModel.findOne({ _id });
   }
 
   async update(updateCourseDto: UpdateCourseDto) {
-    const { _id, ...updateData } = updateCourseDto;  //Tách riêng _id
-    return await this.courseModel.updateOne({_id:_id},{$set:updateData});
+    const { _id, ...updateData } = updateCourseDto; //Tách riêng _id
+    return await this.courseModel.updateOne({ _id: _id }, { $set: updateData });
   }
 
   async remove(_id: string) {
     //check id
-    if(mongoose.isValidObjectId(_id)){
+    if (mongoose.isValidObjectId(_id)) {
       //delete
-      return  this.courseModel.deleteOne({_id})
-    }else{
-      throw new BadRequestException('Id không đúng định dạng mongoDB')
+      return this.courseModel.deleteOne({ _id });
+    } else {
+      throw new BadRequestException('Id không đúng định dạng mongoDB');
     }
     return mongoose;
   }
 
-  isCoursesExist= async(_id:string)=>{
-    const courses= await this.courseModel.exists({_id})
-    if(courses!=null){
-       const isLecturer= await this.findCoursesById(_id);
+  isCoursesExist = async (_id: string) => {
+    const courses = await this.courseModel.exists({ _id });
+    if (courses != null) {
+      const isLecturer = await this.findCoursesById(_id);
       return true;
-    } ;
+    }
     return false;
-  }
+  };
 }

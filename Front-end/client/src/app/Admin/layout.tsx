@@ -10,6 +10,7 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
+  console.log('>>>>>>>>>>Check session: ',session)
   const listLecturer = await sendRequest<IBackendRes<any>>({
     method: "GET",
     url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/lecturer`,
@@ -33,7 +34,7 @@ export default async function AdminLayout({
           <div className="bg-gray-100 rounded-xl container mx-auto border-2 border-gray-300 mt-12">
             <div className=" min-h-[80] flex flex-col lg:flex-row gap-6">
               {/* Sidebar */}
-              <MenuAdmin></MenuAdmin>
+              <MenuAdmin _id={session?.user._id} role={session?.user?.role}></MenuAdmin>
               {/* Course Grid */}
               <div className="w-full">{children}</div>
             </div>
