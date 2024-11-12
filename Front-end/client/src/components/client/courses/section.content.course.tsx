@@ -1,11 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import ItemCourses from "@/components/popular/ItemCourses";
 import ItemCourses2 from "@/components/ui/ItemCourses2";
 import { Courses } from "@/types/next-auth";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { handleGetListCourses } from "@/utils/actions";
-
 interface IProps {
   courses: Courses[] | [];
   meta: {
@@ -23,19 +21,39 @@ export default function SectionContentCourse(props: IProps) {
   const searchParams = useSearchParams();
   const [isShowList, setShowList] = useState(false);
   const [currentPage, setCurrentPage] = useState(meta?.current);
-
+  const [categories, setCategories] = useState({
+    All: false,
+    Technology: false,
+    Economy: false,
+    Education: false,
+  });
   const onChange = (page: number, pageSize?: number) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("current", page.toString());
+    params.append("current", page.toString());
     if (pageSize) params.set("pageSize", pageSize.toString());
     router.replace(`${pathname}?${params.toString()}`);
     setCurrentPage(page);
   };
 
-  const handleCategoryChange = (category:string) => {
-    // Get current params and update category filter
+  const handleCategoryChange = (category: string, checked: boolean) => {
+    const updatedCategories = { ...categories, [category]: checked };
+    if (category === "All") {
+      updatedCategories.Technology = checked;
+      updatedCategories.Economy = checked;
+      updatedCategories.Education = checked;
+      updatedCategories.All = checked;
+    } else {
+      updatedCategories.All =
+        updatedCategories.Technology &&
+        updatedCategories.Economy &&
+        updatedCategories.Education;
+    }
+    setCategories(updatedCategories);
     const params = new URLSearchParams(searchParams.toString());
-    params.set("category", category);
+    params.delete("category");
+    Object.entries(updatedCategories).forEach(([key, value]) => {
+      if (value && key !== "All") params.append("category", key);
+    });
     router.replace(`${pathname}?${params.toString()}`);
   };
   return (
@@ -46,26 +64,29 @@ export default function SectionContentCourse(props: IProps) {
           <h2 className="font-bold mb-4 text-xl">Thể loại</h2>
           <ul className="space-y-2 text-base">
             <li>
-              <input type="checkbox" /> Tất cả danh mục
+              <input type="checkbox"  checked={categories.All}  onChange={(e) => handleCategoryChange('All',e.target.checked)}/> Tất cả danh mục
             </li>
             <li>
               <input
                 type="checkbox"
-                onChange={() => handleCategoryChange("Technology")}
+                checked={categories.Technology}
+                onChange={(e) => handleCategoryChange("Technology",e.target.checked)}
               />{" "}
               Công nghệ
             </li>
             <li>
               <input
                 type="checkbox"
-                onChange={() => handleCategoryChange("Economy")}
+                checked={categories.Economy}
+                onChange={(e) => handleCategoryChange("Economy",e.target.checked)}
               />{" "}
               Kinh tế
             </li>
             <li>
               <input
                 type="checkbox"
-                onChange={() => handleCategoryChange("Education")}
+                checked={categories.Education}
+                onChange={(e) => handleCategoryChange("Education",e.target.checked)}
               />{" "}
               Giáo dục
             </li>
@@ -291,9 +312,15 @@ export default function SectionContentCourse(props: IProps) {
           </div>
         ) : (
           <div className="grid grid-rows-1 sm:grid-row-2 lg:grid-rows-3 gap-6">
-            {[...Array(6)].map((_, idx) => (
-              <ItemCourses2 key={idx} />
-            ))}
+            {courses.length > 0 ? (
+              courses.map((course) => (
+                <ItemCourses2 key={course._id} />
+              ))
+            ) : (
+              <div className="w-full content-center text-center">
+                Không có khoá học nào
+              </div>
+            )}
           </div>
         )}
 

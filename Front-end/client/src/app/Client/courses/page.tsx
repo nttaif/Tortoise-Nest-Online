@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import SectionContentCourse from "@/components/client/courses/section.content.course";
 import { auth } from "@/auth";
 import { handleGetListCourses } from "@/utils/actions";
+import { sendRequest } from "@/utils/api";
 interface IProps {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -12,7 +13,7 @@ export default async function Page(props: IProps) {
   const session = await auth();
   const current = props?.searchParams?.current ?? 1;
   const pageSize = props?.searchParams?.pageSize ?? 9;
-  const category = props?.searchParams?.pageSize ?? '';
+  const category = props?.searchParams?.category ?? '';
   // Chuyển đổi để chỉ lấy giá trị string hoặc number
   const queryParams = {
     current: typeof current === "string" ? current : current.toString(),
@@ -20,9 +21,16 @@ export default async function Page(props: IProps) {
     category:typeof category ==="string"? category : category.toString(),
   };
   //call API
-  const res = await handleGetListCourses(queryParams);
+  const res = await sendRequest<IBackendRes<any>>({
+    method: "GET",
+    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/courses`,
+    queryParams,
+    nextOption: {
+      next: { tag: ["listAllCourses"] }, //call revalidate Tag
+    },
+  });
   return (
-    <div className="bg-gray-50 py-8 px-4 relative">
+    <div className="bg-gray-50 py-8 px-4 relative text-black">
       <div className="relative z-10 text-left mb-8">
         <section
           id="banner"
