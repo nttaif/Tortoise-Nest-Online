@@ -1,6 +1,11 @@
+
 import React from 'react';
 import Image from 'next/image';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { sendRequest } from '@/utils/api';
+import { User } from '@/types/next-auth';
+import { auth } from "@/auth";
+
 
 const instructors = [
   {
@@ -113,7 +118,14 @@ const instructors = [
   },
 ];
 
-const InstructorList = () => {
+const InstructorList  = async () => {
+  // const session = await auth();
+  // const res = await sendRequest<IBackendRes<User[]>>({
+  //   method:"GET",
+  //   headers: { Authorization: `Bearer ${session?.user.access_token}`},
+  //   url:`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users`
+  // })
+  // console.log('-NHAN-Check data',res.data)
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
