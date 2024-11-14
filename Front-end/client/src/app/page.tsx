@@ -385,17 +385,16 @@ export default async function page() {
               </Badge>
             </span>
             <h2 className="text-5xl font-extrabold mt-4 mb-4 text-gray-900">
-              Our Top Class & Expert Instructors In One Place
+              Các giảng viên hàng đầu và chuyên gia của chúng tôi ở một nơi
             </h2>
             <p className="text-gray-600 mb-8 font-light ">
-              when an unknown printer took a galley of type and scrambled
-              makespecimen book has survived not only five centuries
+              nơi quy tụ của các giảng viên được đào tạo và có tâm huyết với nghề
             </p>
             <Button
               variant={"btn_home"}
               className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold h-10 w-36 rounded-full"
             >
-              Subscribe Now
+              Tham gia ngay
             </Button>
           </div>
           <div className="flex-1 w-[70%] ">
