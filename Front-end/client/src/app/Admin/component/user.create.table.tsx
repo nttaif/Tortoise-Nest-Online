@@ -79,7 +79,7 @@ export default function UserCreateTable(props: IProps) {
 
   return (
     <Dialog open={isCreate} onOpenChange={setIsCreate}>
-      <DialogContent className="w-full max-w-xl mx-auto p-6 rounded-lg shadow-lg bg-white sm:max-w-lg lg:max-w-2xl">
+      <DialogContent className="w-full max-w-xl mx-auto p-6 rounded-lg text-black shadow-lg bg-white sm:max-w-lg lg:max-w-2xl">
         {/* Dialog Header */}
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-700">

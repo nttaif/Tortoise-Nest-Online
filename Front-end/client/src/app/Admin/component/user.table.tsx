@@ -103,7 +103,7 @@ export default function UserTable(props: IProps) {
 
     return (
         <div className='container mx-auto mt-10'>
-            <Button variant={"btn_home"} onClick={handleCreate} className='mb-5'>Tạo người dùng</Button>
+            <Button variant={"btn_home"} onClick={handleCreate} className='bg-blue-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full gap-1 btn shadow-[9px_9px_0_rgb(0,0,0)] duration-700 hover:shadow-[0_0_0px_rgb(0,0,0)] hover:duration-700  ease-out hover:translate-y-0 transition-all mb-5'>Tạo người dùng</Button>
             <Table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden" key={"id"}>
                 <TableCaption className="text-lg font-semibold text-gray-700">Danh sách người dùng</TableCaption>
                 <TableHeader className="bg-gray-200">

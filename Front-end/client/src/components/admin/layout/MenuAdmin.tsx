@@ -174,7 +174,7 @@ export default function MenuAdmin(props: IProp) {
           <div>
             <ul className="space-y-2 p-3">
               <h2 className="font-semibold text-gray-500 p-1">QUẢN TRỊ VIÊN</h2>
-              <div className="bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300">
+              <div className="bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300" onClick={()=>{router.push('/Admin/managerUser')}}>
                 <li className="flex items-center gap-2 font-semibold text-gray-500 ml-2 group">
                   <RiBallPenLine
                     size={25}
@@ -185,7 +185,6 @@ export default function MenuAdmin(props: IProp) {
                   </span>
                 </li>
               </div>
-            </ul>
             <div className="bg-gray-100 hover:bg-[#eeecfd] rounded-lg w-full p-3 transition duration-300">
                 <li className="flex items-center gap-2 font-semibold text-gray-500 ml-2 group">
                   <RiBallPenLine
@@ -197,6 +196,7 @@ export default function MenuAdmin(props: IProp) {
                   </span>
                 </li>
               </div>
+            </ul>
           </div>
         ) : (
           <div></div>

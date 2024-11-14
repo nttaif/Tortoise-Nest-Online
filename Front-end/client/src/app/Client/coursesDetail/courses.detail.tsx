@@ -33,12 +33,12 @@ export default function CoursesDetail(props:IProps) {
   const {courses,lecturer} = props;
   const router = useRouter();
   const courseInfo = [
-    { label: "Mức độ:", value: "Chuyên gia" },
-    { label: "Khoảng thời gian:", value: "11h 20m" },
-    { label: "Bài học:", value: "12" },
-    { label: "Câu đố:", value: "145" },
-    { label: "Chứng chỉ:", value: "Đúng" },
-    { label: "Tốt nghiệp:", value: "25K" },
+    { label: "Mức độ:", value: "Chưa có dữ liệu" },
+    { label: "Khoảng thời gian:", value: "Chưa có" },
+    { label: "Bài học:", value: " 2 " },
+    { label: "Câu đố:", value: "Chưa có dữ liệu" },
+    { label: "Chứng chỉ:", value: "Chưa có dữ liệu" },
+    { label: "Tốt nghiệp:", value: "Chưa có dữ liệu" },
   ];
   return (
     <div>
@@ -120,7 +120,7 @@ export default function CoursesDetail(props:IProps) {
                     <h2 className="text-2xl font-bold mb-4 text-gray-800">
                       Mô tả khóa học
                     </h2>
-                    <p className="text-gray-600 text-sm  w-[900px] overflow-hidden">
+                    <p className="text-gray-600 text-xl  w-[900px] overflow-hidden">
                       {courses?.description}
                     </p>
                     <h2

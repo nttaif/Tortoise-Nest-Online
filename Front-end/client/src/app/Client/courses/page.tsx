@@ -1,16 +1,14 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import React, { useEffect } from "react";
+import React from "react";
 import SectionContentCourse from "@/components/client/courses/section.content.course";
 import { auth } from "@/auth";
-import { handleGetListCourses } from "@/utils/actions";
 import { sendRequest } from "@/utils/api";
 interface IProps {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }
 export default async function Page(props: IProps) {
-  const session = await auth();
   const current = props?.searchParams?.current ?? 1;
   const pageSize = props?.searchParams?.pageSize ?? 9;
   const category = props?.searchParams?.category ?? '';

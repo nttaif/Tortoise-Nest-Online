@@ -10,7 +10,6 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
-  console.log('>>>>>>>>>>Check session: ',session)
   const listLecturer = await sendRequest<IBackendRes<any>>({
     method: "GET",
     url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/lecturer`,
@@ -22,7 +21,7 @@ export default async function AdminLayout({
   return (
     <div>
       <div className="bg-white py-8 px-4 flex justify-center">
-        <div className="container px-auto">
+        <div className="container mx-auto">
           {/* banner about us */}
           <div className="w-full flex">
             <BannerAdmin

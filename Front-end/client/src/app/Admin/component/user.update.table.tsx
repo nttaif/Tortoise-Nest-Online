@@ -48,7 +48,7 @@ export default function UserViewAndUpdateTable(props: IProps) {
 
   return (
     <Dialog open={isShowDialog} onOpenChange={setIsShowDialog}>
-      <DialogContent className="w-[90%] max-w-3xl p-6 rounded-lg shadow-lg bg-white mx-auto">
+      <DialogContent className="w-[90%] max-w-3xl p-6 rounded-lg shadow-lg bg-white mx-auto text-black">
         <DialogHeader>
           <DialogTitle className="text-xl md:text-2xl font-bold text-gray-700 text-center">
             {isEditable

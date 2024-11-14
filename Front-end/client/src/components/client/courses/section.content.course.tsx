@@ -29,7 +29,7 @@ export default function SectionContentCourse(props: IProps) {
   });
   const onChange = (page: number, pageSize?: number) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.append("current", page.toString());
+    params.set("current", page.toString());
     if (pageSize) params.set("pageSize", pageSize.toString());
     router.replace(`${pathname}?${params.toString()}`);
     setCurrentPage(page);
@@ -312,7 +312,7 @@ export default function SectionContentCourse(props: IProps) {
           </div>
         ) : (
           <div className="grid grid-rows-1 sm:grid-row-2 lg:grid-rows-3 gap-6">
-            {courses.length > 0 ? (
+            {/* {courses.length > 0 ? (
               courses.map((course) => (
                 <ItemCourses2 key={course._id} />
               ))
@@ -320,7 +320,19 @@ export default function SectionContentCourse(props: IProps) {
               <div className="w-full content-center text-center">
                 Không có khoá học nào
               </div>
-            )}
+            )} */}
+
+              {courses.length>0 ?(
+                courses.map((item)=>(
+                  <ItemCourses2 key={item._id} courses={item}/>
+                ))
+                
+              ):(
+                <div>Không có khoá học nào</div>
+              )
+              }
+              
+
           </div>
         )}
 

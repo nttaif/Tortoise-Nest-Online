@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { authenticate } from '@/utils/actions';
 import { Input, Modal, notification, Steps } from 'antd';

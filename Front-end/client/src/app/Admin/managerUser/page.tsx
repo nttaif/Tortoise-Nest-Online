@@ -30,7 +30,7 @@ export default async function Page (props:IProps) {
     }
   });
   return (
-    <div>
+    <div className='text-black'>
       <UserTable resUpload={resUpload?.data} users={res?.data?.results??[]} meta={res?.data?.meta}></UserTable>
     </div>
   );

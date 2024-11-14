@@ -2,7 +2,6 @@ import { sendRequest } from "@/utils/api";
 import CoursesDetail from "../courses.detail"; // Adjust the path if necessary
 import { Courses } from "@/types/next-auth";
 import { getLecturerByID } from "@/utils/actions";
-
 interface IProps {
   params: { id: string }; // Expecting an id parameter in the URL
 }
