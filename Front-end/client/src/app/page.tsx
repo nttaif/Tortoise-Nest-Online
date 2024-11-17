@@ -22,9 +22,9 @@ export default async function page() {
   const features = [
     {
       id: 1,
-      title: "Learn with Experts",
+      title: "Học cùng giảng viên",
       description:
-        "Curate and share area with Pluralsight content to reach your goals.",
+        "Cùng nhau học tập để cải thiện bản thân của mình ",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +39,9 @@ export default async function page() {
     },
     {
       id: 2,
-      title: "Learn Anything",
+      title: "Học bất kể thứ gì bạn muốn",
       description:
-        "Curate and share area with Pluralsight content to reach your goals.",
+        "Quản lý và chia sẻ khu vực với nội dung học tập để đạt được mục tiêu của bạn.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -55,9 +55,9 @@ export default async function page() {
     },
     {
       id: 3,
-      title: "Get Online Certificate",
+      title: "Nhận chứng chỉ online",
       description:
-        "Curate and share area with Pluralsight content to reach your goals.",
+        "Nhận chứng chỉ nhanh chóng và cung cấp bảng vật lý",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -71,9 +71,9 @@ export default async function page() {
     },
     {
       id: 4,
-      title: "Email Marketing",
+      title: "Email quảng cáo",
       description:
-        "Curate and share area with Pluralsight content to reach your goals.",
+        "Email thông báo thông qua email của bạn để nhắc nhở tiến độ học tập",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -191,12 +191,11 @@ export default async function page() {
             <h3 className="text-[#161439] text-[32px] md:text-[42px] lg:text-[54px] font-bold">
               Danh mục hàng đầu chúng tôi có
             </h3>
-            <p className="text-sm md:text-base lg:text-lg">when known printer took a galley of type scrambl edmake</p>
+            <p className="text-sm md:text-base lg:text-lg">Những khóa học tốt nhất ở đây là dành cho bạn</p>
           </div>
             <div
               id="category-chosse"
-              className="h-[200px] w-full flex flex-row justify-around items-center bg-[#f7f7f9] rounded-full "
-            >
+              className="h-[200px] w-full flex flex-row justify-around items-center bg-[#f7f7f9] rounded-full ">
               <CarouselSpacing items={itemsData}></CarouselSpacing>
             </div>
           </div>
@@ -325,7 +324,7 @@ export default async function page() {
                 Khám phá các khóa học tốt nhất thế giới của chúng tôi
               </h3>
               <p className="text-lg lg:text-base mt-4  ">
-                Khi máy in được biết đến sử dụng một bản in kiểu scrambled make
+                Ở đây chúng tôi cung cấp những khóa học dễ hiểu , nhanh chóng , dễ tiếp thu
               </p>
             </div>
           </div>
@@ -367,7 +366,7 @@ export default async function page() {
                   variant={"btn_home"}
                   className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold h-10 w-full md:w-36 rounded-full"
                 >
-                  Subscribe Now
+                  Đăng ký ngay
                 </Button>
               </div>
             </div>
@@ -384,17 +383,18 @@ export default async function page() {
                 Skilled Introduce
               </Badge>
             </span>
-            <h2 className="text-5xl font-extrabold mt-4 mb-4 text-gray-900">
-              Các giảng viên hàng đầu và chuyên gia của chúng tôi ở một nơi
+            <h2 className="text-5xl font-sans font-bold mt-4 mb-4 text-gray-900">
+            Những giảng viên chuyên nghiệp và đẳng cấp hàng đầu của chúng tôi ở cùng một nơi
             </h2>
-            <p className="text-gray-600 mb-8 font-light ">
-              nơi quy tụ của các giảng viên được đào tạo và có tâm huyết với nghề
+            <p className="text-gray-600 mb-6 font-light w-[50%] ">
+              Quy tụ những giảng viên có chuyên môn cao nhất đến từ toàn Việt Nam và toàn cầu , sẽ mang lại cho bạn những kiến thức mới nhất 
             </p>
             <Button
               variant={"btn_home"}
               className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold h-10 w-36 rounded-full"
             >
-              Tham gia ngay
+            Đăng ký ngay
+
             </Button>
           </div>
           <div className="flex-1 w-[70%] ">
@@ -418,7 +418,7 @@ export default async function page() {
                   className="text-sm mt-2"
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
-                  Active Students
+                  Học viên đã tham gia
                 </p>
               </div>
               <div className="w-px bg-white opacity-50 mx-4 hidden md:block"></div>
@@ -433,7 +433,7 @@ export default async function page() {
                   className="text-sm mt-2"
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
-                  Faculty Courses
+                  Tổng khóa học đã sản xuất
                 </p>
               </div>
               <div className="w-px bg-white opacity-50 mx-4 hidden md:block"></div>
@@ -448,7 +448,7 @@ export default async function page() {
                   className="text-sm mt-2"
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
-                  Best Professors
+                  Những giảng viên tốt nhất
                 </p>
               </div>
               <div className="w-px bg-white opacity-50 mx-4 hidden md:block"></div>
@@ -463,7 +463,7 @@ export default async function page() {
                   className="text-sm mt-2"
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
-                  Award Achieved
+                  Thành tựu đạt được
                 </p>
               </div>
             </div>
@@ -497,38 +497,27 @@ export default async function page() {
                   Bắt đầu học từ các giảng viên chuyên nghiệp thế giới
                 </h2>
                 <p className="text-gray-600 text-lg md:text-xl">
-                  Groove’s intuitive shared inbox makes it easy for team members
-                  to organize, prioritize, and collaborate.
+                Học hỏi từ các giảng viên chuyên nghiệp trên toàn cầu để nâng cao kỹ năng và mở rộng tầm nhìn.
                 </p>
               </div>
               <div className="w-full min-h-[40vh] lg:w-[90%] text-black">
                 <Accordion type="single" collapsible className="w-1/2 absolute">
                   <AccordionItem value="item-1">
-                    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                    <AccordionTrigger>TNO sẽ mang lại cho bạn những gì?</AccordionTrigger>
                     <AccordionContent>
-                      Hộp thư đến chia sẻ trực quan của Groove giúp các thành
-                      viên trong Hộp thư đến chia Hộp thư đến chia sẻ trực quan
-                      của Groove giúp các thành viên trong Hộp thư đến chia Hộp
-                      thư đến chia sẻ trực quan của Groove giúp các thành viên
-                      trong Hộp thư đến chia
+                     TNO sẽ mang lại cho bạn những khóa học , những giảng viên tốt nhất đến từ toàn quốc và toàn cầu , với một hệ thống có tính bảo mật cao và trình quản lý tiến độ học tập 
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="item-2">
-                    <AccordionTrigger>Is it styled?</AccordionTrigger>
+                    <AccordionTrigger>Tại sao bạn lại nên chọn TNO làm nơi học tập</AccordionTrigger>
                     <AccordionContent>
-                      Hộp thư đến chia sẻ trực quan của Groove giúp các thành
-                      viên trong nhóm dễ dàng sắp xếp mức độ ưu tiên và. Trong
-                      tập này. Đã tồn tại không chỉ năm thế kỷ. Edhen, một nhà
-                      in không xác định đã lấy một bản in và xáo trộn
+                      Đến với TNO bạn sẽ được đào tạo bởi những giảng viên hàng đầu đến từ toàn quốc , với chi phí học tập phù hợp với tài chính của bạn
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="item-3">
-                    <AccordionTrigger>Is it animated?</AccordionTrigger>
+                    <AccordionTrigger>Tại sao chúng tôi lại cung cấp TNO đến bạn</AccordionTrigger>
                     <AccordionContent>
-                      Hộp thư đến chia sẻ trực quan của Groove giúp các thành
-                      viên trong nhóm dễ dàng sắp xếp mức độ ưu tiên và. Trong
-                      tập này. Đã tồn tại không chỉ năm thế kỷ. Edhen, một nhà
-                      in không xác định đã lấy một bản in và xáo trộn
+                      TNO cung cấp cho bạn những khóa học khi bạn có thời gian rảnh rỗi để học tập , cung cấp bất kì khóa học trong khoảng thời gian rảnh rỗi của bạ<nav></nav>
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
@@ -549,8 +538,7 @@ export default async function page() {
                 Hãy bắt đầu hành trình học tập của bạn ngay hôm nay!
               </h1>
               <p className="text-sm sm:text-base md:text-lg font-thin  max-w-lg sm:max-w-xl md:max-w-2xl mx-auto text-[#acaacc]">
-                Groove’s intuitive shared inbox makes team members organize,
-                prioritize, and collaborate effectively.
+                Bắt đầu khóa học ngay thôi ! Chúng tôi luôn ở đây với mọi người 
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 w-full">

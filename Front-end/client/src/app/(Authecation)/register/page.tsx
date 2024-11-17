@@ -91,7 +91,7 @@ export default function Page() {
     <div className="min-h-full flex items-center justify-center bg-white px-6 py-12">
       <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
         <h2 className="text-center text-3xl font-extrabold text-gray-900">
-          Create an Account
+          Đăng ký tài khoản
         </h2>
         <form className="space-y-5" onSubmit={onFinish}>
           <div>
@@ -159,15 +159,15 @@ export default function Page() {
               className="w-full"
               loading={loading} // Thêm loading spinner
             >
-              Sign up
+              Đăng ký
             </Button>
           </div>
         </form>
 
         <p className="text-center text-sm text-gray-600">
-          Already have an account?{' '}
+          Đã có tài khoản ?{' '}
           <a href="/login" className="font-semibold text-indigo-600 hover:underline">
-            Login
+            Đăng nhập
           </a>
         </p>
       </div>

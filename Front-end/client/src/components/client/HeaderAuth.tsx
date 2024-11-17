@@ -152,12 +152,12 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-black text-base font-bold hover:text-[#5751e1] ">
-                    <a href="/">Home</a>{" "}
+                    <a href="/">Trang chủ</a>{" "}
                   </NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-black text-base font-bold hover:text-[#5751e1]   ">
-                    Courses
+                    Khóa học
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -175,7 +175,7 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-black text-base font-bold hover:text-[#5751e1]">
-                    Page
+                    Phân trang
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -255,7 +255,7 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
 
                 <InputNoOutLine
                   className="h-12 w-[300px] text-black"
-                  placeholder="Searching...."
+                  placeholder="Tìm kiếm ......"
                 />
 
                 <Button className="group rounded-full w-12 h-12 bg-[#ffc224] mr-[1px] my-px hover:bg-[#161439] duration-300">
@@ -321,7 +321,7 @@ export default function HeaderAuth(props: IBackendRes<ILogin>) {
                     }}
                     className="w-28 h-12 rounded-3xl font-bold bg-[#ffc224] text-[#161439] hover:bg-[#161439] hover:text-white duration-300"
                   >
-                    Log in
+                    Đăng nhập
                   </Button>
                 </div>
               )}

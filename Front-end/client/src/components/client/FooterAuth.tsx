@@ -17,25 +17,25 @@ export default function footerAuth() {
             </div>
           </div>
           <div >
-            <p className='text-2xl mb-4'>Home</p>
+            <p className='text-2xl mb-4'>Trang chủ</p>
           <ul className='space-y-2.5'>
-              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Benefits</a></li>
-              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Our Courses</a></li>
-              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Our Testimonials</a></li>
-              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Our FAQ</a></li>
+              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Lợi ích</a></li>
+              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Khóa học của bạn</a></li>
+              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Chứng thực của chúng tôi</a></li>
+              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Câu hỏi thường gặp</a></li>
               </ul>
           </div> 
           <div className='list-none' >
           <p className='text-2xl mb-4 ' >About us</p>
           <ul className='space-y-2.5 ' >
-              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Achievements</a></li>
-              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Company</a></li>
-              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Our Goals</a></li>
+              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Mục đích</a></li>
+              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Công ty chúng tôi</a></li>
+              <li className='w-fit hover:underline hover:underline-offset-2 hover:text-[#ffc224] duration-300'><a href="#">Mục tiêu của chúng tôi</a></li>
           </ul>
           </div>
           <div>
           <div className='list-none' >
-          <p className='text-2xl mb-4 '>Social Profiles</p>
+          <p className='text-2xl mb-4 '>Các trang mạng xã hội</p>
           <ul className='space-x-2.5 h-fit w-fit flex ' >
             <li> 
             <Button className=' group hover:bg-[#ffc224]' variant='icon_social'  >

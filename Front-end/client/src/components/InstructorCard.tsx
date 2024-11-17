@@ -55,67 +55,7 @@ const instructors = [
       instagram: '#',
       linkedin: '#',
     },
-  },
-  {
-    name: 'Ngo Thi Dang Quynh',
-    title: 'Digital Marketing',
-    rating: 4.8,
-    image: '/images/GV4.jpg',
-    socials: {
-      facebook: '#',
-      twitter: '#',
-      instagram: '#',
-      linkedin: '#',
-    },
-  },
-  {
-    name: 'Phan Thien Nhan',
-    title: 'Web Design',
-    rating: 4.8,
-    image: '/images/GV5.jpeg',
-    socials: {
-      facebook: '#',
-      twitter: '#',
-      instagram: '#',
-      linkedin: '#',
-    },
-  },
-  {
-    name: 'Truong Thi Hong Nhung',
-    title: 'Web Design',
-    rating: 4.8,
-    image: '/images/GV6.jpg',
-    socials: {
-      facebook: '#',
-      twitter: '#',
-      instagram: '#',
-      linkedin: '#',
-    },
-  },
-  {
-    name: 'Hoang Ngoc Mai',
-    title: 'UX Design Lead',
-    rating: 4.8,
-    image: '/images/GV7.jpg',
-    socials: {
-      facebook: '#',
-      twitter: '#',
-      instagram: '#',
-      linkedin: '#',
-    },
-  },
-  {
-    name: 'Huynh Thi Ngoc Vy',
-    title: 'Web Development',
-    rating: 4.8,
-    image: '/images/GV8.jpg',
-    socials: {
-      facebook: '#',
-      twitter: '#',
-      instagram: '#',
-      linkedin: '#',
-    },
-  },
+  }
 ];
 
 const InstructorList  = async () => {
@@ -127,10 +67,10 @@ const InstructorList  = async () => {
   // })
   // console.log('-NHAN-Check data',res.data)
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-10 w-full">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-10">All Instructors</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
           {instructors.map((instructor, index) => (
             <div key={index} className="flex items-center">
               {/* Hình giảng viên */}
